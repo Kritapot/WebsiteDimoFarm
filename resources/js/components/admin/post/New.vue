@@ -20,10 +20,8 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
-                                    <label for="newDescription">Description</label>
-                                    <textarea v-model="form.description" type="text" class="form-control" id="newDescription"
-                                        name="description" placeholder="Description" :class="{ 'is-invalid': form.errors.has('description') }"></textarea>
-                                    <has-error :form="form" field="description"></has-error>
+                                    <label for="">Description</label>
+                                    <markdown-editor toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen" v-model="form.description"></markdown-editor>                                    <has-error :form="form" field="description"></has-error>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -39,6 +37,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
                                     <input type="file" name="photo" :class="{ 'is-invalid': form.errors.has('photo') }">
+                                    <img :src="form.photo" alt="" width="80" height="80">
                                     <has-error :form="form" field="photo"></has-error>
                                 </div>
                             </div>
@@ -47,8 +46,8 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="col-lg-6 col-sm-12">
-                                <button @click.prevent="addPost()" type="submit" class="btn btn-primary btn-sm">Save</button>
-                                <button type="button" class="btn btn-secondary btn-sm">
+                                <button @click.prevent="addPost()" type="submit" class="btn btn-primary">Save</button>
+                                <button type="button" class="btn btn-secondary">
                                     <router-link to="/post-list" class="text-white" style="text-decoration: none;">lists post</router-link>
                                 </button>
                             </div>
@@ -93,3 +92,10 @@
     }
 
 </script>
+
+<style scoped>
+    .card-footer {
+        padding-bottom: 70px;
+    }
+</style>
+
