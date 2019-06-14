@@ -29,7 +29,7 @@
                                     <label for="newSelectCatId">Select Category</label>
                                     <select class="form-control" v-model="form.cat_id" :class="{ 'is-invalid': form.errors.has('cat_id') }">
                                         <option disabled value="">--select one--</option>
-                                        <option :value="category.id" v-for="category in getAllCategory">{{ category.cat_name }}</option>
+                                        <option :value="category.id" v-for="category in getAllCategory" :key="category.id">{{ category.cat_name }}</option>
                                     </select>
                                     <has-error :form="form" field="cat_id"></has-error>
                                 </div>
