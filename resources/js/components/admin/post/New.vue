@@ -29,7 +29,7 @@
                                     <label for="newSelectCatId">Select Category</label>
                                     <select class="form-control" v-model="form.cat_id" :class="{ 'is-invalid': form.errors.has('cat_id') }">
                                         <option disabled value="">--select one--</option>
-                                        <option :value="category.id" v-for="category in getAllCategory" :key="category.id">{{ category.cat_name }}</option>
+                                        <option :value="category.id" v-for="category in getAllCategory">{{ category.cat_name }}</option>
                                     </select>
                                     <has-error :form="form" field="cat_id"></has-error>
                                 </div>
@@ -71,7 +71,6 @@
                     description: '',
                     cat_id: '',
                     photo: '',
-
                 })
             }
         },
@@ -90,12 +89,12 @@
             changePhoto(event) {
                 let file = event.target.files[0];
                  if(file.size>1048576){
-                     swal({
-                         type: 'error',
-                         title: 'Oops...',
-                         text: 'Something went wrong!',
-                         footer: '<a href>Why do I have this issue?</a>'
-                     })
+                     Swal.fire({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: 'File size is over',
+                        footer: '<a href>Why do I have this issue?</a>'
+                    })
                  }else{
                      let reader = new FileReader();
                      reader.onload = event => {
@@ -107,8 +106,7 @@
             },
 
             addPost() {
-                this.form.post('savepost').then((respon) =>{
-                    console.log('Post', respon)
+                this.form.post('savepost').then(() =>{
                     this.$router.push('/post-list')
                         const Toast = Swal.mixin({
                             toast: true,
