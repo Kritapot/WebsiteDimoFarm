@@ -29,14 +29,14 @@
                                     <label for="newSelectCatId">Select Category</label>
                                     <select class="form-control" v-model="form.cat_id" :class="{ 'is-invalid': form.errors.has('cat_id') }">
                                         <option disabled value="">--select one--</option>
-                                        <option v-for="category in getAllCategory" :key="category.id">{{ category.cat_name }}</option>
+                                        <option :value="category.id" v-for="category in getAllCategory" :key="category.id">{{ category.cat_name }}</option>
                                     </select>
                                     <has-error :form="form" field="cat_id"></has-error>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
-                                    <input type="file" name="photo" :class="{ 'is-invalid': form.errors.has('photo') }">
+                                    <input @change = "changePhoto($event)" type="file" name="photo" :class="{ 'is-invalid': form.errors.has('photo') }">
                                     <img :src="form.photo" alt="" width="80" height="80">
                                     <has-error :form="form" field="photo"></has-error>
                                 </div>
@@ -87,7 +87,44 @@
         },
 
         methods:{
+            changePhoto(event) {
+                let file = event.target.files[0];
+                 if(file.size>1048576){
+                     swal({
+                         type: 'error',
+                         title: 'Oops...',
+                         text: 'Something went wrong!',
+                         footer: '<a href>Why do I have this issue?</a>'
+                     })
+                 }else{
+                     let reader = new FileReader();
+                     reader.onload = event => {
+                         this.form.photo = event.target.result
+                         console.log(event.target.result)
+                     };
+                     reader.readAsDataURL(file);
+                 }
+            },
 
+            addPost() {
+                this.form.post('savepost').then((respon) =>{
+                    console.log('Post', respon)
+                    this.$router.push('/post-list')
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+
+                            Toast.fire({
+                            type: 'success',
+                            title: 'Add post successfully'
+                        })
+                })
+                .catch(()=>{
+                })
+            },
         }
     }
 
