@@ -39,7 +39,7 @@
 
 <script>
     export default {
-        name: 'New',
+        name: 'Edit',
 
         mounted() {
             axios.get(`/categories/${this.$route.params.id}`).then((respon) => {
