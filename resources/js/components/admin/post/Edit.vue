@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
-                                    <label for="newTitle">Title</label>
+                                    <label for="newTitle">หัวข้อ</label>
                                     <input v-model="form.title" type="text" class="form-control" id="newTitle"
                                         name="title" placeholder="Title" :class="{ 'is-invalid': form.errors.has('title') }">
                                     <has-error :form="form" field="title"></has-error>
@@ -20,13 +20,13 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
-                                    <label for="">Description</label>
+                                    <label for="">รายละเอียดบทความ</label>
                                     <markdown-editor toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen" v-model="form.description"></markdown-editor>                                    <has-error :form="form" field="description"></has-error>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
-                                    <label for="newSelectCatId">Select Category</label>
+                                    <label for="newSelectCatId">เลือกประเภท</label>
                                     <select class="form-control" v-model="form.cat_id" :class="{ 'is-invalid': form.errors.has('cat_id') }">
                                         <option disabled value="">--select one--</option>
                                         <option :value="category.id" v-for="category in getAllCategory" :key="category.id">{{ category.cat_name }}</option>
@@ -48,7 +48,7 @@
                             <div class="col-lg-6 col-sm-12">
                                 <button @click.prevent="updatePost()" type="submit" class="btn btn-primary">บันทึก</button>
                                 <button type="button" class="btn btn-secondary">
-                                    <router-link to="/post-list" class="text-white" style="text-decoration: none;">กลับไปหน้าแสดง Blog Post</router-link>
+                                    <router-link to="/post-list" class="text-white" style="text-decoration: none;">กลับไปหน้าแสดง Post</router-link>
                                 </button>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                         });
                         Toast.fire({
                             type: 'success',
-                            title: 'Update post successfully'
+                            title: 'แก้ไข Post เรียบร้อย'
                         })
                 })
                 .catch((e) => {

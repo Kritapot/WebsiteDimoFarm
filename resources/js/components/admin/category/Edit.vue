@@ -4,7 +4,7 @@
             <div class="col-lg-8 col-sm-12"><br>
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Edit Category Blog</h3>
+                        <h3 class="card-title">แก้ไขประเภท Blog</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <div class="col-lg-6 col-sm-12">
-                                    <label for="newCategory">Category Name</label>
+                                    <label for="newCategory">ชื่อประเภท</label>
                                     <input v-model="form.cat_name" type="text" class="form-control" id="newCategory"
                                         name="cat_name" placeholder="Category Name" :class="{ 'is-invalid': form.errors.has('cat_name') }">
                                     <has-error :form="form" field="cat_name"></has-error>
@@ -23,9 +23,9 @@
 
                         <div class="card-footer">
                             <div class="col-lg-6 col-sm-12">
-                                <button @click.prevent="updateCategory()" type="submit" class="btn btn-primary btn-sm">Update</button>
+                                <button @click.prevent="updateCategory()" type="submit" class="btn btn-primary btn-sm">บันทึก</button>
                                 <button type="button" class="btn btn-secondary btn-sm">
-                                    <router-link to="/category-list" class="text-white" style="text-decoration: none;">lists Category</router-link>
+                                    <router-link to="/category-list" class="text-white" style="text-decoration: none;">กลับสู่หน้าประเภท Blog</router-link>
                                 </button>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
 
                             Toast.fire({
                             type: 'success',
-                            title: 'Update category successfully'
+                            title: 'แก้ไขประเภทเรียบร้อยแล้ว'
                         })
                     })
                     .catch(() => {

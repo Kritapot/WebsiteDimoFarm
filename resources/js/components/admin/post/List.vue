@@ -5,11 +5,11 @@
                 <div class="col-12 ">
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title">แสดง Blog Post</h2>
+                            <h2 class="card-title">แสดง Post ทั้งหมด</h2>
 
                             <div class="card-tools">
-                                <button class="btn btn-primary btn-add-post">
-                                    <router-link to="/add-post" style="color:#fff;" class="btn-add-post"> เพิ่ม Blog Post</router-link>
+                                <button class="btn btn-primary">
+                                    <router-link to="/add-post" style="color:#fff;" class="btn-add-post"> เพิ่ม Post</router-link>
                                 </button>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                     <td class="text-center"><img :src="ourImage(post.photo)" alt="" width="100" height="100"></td>
                                     <td>
                                         <button type="submit" class="btn btn-success btn-sm btn-list-post">
-                                            <router-link :to="`/edit-post/${post.id}`" class="text-white">
+                                            <router-link :to="`/edit-post/${post.id}`" class="text-white btn-edit-post">
                                                     แก้ไข
                                             </router-link>
                                         </button>
@@ -98,7 +98,7 @@
                         });
                         Toast.fire({
                             type: 'success',
-                            title: 'Delete post successfully'
+                            title: 'ลบโพสเรียบร้อยแล้ว'
                         })
                 })
                 .catch((e) => {
@@ -114,14 +114,20 @@
     .btn-list-post {
         width: 60px;
         margin: 5px 0px;
+        text-decoration: none;
     }
+
+    .btn-list-post .btn-edit-post {
+        text-decoration: none;
+    }
+
+    .btn-add-post {
+        text-decoration: none;
+    }
+
 
     .content {
         padding-bottom: 40px;
-    }
-
-    button {
-        text-decoration: none;
     }
 
 </style>
