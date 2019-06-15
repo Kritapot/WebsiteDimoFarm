@@ -43,7 +43,7 @@
                                     <td v-if="post.category">{{post.category.cat_name}}</td>
                                     <td>{{post.title | sortlength(20,"---")}}</td>
                                     <td>{{post.description | sortlength(100,"....")}}</td>
-                                    <td><img :src="post.photo" alt="" width="40" height="50"></td>
+                                    <td class="text-center"><img :src="ourImage(post.photo)" alt="" width="100" height="100"></td>
                                     <td>
                                         <button type="submit" class="btn btn-success btn-sm btn-list-post">Edit</button>
                                         <button type="button" class="btn btn-danger btn-sm btn-list-post">Delete</button>
@@ -79,7 +79,9 @@
             }
         },
         methods:{
-
+            ourImage(img) {
+                return 'uploadimage/'+img;
+            }
         },
     }
 </script>
