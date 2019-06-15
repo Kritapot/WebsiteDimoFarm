@@ -5,11 +5,11 @@
                 <div class="col-12 ">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Post List</h3>
+                            <h2 class="card-title">แสดง Blog Post</h2>
 
                             <div class="card-tools">
                                 <button class="btn btn-primary btn-add-post">
-                                    <router-link to="/add-post" style="color:#fff;" class="btn-add-post"> Add New Post</router-link>
+                                    <router-link to="/add-post" style="color:#fff;" class="btn-add-post"> เพิ่ม Blog Post</router-link>
                                 </button>
                             </div>
                         </div>
@@ -21,11 +21,11 @@
                                 <tr>
 
                                     <th>No</th>
-                                    <th>User</th>
-                                    <th>Category</th>
-                                    <th>Title</th>
-                                    <th>Description</th>
-                                    <th style="width: 20%;">Photo</th>
+                                    <th>ผู้สร้าง</th>
+                                    <th>ประเภท</th>
+                                    <th>หัวข้อ</th>
+                                    <th>รายละเอียด</th>
+                                    <th style="width: 20%;">รูปภาพ</th>
                                     <th style="width: 10%;">Action</th>
 
                                 </tr>
@@ -42,11 +42,15 @@
                                     </template>
                                     <td v-if="post.category">{{post.category.cat_name}}</td>
                                     <td>{{post.title | sortlength(20,"---")}}</td>
-                                    <td>{{post.description | sortlength(100,"....")}}</td>
+                                    <td>{{post.description | sortlength(40,"....")}}</td>
                                     <td class="text-center"><img :src="ourImage(post.photo)" alt="" width="100" height="100"></td>
                                     <td>
-                                        <button type="submit" class="btn btn-success btn-sm btn-list-post">Edit</button>
-                                        <button type="button" class="btn btn-danger btn-sm btn-list-post">Delete</button>
+                                        <button type="submit" class="btn btn-success btn-sm btn-list-post">
+                                            <router-link :to="`/edit-post/${post.id}`" class="text-white">
+                                                    แก้ไข
+                                            </router-link>
+                                        </button>
+                                        <button @click.prevent="deletePost(post.id)" type="button" class="btn btn-danger btn-sm btn-list-post">ลบ</button>
                                     </td>
 
                                 </tr>
@@ -81,7 +85,27 @@
         methods:{
             ourImage(img) {
                 return 'uploadimage/'+img;
-            }
+            },
+
+            deletePost(id) {
+                axios.delete('/delete-post/'+id).then(() => {
+                    this.$store.dispatch('allPost')
+                    const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                        Toast.fire({
+                            type: 'success',
+                            title: 'Delete post successfully'
+                        })
+                })
+                .catch((e) => {
+                    console.log(e)
+                })
+
+            },
         },
     }
 </script>
@@ -96,7 +120,7 @@
         padding-bottom: 40px;
     }
 
-    button .btn-add-post {
+    button {
         text-decoration: none;
     }
 

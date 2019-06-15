@@ -6,6 +6,7 @@ use App\Post;
 use Illuminate\Http\Request;
 use Auth;
 use Image;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -23,11 +24,11 @@ class PostController extends Controller
     public function all_posts()
     {
         $post   =    $this->post->with('category', 'user')
-                                ->orderby('id', 'desc')
-                                ->get();
+                        ->orderby('id', 'desc')
+                        ->get();
 
         return response()->json([
-            'post'  =>  $post
+            'post'  =>  $post,
         ], 200);
     }
     /**
@@ -63,5 +64,22 @@ class PostController extends Controller
         $post->photo        = $namePic;
         $post->save();
     }
+
+    public function delete_post($id)
+    {
+        $post           =   $this->post->findOrFail($id);
+
+        $image_path     = public_path()."/uploadimage/";
+        $image          = $image_path. $post->photo;
+
+        if(file_exists($image)){
+            @unlink($image);
+        }
+
+        $post->delete();
+
+    }
+
+
 
 }
