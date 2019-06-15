@@ -32,4 +32,6 @@ Route::post('/categories/{id}', 'CategoryController@update_category');
 Route::get('posts', 'PostController@all_posts')->name('posts');
 Route::post('/savepost', 'PostController@save_post')->name('savepost');
 Route::delete('/delete-post/{id}', 'PostController@delete_post');
+Route::get('/posts/{id}', 'PostController@find_post');
+Route::post('/posts/{id}', 'PostController@update_post');
 
