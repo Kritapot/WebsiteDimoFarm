@@ -37,7 +37,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
                                     <input @change = "changePhoto($event)" type="file" name="photo" :class="{ 'is-invalid': form.errors.has('photo') }">
-                                    <img :src="form.photo" alt="" width="80" height="80">
+                                    <img :src="updateImage()" alt="" width="80" height="80">
                                     <has-error :form="form" field="photo"></has-error>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="col-lg-6 col-sm-12">
-                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button @click.prevent="updatePost()" type="submit" class="btn btn-primary">บันทึก</button>
                                 <button type="button" class="btn btn-secondary">
                                     <router-link to="/post-list" class="text-white" style="text-decoration: none;">กลับไปหน้าแสดง Blog Post</router-link>
                                 </button>
@@ -62,7 +62,7 @@
 
 <script>
     export default {
-        name: 'New',
+        name: 'Edit',
 
         data() {
             return{
@@ -77,6 +77,11 @@
 
         mounted() {
             this.$store.dispatch("allCategory")
+
+            axios.get(`posts/${this.$route.params.postId}`).then((respon) => {
+                this.form.fill(respon.data.post)
+            })
+
         },
 
         computed:{
@@ -104,6 +109,35 @@
                      reader.readAsDataURL(file);
                  }
             },
+
+            updatePost(){
+                this.form.post(`posts/${this.$route.params.postId}`).then(() => {
+                    this.$router.push('/post-list')
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                        Toast.fire({
+                            type: 'success',
+                            title: 'Update post successfully'
+                        })
+                })
+                .catch((e) => {
+                    console.log(e)
+                })
+
+            },
+
+            updateImage(){
+                let img = this.form.photo;
+                if(img.length>100){
+                    return  this.form.photo
+                }else{
+                    return `uploadimage/${this.form.photo}`
+                }
+            }
 
         }
     }
