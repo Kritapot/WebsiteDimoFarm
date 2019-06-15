@@ -13,7 +13,7 @@
             <a href="{{ route('home') }}" class="brand-link">
                 <img src="/assets/admin/default/head-admin.jpg" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Adminstrator</span>
+                <span class="brand-text font-weight-light">Administrator</span>
             </a>
 
             <!-- Sidebar -->
@@ -47,7 +47,7 @@
                             <router-link to="/category-list" class="nav-link">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
-                                    Category
+                                    ประเภท
                                 </p>
                             </a>
                         </li>
@@ -55,7 +55,7 @@
                             <router-link to="/post-list" class="nav-link">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
-                                    Posts
+                                    โพส
                                     <span class="right badge badge-danger">New</span>
                                 </p>
                             </a>
