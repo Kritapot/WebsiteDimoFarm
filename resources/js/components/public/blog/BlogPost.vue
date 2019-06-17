@@ -38,15 +38,14 @@
                     <ul class="meta-post">
                       <li><i class="icon-calendar"></i>{{ blogpost.created_at | timeformat }}</li>
                       <template v-if="blogpost.user_id == 1">
-                            <li><i class="icon-user"></i>เจ้าของฟาร์ม</li>
+                            <li><i class="icon-user"></i>Dimo Farm</li>
                       </template>
                       <template v-else>
                             <li v-if="blogpost.user"><i class="icon-user"></i>{{ blogpost.user.name }}</li>
                       </template>
                       <li v-if="blogpost.category"><i class="icon-folder-open"></i>{{ blogpost.category.cat_name }}</li>
-                      <li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
                     </ul>
-                    <a href="#" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
+                    <router-link :to="`blogpost/${blogpost.id}`" class="pull-right">อ่านต่อ <i class="icon-angle-right"></i></router-link>
                   </div>
                 </div>
               </div>
