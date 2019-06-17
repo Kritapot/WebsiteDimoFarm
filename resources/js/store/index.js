@@ -2,9 +2,11 @@ import Axios from "axios";
 
 export default  {
     state:  {
-        category: [],
-        post: [],
+        category:   [],
+        post:       [],
+        blogPost:   [],
     },
+
     getters:    {
         getCategory(state)  {
             return state.category
@@ -13,7 +15,12 @@ export default  {
         getPost(state)  {
             return state.post
         },
+
+        getBlogPost(state)  {
+            return state.blogPost
+        },
     },
+
     actions:    {
         allCategory(context) {
             Axios.get('categories').then((respon) => {
@@ -26,7 +33,14 @@ export default  {
                 context.commit('post', respon.data.post)
             })
         },
+
+        allBlogPost(context) {
+            Axios.get('blogpost').then((respon) => {
+                context.commit('blogpost', respon.data.blogpost)
+            })
+        }
     },
+
     mutations:  {
         categories(state, data) {
             return state.category = data
@@ -35,5 +49,9 @@ export default  {
         post(state, playload) {
             return state.post   =   playload
         },
+
+        blogpost(state, playload) {
+            return state.blogPost   =   playload
+        }
     }
 }
