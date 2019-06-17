@@ -21,7 +21,7 @@ import BlogSingle   from './components/public/blog/BlogSingle.vue'
 
 export const routes = [
     {
-        path: '/home',
+        path: '/admin-home',
         component: AdminHome
     },
 
