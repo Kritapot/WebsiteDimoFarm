@@ -13,7 +13,11 @@ class BlogController extends Controller
     {
         $this->blogPost = $blogPost;
     }
-
+    /**
+     * Get all blogpost function
+     *
+     * @return JsonData
+     */
     public function get_all_blogpost()
     {
         $blogPost       =   $this->blogPost->with('category', 'user')
@@ -22,6 +26,22 @@ class BlogController extends Controller
 
         return response()->json([
             "blogpost"  =>  $blogPost
+        ], 200);
+    }
+    /**
+     * Get Single BlogPost by ID function
+     *
+     * @param $id
+     * @return JsonData
+     */
+    public function get_by_find_blogpost($id)
+    {
+        $singleBolgPost     =   $this->blogPost->with('category', 'user')
+                                ->where('id', $id)
+                                ->firstOrFail();
+
+        return response()->json([
+            "singleBolgPost"  =>  $singleBolgPost
         ], 200);
     }
 }
