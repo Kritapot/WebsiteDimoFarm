@@ -150,7 +150,7 @@
                                 <div class="row">
                                     <div class="span4">
                                         <div class="logo">
-                                            <router-link to="/"><img src="{{ asset("assets/public/assets/img") }}/logo.png" alt="" class="logo" /></router-link>
+                                            <router-link to="/"><img :src="`assets/public/assets/img/logo.png`" alt="" class="logo" /></router-link>
                                             <h1>ฟาร์มสุนัขพันธุ์เล็ก เชียงใหม่</h1>
                                         </div>
                                     </div>
@@ -160,12 +160,7 @@
                                                 <nav>
                                                     <ul class="nav topnav">
                                                         <li class="dropdown active">
-                                                            <a href="index.html">Home <i
-                                                                    class="icon-angle-down"></i></a>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a href="index-alt2.html">Homepage 2</a></li>
-                                                                <li><a href="index-alt3.html">Homepage 3</a></li>
-                                                            </ul>
+                                                            <router-link to="/">หน้าหลัก</router-link>
                                                         </li>
                                                         <li class="dropdown">
                                                             <a href="#">Pages <i class="icon-angle-down"></i></a>
@@ -190,10 +185,10 @@
                                                             </ul>
                                                         </li>
                                                         <li>
-                                                            <router-link to="/blogpost">Blog</router-link>
+                                                            <router-link to="/blogpost">บทความ</router-link>
                                                         </li>
                                                         <li>
-                                                            <router-link to="/contact">Contact </router-link>
+                                                            <router-link to="/contact">ติดต่อเรา </router-link>
                                                         </li>
                                                     </ul>
                                                 </nav>
