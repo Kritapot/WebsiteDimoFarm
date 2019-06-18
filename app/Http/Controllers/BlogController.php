@@ -62,4 +62,20 @@ class BlogController extends Controller
             "categorySideBar"  =>  $categorySideBar
         ], 200);
     }
+
+    /**
+     * Get all post by cat_id function
+     *
+     * @return JsonData
+     */
+    public function get_post_by_category_id($id)
+    {
+        $postByCatId    =   $this->blogPost->with('category', 'user')
+                            ->where('cat_id', $id)
+                            ->get();
+
+        return response()->json([
+            "postByCatId"  =>  $postByCatId
+        ], 200); 
+    }
 }

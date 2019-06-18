@@ -18,6 +18,8 @@ Route::get('', function () {
 Route::get('blogpost', 'BlogController@get_all_blogpost');
 Route::get('/blogpost/{id}', 'BlogController@get_by_find_blogpost');
 Route::get('/category-sidebar', 'BlogController@get_category_sidebar');
+Route::get('/blogpost-category-id/{id}', 'BlogController@get_post_by_category_id');
+
 
 Auth::routes();
 Route::get('/administrator', 'HomeController@index');
