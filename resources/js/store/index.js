@@ -72,6 +72,13 @@ export default  {
                 context.commit('postByCatId', respon.data.postByCatId)
             })
         },
+
+        SearchPost(context, playload) {
+            Axios.get('/search?s='+playload).then((respon) => {
+                context.commit('searchPost', respon.data.searchBlogPost)
+            })
+        },
+
     },
 
     mutations:  {
@@ -97,7 +104,11 @@ export default  {
 
         postByCatId(state, playload) {
             state.blogPost   =   playload
-        }
+        },
+
+        searchPost(state, playload) {
+            state.blogPost   =   playload
+        },
 
     }
 }

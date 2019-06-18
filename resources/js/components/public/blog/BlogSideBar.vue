@@ -4,8 +4,8 @@
             <aside class="right-sidebar">
               <div class="widget">
                 <form class="form-search">
-                  <input placeholder="Type something" type="text" class="input-medium search-query">
-                  <button type="submit" class="btn btn-square btn-theme">ค้นหา</button>
+                  <input @keyup="RealSearch" v-model="keyword" placeholder="ค้นหาข้อมุล" type="text" class="input-medium search-query">
+                  <button @click.prevent="RealSearch" type="submit" class="btn btn-square btn-theme">ค้นหา</button>
                 </form>
               </div>
               <div class="widget">
@@ -40,6 +40,12 @@
 export default {
     name: "BlogSideBar",
 
+    data() {
+      return {
+        keyword: ''
+      }
+    },
+
     mounted() {
       this.$store.dispatch('allCategorySideBar')
       this.$store.dispatch('allBlogPost')
@@ -57,7 +63,9 @@ export default {
     },
 
     methods: {
-      
+      RealSearch() {
+        this.$store.dispatch('SearchPost', this.keyword)
+      }
     },
 }
 </script>
