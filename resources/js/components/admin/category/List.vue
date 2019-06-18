@@ -20,10 +20,10 @@
                             <table class="table table-responsive table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th style="width: 5%;">No.</th>
-                                        <th>ชื่อประเภท</th>
-                                        <th>วันที่สร้าง</th>
-                                        <th class="text-center" style="width: 20%;">Actions</th>
+                                        <th>No.</th>
+                                        <th style="width: 30%">ชื่อประเภท</th>
+                                        <th style="width: 50%">วันที่สร้าง</th>
+                                        <th class="text-center" style="width: 30%">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
