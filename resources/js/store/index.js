@@ -2,10 +2,11 @@ import Axios from "axios";
 
 export default  {
     state:  {
-        category:       [],
-        post:           [],
-        blogPost:       [],
-        singleBlogPost: [],
+        category:           [],
+        post:               [],
+        blogPost:           [],
+        singleBlogPost:     [],
+        categorySideBar:    [],
     },
 
     getters:    {
@@ -23,7 +24,11 @@ export default  {
 
         getBlogPostById(state) {
             return state.singleBlogPost
-        }
+        },
+
+        getCategorySideBar(state) {
+            return state.categorySideBar
+        },
     },
 
     actions:    {
@@ -49,7 +54,13 @@ export default  {
             Axios.get('/blogpost/'+playload).then((respon) => {
                 context.commit('singleBolgPost', respon.data.singleBolgPost)
             })
-        }
+        },
+
+        allCategorySideBar(context) {
+            Axios.get('/category-sidebar').then((respon) => {
+                context.commit('categorySideBar', respon.data.categorySideBar)
+            })
+        },
     },
 
     mutations:  {
@@ -67,6 +78,10 @@ export default  {
 
         singleBolgPost(state, playload) {
             return state.singleBlogPost     =   playload
+        },
+
+        categorySideBar(state, playload) {
+            return state.categorySideBar    =   playload
         }
 
     }

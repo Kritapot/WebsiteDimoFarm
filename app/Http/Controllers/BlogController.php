@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 
 
 class BlogController extends Controller
 {
     protected $blogPost;
+    protected $category;
 
-    public function __construct(Post $blogPost)
+
+    public function __construct(Post $blogPost, Category $category)
     {
         $this->blogPost = $blogPost;
+        $this->category = $category;
     }
     /**
      * Get all blogpost function
@@ -42,6 +46,20 @@ class BlogController extends Controller
 
         return response()->json([
             "singleBolgPost"  =>  $singleBolgPost
+        ], 200);
+    }
+
+    /**
+     * Get all category for sidebar function
+     *
+     * @return JsonData
+     */
+     public function get_category_sidebar()
+    {
+        $categorySideBar    =   $this->category->get();
+
+        return response()->json([
+            "categorySideBar"  =>  $categorySideBar
         ], 200);
     }
 }

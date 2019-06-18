@@ -74,11 +74,19 @@ export default {
     },
 
     methods: {
-
+        blogPostSingle() {
+            this.$store.dispatch('allBlogPostById', this.$route.params.blogpostId)
+        }
     },
 
     mounted() {
-        this.$store.dispatch('allBlogPostById', this.$route.params.blogpostId)
+        this.blogPostSingle();
+    },
+
+    watch: {
+        $route(to, from) {
+            this.blogPostSingle();
+        }
     },
 
 
