@@ -78,4 +78,19 @@ class BlogController extends Controller
             "postByCatId"  =>  $postByCatId
         ], 200); 
     }
+
+    public function search_post()
+    {
+        $search         =   \Request::get('s');
+
+        $blogPost       =   $this->blogPost->with('category', 'user')
+                            ->where('title', 'LIKE', "%$search%")
+                            ->orWhere('description', 'LIKE', "%$search%")
+                            ->get();
+
+        return response()->json([
+            "searchBlogPost"  =>  $blogPost
+        ], 200);
+    }
+
 }

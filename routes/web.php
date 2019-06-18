@@ -19,6 +19,8 @@ Route::get('blogpost', 'BlogController@get_all_blogpost');
 Route::get('/blogpost/{id}', 'BlogController@get_by_find_blogpost');
 Route::get('/category-sidebar', 'BlogController@get_category_sidebar');
 Route::get('/blogpost-category-id/{id}', 'BlogController@get_post_by_category_id');
+Route::get('/search', 'BlogController@search_post');
+
 
 
 Auth::routes();
