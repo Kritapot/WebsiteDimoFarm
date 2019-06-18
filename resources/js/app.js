@@ -44,7 +44,10 @@ import {routes} from './routes';
 const router = new VueRouter({
     routes, // short for `routes: routes`
     mode:'hash',
+    linkActiveClass: "active",
+    linkExactActiveClass: "exact-active",
 })
+
 
 const app = new Vue({
     el: '#adminmaster',

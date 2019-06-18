@@ -2,7 +2,7 @@
         <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
-                <li class="nav-item col-sm-3">
+                <li class="nav-item col-sm-8">
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars text-lg"></i></a>
                 </li>
             </ul>
@@ -60,6 +60,31 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <router-link to="/" class="nav-link" style="background-color: #2f2d2d">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <p>
+                                    @guest
+                                    <li>
+                                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                    @if (Route::has('register'))
+                                        <li>
+                                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        </li>
+                                    @endif
+                                @else
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('ออกจากระบบ') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                @endguest
+                                </p>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
