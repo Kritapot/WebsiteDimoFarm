@@ -35,7 +35,6 @@ const store = new Vuex.Store(
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);
 Vue.component('home-main', require('./components/public/PublicMaster.vue').default);
-Vue.component('home-welcome', require('./components/public/PublicHome.vue').default);
 
 
 // vue router
