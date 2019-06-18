@@ -7,6 +7,7 @@ export default  {
         blogPost:           [],
         singleBlogPost:     [],
         categorySideBar:    [],
+        blogPostByCatId:    [],
     },
 
     getters:    {
@@ -28,6 +29,10 @@ export default  {
 
         getCategorySideBar(state) {
             return state.categorySideBar
+        },
+
+        getBlogPostByCatId(state) {
+            return state.blogPostByCatId
         },
     },
 
@@ -61,6 +66,12 @@ export default  {
                 context.commit('categorySideBar', respon.data.categorySideBar)
             })
         },
+
+        allPostByCatId(context, playload) {
+            Axios.get('/blogpost-category-id/'+playload).then((respon) => {
+                context.commit('postByCatId', respon.data.postByCatId)
+            })
+        },
     },
 
     mutations:  {
@@ -82,6 +93,10 @@ export default  {
 
         categorySideBar(state, playload) {
             return state.categorySideBar    =   playload
+        },
+
+        postByCatId(state, playload) {
+            state.blogPost   =   playload
         }
 
     }

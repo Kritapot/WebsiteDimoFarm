@@ -13,7 +13,7 @@
                 <ul class="cat">
                   <li v-for="category in allCategoryToSideBar">
                     <i class="icon-angle-right"></i>
-                    <a href="#">{{ category.cat_name }}</a>
+                    <router-link :to="`/blogpost-by-catid/${category.id}`">{{ category.cat_name }}</router-link>
                   </li>
                 </ul>
               </div>

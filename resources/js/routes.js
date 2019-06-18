@@ -72,7 +72,9 @@ export const routes = [
         path: '/blogpost/:blogpostId',
         component: BlogSingle
     },
-
-
+    {
+        path: '/blogpost-by-catid/:catId',
+        component: BlogPost
+    },
 
 ]
