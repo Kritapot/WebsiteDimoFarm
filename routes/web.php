@@ -10,17 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/administrator', 'HomeController@index')->name('administrator');
 
 Route::get('/', function () {
     return view('public.index');
 });
 
+Route::get('blogpost', 'BlogController@get_all_blogpost');
+Route::get('/blogpost/{id}', 'BlogController@get_by_find_blogpost');
+
+
+
 Auth::routes();
-
-Route::get('/administrator', 'HomeController@index')->name('administrator');
-
-
-//Route::get('/{anypath}', 'HomeController@index')->where('path', '.*');
 
 
 
@@ -37,7 +38,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/delete-post/{id}', 'PostController@delete_post');
     Route::get('/posts/{id}', 'PostController@find_post');
     Route::post('/posts/{id}', 'PostController@update_post');
-
-    Route::get('blogpost', 'BlogController@get_all_blogpost');
-    Route::get('/blogpost/{id}', 'BlogController@get_by_find_blogpost');
 });
+
+
