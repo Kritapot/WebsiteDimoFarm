@@ -55,9 +55,9 @@ export const routes = [
         component: EditPost
     },
 
-    //Fontend BlogHome
+    //Fontend BlogHome Page
     {
-        path: '/',
+        path: '/home',
         component: PublicHome
     },
     {

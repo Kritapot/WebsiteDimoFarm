@@ -76,14 +76,8 @@
 </template>
 
 <script>
-    import Slide from "./Slide.vue"
-
     export default {
         name: "PublicHome",
-
-        components: {
-            Slide
-        },
     }
 
 </script>
