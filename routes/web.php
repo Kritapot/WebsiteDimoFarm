@@ -17,15 +17,18 @@ Route::get('', function () {
 
 Route::get('blogpost', 'BlogController@get_all_blogpost');
 Route::get('/blogpost/{id}', 'BlogController@get_by_find_blogpost');
+Route::get('/category-sidebar', 'BlogController@get_category_sidebar');
 
+Auth::routes();
+Route::get('/administrator', 'HomeController@index');
 
 
 Auth::routes();
+Route::get('/administrator', 'HomeController@index');
 
 
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/administrator', 'HomeController@index');
 
     Route::post('/add-category', 'CategoryController@save_category')->name('add-category');
     Route::get('/categories', 'CategoryController@all_category')->name('categories');

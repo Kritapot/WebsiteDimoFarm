@@ -1,6 +1,5 @@
 <template>
     <div id="public-home">
-        <Slide/>
         <section id="content">
             <div class="container">
                 <div class="row">

@@ -57,7 +57,7 @@ export const routes = [
 
     //Fontend BlogHome Page
     {
-        path: '/home',
+        path: '/',
         component: PublicHome
     },
     {
