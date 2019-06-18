@@ -19,7 +19,7 @@
                             <div class="container ">
                                 <!-- hidden top area toggle link -->
                                 <div id="header-hidden-link">
-                                    <router-link to="/home" class="toggle-link" title="Click me you'll get a surprise"
+                                    <router-link to="/" class="toggle-link" title="Click me you'll get a surprise"
                                         data-target=".hidden-top"><i></i>Open</router-link>
                                 </div>
                                 <!-- end toggle link -->
@@ -150,7 +150,7 @@
                                 <div class="row">
                                     <div class="span4">
                                         <div class="logo">
-                                            <router-link to="/home"><img :src="`assets/public/assets/img/logo.png`" alt="" class="logo" /></router-link>
+                                            <router-link to="/"><img :src="`assets/public/assets/img/logo.png`" alt="" class="logo" /></router-link>
                                             <h1>ฟาร์มสุนัขพันธุ์เล็ก เชียงใหม่</h1>
                                         </div>
                                     </div>
@@ -160,7 +160,7 @@
                                                 <nav>
                                                     <ul class="nav topnav">
                                                         <li class="dropdown active">
-                                                            <router-link to="/home">หน้าหลัก</router-link>
+                                                            <router-link to="/">หน้าหลัก</router-link>
                                                         </li>
                                                         <li class="dropdown">
                                                             <a href="#">Pages <i class="icon-angle-down"></i></a>
