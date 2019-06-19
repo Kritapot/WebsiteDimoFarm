@@ -20,9 +20,12 @@ Vue.filter('sortlength',function (text,length,suffix) {
 
 // Editor support
 import 'v-markdown-editor/dist/index.css';
-import Vue from 'vue'
 import Editor from 'v-markdown-editor'
 Vue.use(Editor);
+
+import Vue from 'vue';
+import CKEditor from '@ckeditor/ckeditor5-vue';
+Vue.use( CKEditor );
 
 // vuex
 import Vuex from 'vuex'
@@ -45,7 +48,6 @@ Vue.use(VueProgressBar, {
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);
 Vue.component('home-main', require('./components/public/PublicMaster.vue').default);
 
-
 // vue router
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
@@ -61,6 +63,7 @@ const router = new VueRouter({
 const app = new Vue({
     router,
     store,
+
 }).$mount('#adminmaster');
 
 

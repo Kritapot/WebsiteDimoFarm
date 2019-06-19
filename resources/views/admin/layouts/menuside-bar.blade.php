@@ -24,7 +24,7 @@
                         <img src="/assets/admin/default/admin.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                        <a href="#" class="d-block">SuperAdmin</a>
                     </div>
                 </div>
 
@@ -56,7 +56,46 @@
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
                                     โพส
-                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="" class="nav-link">
+                                <i class="fas fa-inbox"></i>
+                                <p>
+                                    กล่องข้อความ
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="" class="nav-link">
+                                <i class="fas fa-dog"></i>
+                                <p>
+                                    เกี่ยวกับเรา
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="" class="nav-link">
+                                <i class="fas fa-bone"></i>
+                                <p>
+                                    บริการของเรา
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="" class="nav-link">
+                                <i class="fas fa-dog"></i>
+                                <p>
+                                    Portfolio
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="" class="nav-link">
+                                <i class="fas fa-cogs"></i>
+                                <p>
+                                    ตั้งค่าสถานะ
                                 </p>
                             </a>
                         </li>

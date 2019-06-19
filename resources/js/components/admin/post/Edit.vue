@@ -21,7 +21,8 @@
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
                                     <label for="">รายละเอียดบทความ</label>
-                                    <markdown-editor toolbar="bold italic heading | image link | numlist bullist code quote | preview fullscreen" v-model="form.description"></markdown-editor>                                    <has-error :form="form" field="description"></has-error>
+                                    <ckeditor :editor="editor" v-model="form.description" :config="editorConfig"></ckeditor>
+                                    <has-error :form="form" field="description"></has-error>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -61,6 +62,8 @@
 </template>
 
 <script>
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
     export default {
         name: 'Edit',
 
@@ -71,7 +74,13 @@
                     description: '',
                     cat_id: '',
                     photo: '',
-                })
+                }),
+
+                editor: ClassicEditor,
+                editorData: '',
+                editorConfig: {
+
+                }
             }
         },
 
