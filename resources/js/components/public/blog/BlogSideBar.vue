@@ -9,18 +9,9 @@
                 </form>
               </div>
               <div class="widget">
-                <h5 class="widgetheading">ประเภทบทความ</h5>
-                <ul class="cat">
-                  <li v-for="category in allCategoryToSideBar">
-                    <i class="icon-angle-right"></i>
-                    <router-link :to="`/blogpost-by-catid/${category.id}`">{{ category.cat_name }}</router-link>
-                  </li>
-                </ul>
-              </div>
-              <div class="widget">
                 <h5 class="widgetheading">โพสล่าสุด</h5>
                 <ul class="recent">
-                  <li v-for="(blogPost, index) in getAllBlogPost" v-if="index<3">
+                  <li v-for="(blogPost, index) in getAllBlogPost" v-if="index < 5" :key="blogPost.id">
                     <img :src="`uploadimage/${blogPost.photo}`" alt="" width="40" height="80" />
                     <h6>
                       <router-link :to="`/blogpost/${blogPost.id}`">{{ blogPost.title }}</router-link>
@@ -37,6 +28,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
     name: "BlogSideBar",
 
@@ -47,25 +39,20 @@ export default {
     },
 
     mounted() {
-      this.$store.dispatch('allCategorySideBar')
-      this.$store.dispatch('allBlogPost')
+      this.$store.dispatch('allLatePost')
 
     },
 
     computed: {
-      allCategoryToSideBar() {
-        return this.$store.getters.getCategorySideBar
-      },
-
       getAllBlogPost() {
-            return this.$store.getters.getBlogPost
+            return this.$store.getters.getLateBlogPost
       },
     },
 
     methods: {
-      RealSearch() {
-        this.$store.dispatch('SearchPost', this.keyword)
-      }
+      RealSearch:_.debounce(function () {
+          this.$store.dispatch('SearchPost', this.keyword)
+      }, 1000)
     },
 }
 </script>

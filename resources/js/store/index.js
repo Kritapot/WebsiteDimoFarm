@@ -8,6 +8,8 @@ export default  {
         singleBlogPost:     [],
         categorySideBar:    [],
         blogPostByCatId:    [],
+        lateBlogPost:       [],
+
     },
 
     getters:    {
@@ -33,6 +35,10 @@ export default  {
 
         getBlogPostByCatId(state) {
             return state.blogPostByCatId
+        },
+
+        getLateBlogPost(state) {
+            return state.lateBlogPost
         },
     },
 
@@ -79,6 +85,12 @@ export default  {
             })
         },
 
+        allLatePost(context) {
+            Axios.get('/latepost').then((respon) => {
+                context.commit('lateBlogPost', respon.data.latePost)
+            })
+        },
+
     },
 
     mutations:  {
@@ -109,6 +121,10 @@ export default  {
         searchPost(state, playload) {
             state.blogPost   =   playload
         },
+
+        lateBlogPost(state, playload) {
+            state.lateBlogPost  =   playload
+        }
 
     }
 }
