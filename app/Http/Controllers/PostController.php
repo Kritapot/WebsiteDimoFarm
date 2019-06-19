@@ -162,6 +162,20 @@ class PostController extends Controller
         ], 200);
     }
 
+    /**
+     * count all Post function
+     *
+     * @return jsonData
+     */
+    public function count_post_all()
+    {
+        $countPost      =   $this->post->count();
+
+        return response()->json([
+            'countPost' => $countPost,
+        ], 200);
+    }
+
 
 
 }

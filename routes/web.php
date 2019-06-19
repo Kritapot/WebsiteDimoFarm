@@ -52,6 +52,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/posts/{id}', 'PostController@find_post');
     Route::post('/posts/{id}', 'PostController@update_post');
     Route::get('/search-by-post', 'PostController@search_by_post');
+    Route::get('/count-post', 'PostController@count_post_all');
+
 });
 
 
