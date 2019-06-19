@@ -46,7 +46,7 @@
                                                             <router-link to="/">หน้าหลัก</router-link>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a href="#">เกี่ยวกับฟาร์มของเรา</a>
+                                                            <router-link to="/about-us">เกี่ยวกับฟาร์มของเรา</router-link>
                                                         </li>
 
                                                         <li class="dropdown">

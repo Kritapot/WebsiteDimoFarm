@@ -1,5 +1,6 @@
 <template>
     <div id="public-home">
+        <Slide></Slide>
         <section id="content">
             <div class="container">
                 <div class="row">
@@ -16,7 +17,6 @@
                                             Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea
                                             facilisis.
                                         </p>
-                                        <a href="#">Learn more</a>
                                     </div>
                                 </div>
                             </div>
@@ -31,7 +31,6 @@
                                             Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea
                                             facilisis.
                                         </p>
-                                        <a href="#">Learn more</a>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +45,6 @@
                                             Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea
                                             facilisis.
                                         </p>
-                                        <a href="#">Learn more</a>
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +59,6 @@
                                             Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea
                                             facilisis.
                                         </p>
-                                        <a href="#">Learn more</a>
                                     </div>
                                 </div>
                             </div>
@@ -75,8 +72,13 @@
 </template>
 
 <script>
+import Slide from './Slide.vue'
     export default {
         name: "PublicHome",
+
+        components: {
+            Slide
+        }
     }
 
 </script>

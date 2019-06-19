@@ -14,6 +14,7 @@ import PublicHome   from './components/public/PublicHome.vue'
 import ContactUs    from './components/public/Contact.vue'
 import BlogPost     from './components/public/blog/BlogPost.vue'
 import BlogSingle   from './components/public/blog/BlogSingle.vue'
+import AboutUs      from './components/public/AboutUs.vue'
 
 
 
@@ -76,5 +77,11 @@ export const routes = [
         path: '/blogpost-by-catid/:catId',
         component: BlogPost
     },
+
+    {
+        path: '/about-us',
+        component: AboutUs
+    },
+
 
 ]
