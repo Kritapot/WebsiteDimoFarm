@@ -80,7 +80,9 @@ export default {
     },
 
     mounted() {
+        this.$Progress.start()
         this.blogPostSingle();
+        this.$Progress.finish()
     },
 
     watch: {

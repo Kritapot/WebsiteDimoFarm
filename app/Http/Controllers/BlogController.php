@@ -76,20 +76,38 @@ class BlogController extends Controller
 
         return response()->json([
             "postByCatId"  =>  $postByCatId
-        ], 200); 
+        ], 200);
     }
 
+    /**
+     * Search Post by title and description function
+     *
+     * @return JsonData
+     */
     public function search_post()
     {
         $search         =   \Request::get('s');
 
-        $blogPost       =   $this->blogPost->with('category', 'user')
+            $blogPost       =   $this->blogPost->with('category', 'user')
                             ->where('title', 'LIKE', "%$search%")
                             ->orWhere('description', 'LIKE', "%$search%")
                             ->get();
 
+            return response()->json([
+                "searchBlogPost"  =>  $blogPost
+            ], 200);
+
+    }
+
+
+    public function get_latepost()
+    {
+        $latePost       =   $this->blogPost->with('category', 'user')
+                            ->orderBy('id', 'desc')
+                            ->get();
+
         return response()->json([
-            "searchBlogPost"  =>  $blogPost
+            "latePost"  =>  $latePost
         ], 200);
     }
 
