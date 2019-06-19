@@ -7,7 +7,12 @@
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title">แสดงประเภท Blog ทั้งหมด</h2>
-
+                            <div class="input-group input-group-sm col-lg-6 col-sm-12" style="width: 350px;">
+                                <input @keyup="searchByCategoryName" type="text" v-model="keywordCategory" class="form-control float-right" placeholder="ค้นหาจากชื่อประเภท">
+                                <div class="input-group-append">
+                                    <button @click.prevent="searchByCategoryName" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
                             <div class="card-tools">
                                 <button class="btn btn-success">
                                     <router-link to="/add-category" class="text-white" style="text-decoration: none;">
@@ -56,10 +61,20 @@
 </template>
 
 <script>
+import _ from 'lodash'
+
     export default {
         name: 'List',
+
+        data() {
+            return {
+                keywordCategory: ''
+            }
+        },
         mounted() {
+            this.$Progress.start()
             this.$store.dispatch("allCategory")
+            this.$Progress.finish()
         },
         computed: {
             getAllCategory() {
@@ -86,7 +101,11 @@
                         .catch(() => {
 
                         })
-            }
+            },
+
+            searchByCategoryName:_.debounce(function () {
+                this.$store.dispatch('searchByCatName', this.keywordCategory)
+            }, 1000)
         }
     }
 
