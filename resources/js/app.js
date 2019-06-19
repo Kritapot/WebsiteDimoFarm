@@ -32,6 +32,15 @@ const store = new Vuex.Store(
     storeData
 )
 
+//vue progress-bar
+import VueProgressBar from 'vue-progressbar'
+
+Vue.use(VueProgressBar, {
+  color: 'rgb(143, 255, 199)',
+  failedColor: 'red',
+  height: '5px'
+})
+
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);
 Vue.component('home-main', require('./components/public/PublicMaster.vue').default);

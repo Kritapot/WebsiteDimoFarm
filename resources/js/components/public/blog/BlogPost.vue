@@ -75,7 +75,9 @@ export default {
     },
 
     mounted() {
+        this.$Progress.start()
         this.$store.dispatch('allBlogPost')
+        this.$Progress.finish()
     },
 
     computed: {
@@ -86,18 +88,20 @@ export default {
 
     methods: {
       getAllPostByCatId() {
-        if(this.$route.params.catId != null) {
+            this.$Progress.start()
             this.$store.dispatch('allPostByCatId', this.$route.params.catId)
-        }else {
+            this.$Progress.finish()
+
+          this.$Progress.start()
           this.$store.dispatch('allBlogPost')
-        }
+          this.$Progress.finish()
       },
     },
 
     watch: {
       $route(to, from) {
-        this.getAllPostByCatId();
-      }
+            this.getAllPostByCatId()
+      },
     },
 }
 </script>
