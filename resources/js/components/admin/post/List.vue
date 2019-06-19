@@ -6,7 +6,12 @@
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title">แสดง Post ทั้งหมด</h2>
-
+                            <div class="input-group input-group-sm col-lg-6 col-sm-12" style="width: 350px;">
+                                <input @keyup="searchByPost" type="text" v-model="keywordPost" class="form-control float-right" placeholder="ค้นหาจากชื่อ หรือ รายละเอียด">
+                                <div class="input-group-append">
+                                    <button @click.prevent="searchByPost" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
                             <div class="card-tools">
                                 <button class="btn btn-primary">
                                     <router-link to="/add-post" style="color:#fff;" class="btn-add-post"> เพิ่ม Post</router-link>
@@ -74,8 +79,16 @@
 <script>
     export default {
         name: "List",
+
+        data() {
+            return {
+                keywordPost: ''
+            }
+        },
         mounted(){
+            this.$Progress.start()
             this.$store.dispatch('allPost')
+            this.$Progress.finish()
         },
         computed:{
             getAllPost(){
@@ -106,6 +119,10 @@
                 })
 
             },
+
+            searchByPost:_.debounce(function () {
+                this.$store.dispatch('searchByPostName', this.keywordPost)
+            }, 1000)
         },
     }
 </script>

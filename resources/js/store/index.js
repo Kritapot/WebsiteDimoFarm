@@ -91,6 +91,12 @@ export default  {
             })
         },
 
+        searchByPostName(context, playload) {
+            Axios.get('/search-by-post?s='+playload).then((respon) => {
+                context.commit('searchByPost', respon.data.searchByPost)
+            })
+        },
+
         allLatePost(context) {
             Axios.get('/latepost').then((respon) => {
                 context.commit('lateBlogPost', respon.data.latePost)
@@ -132,8 +138,12 @@ export default  {
             state.lateBlogPost  =   playload
         },
 
-        searchCategoryName(state, data) {
-            state.category = data
+        searchCategoryName(state, playload) {
+            state.category = playload
+        },
+
+        searchByPost(state, playload) {
+            state.post   =   playload
         },
 
     }
