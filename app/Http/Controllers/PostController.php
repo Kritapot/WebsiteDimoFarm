@@ -102,6 +102,13 @@ class PostController extends Controller
         ], 200);
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @param [type] $id
+     * @return void
+     */
     public function update_post(Request $request, $id)
     {
         $post       =   $this->post->findOrFail($id);
@@ -134,9 +141,25 @@ class PostController extends Controller
         $post->user_id      = Auth::user()->id;
         $post->photo        = $name;
         $post->save();
+    }
 
+    /**
+     * search by title and description function
+     *
+     * @return void
+     */
+    public function search_by_post()
+    {
+        $search             =   \Request::get('s');
 
+        $searchByPost       =   $this->post->with('category', 'user')
+                                ->where('title', 'LIKE', "%$search%")
+                                ->orWhere('description', 'LIKE', "%$search%")
+                                ->get();
 
+        return response()->json([
+            'searchByPost' => $searchByPost,
+        ], 200);
     }
 
 
