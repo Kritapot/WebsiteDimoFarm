@@ -18,15 +18,6 @@ Vue.filter('sortlength',function (text,length,suffix) {
     return text.substring(0,length)+suffix;
 })
 
-// Editor support
-import 'v-markdown-editor/dist/index.css';
-import Editor from 'v-markdown-editor'
-Vue.use(Editor);
-
-import Vue from 'vue';
-import CKEditor from '@ckeditor/ckeditor5-vue';
-Vue.use( CKEditor );
-
 // vuex
 import Vuex from 'vuex'
 Vue.use(Vuex)

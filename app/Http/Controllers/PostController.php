@@ -44,7 +44,7 @@ class PostController extends Controller
         $this->validate($request, [
 
             'title'         =>'required|min:2|max:50',
-            'description'   =>'required|min:2|max:1000'
+            'description'   =>'required|min:2|max:6000'
 
         ]);
 
@@ -116,7 +116,7 @@ class PostController extends Controller
         $this->validate($request, [
 
             'title'         =>'required|min:2|max:50',
-            'description'   =>'required|min:2|max:1000'
+            'description'   =>'required|min:2|max:6000'
         ]);
 
         if($request->photo!=$post->photo){

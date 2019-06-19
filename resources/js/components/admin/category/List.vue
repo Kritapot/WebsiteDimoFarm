@@ -22,7 +22,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table class="table table-responsive table-bordered table-hover">
+                            <table id="example2" class="table table-responsive table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th>No.</th>

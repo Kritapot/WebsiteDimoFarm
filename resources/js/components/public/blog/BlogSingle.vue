@@ -5,14 +5,14 @@
                 <div class="row">
                     <div class="span4">
                         <div class="inner-heading">
-                            <h2>Post right sidebar</h2>
+                            <h2>บทความ</h2>
                         </div>
                     </div>
                     <div class="span8">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="icon-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li><a href="#">Blog</a><i class="icon-angle-right"></i></li>
-                            <li class="active">Blog post right sidebar</li>
+                            <li><a href="#">บทความ</a><i class="icon-angle-right"></i></li>
+                            <li class="active">{{ singleAllPost.title }}</li>
                         </ul>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                             </div>
                         </article>
                     </div>
-                    <BlogSideBar/>
+                    <BlogSideBar></BlogSideBar>
                 </div>
             </div>
         </section>
@@ -87,6 +87,7 @@ export default {
 
     watch: {
         $route(to, from) {
+            this.$Progress.start()
             this.blogPostSingle();
         }
     },

@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
                                     <label for="">รายละเอียดบทความ</label>
-                                   <ckeditor :editor="editor" v-model="form.description" :config="editorConfig"></ckeditor>
+                                    <textarea v-model="form.description" id="" cols="100" rows="10" placeholder="รายละเอียดบทความ"></textarea>
                                     <has-error :form="form" field="description"></has-error>
                                 </div>
                             </div>
@@ -62,7 +62,6 @@
 </template>
 
 <script>
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
     export default {
         name: 'New',
 
@@ -74,12 +73,6 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
                     cat_id: '',
                     photo: '',
                 }),
-
-                editor: ClassicEditor,
-                editorData: '',
-                editorConfig: {
-
-                }
             }
         },
 

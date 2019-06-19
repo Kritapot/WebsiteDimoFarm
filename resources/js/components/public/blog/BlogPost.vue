@@ -31,9 +31,9 @@
                     </div>
                     <img :src="`uploadimage/${blogpost.photo}`" alt="" />
                   </div>
-                  <p>
-                    {{ blogpost.description | sortlength(100, '........') }}
-                  </p>
+                    <p>
+                        {{ blogpost.description | sortlength(80, '........') }}
+                    </p>
                   <div class="bottom-article">
                     <ul class="meta-post">
                       <li><i class="icon-calendar"></i>{{ blogpost.created_at | timeformat }}</li>
