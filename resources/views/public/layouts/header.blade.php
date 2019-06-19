@@ -159,30 +159,15 @@
                                             <div class="navigation">
                                                 <nav>
                                                     <ul class="nav topnav">
-                                                        <li class="dropdown active">
+                                                        <li>
                                                             <router-link to="/">หน้าหลัก</router-link>
                                                         </li>
                                                         <li class="dropdown">
-                                                            <a href="#">Pages <i class="icon-angle-down"></i></a>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a href="about.html">About us</a></li>
-                                                                <li><a href="pricingbox.html">Pricing boxes</a></li>
-                                                                <li><a href="testimonials.html">Testimonials</a></li>
-                                                                <li><a href="404.html">404</a></li>
-                                                            </ul>
+                                                            <a href="#">เกี่ยวกับฟาร์มของเรา</a>
                                                         </li>
+                                                        
                                                         <li class="dropdown">
-                                                            <a href="#">Portfolio <i class="icon-angle-down"></i></a>
-                                                            <ul class="dropdown-menu">
-                                                                <li><a href="portfolio-2cols.html">Portfolio 2
-                                                                        columns</a></li>
-                                                                <li><a href="portfolio-3cols.html">Portfolio 3
-                                                                        columns</a></li>
-                                                                <li><a href="portfolio-4cols.html">Portfolio 4
-                                                                        columns</a></li>
-                                                                <li><a href="portfolio-detail.html">Portfolio detail</a>
-                                                                </li>
-                                                            </ul>
+                                                            <a href="#">Portfolio </a>
                                                         </li>
                                                         <li>
                                                             <router-link to="/blogpost">บทความ</router-link>
