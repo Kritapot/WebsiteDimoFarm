@@ -42,6 +42,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/categories/{id}', 'CategoryController@find_category');
     Route::post('/categories/{id}', 'CategoryController@update_category');
     Route::get('/search-by-category-name', 'CategoryController@search_cat_name');
+    Route::get('/count-category', 'CategoryController@count_category_all');
+
 
 
     Route::get('posts', 'PostController@all_posts')->name('posts');

@@ -87,7 +87,11 @@ class CategoryController extends Controller
         $category->save();
     }
 
-
+    /**
+     * Search by cat_name function
+     *
+     * @return jsonData
+     */
     public function search_cat_name()
     {
         $search                 =   \Request::get('s');
@@ -96,6 +100,20 @@ class CategoryController extends Controller
                                     ->get();
         return response()->json([
             'searchCategoryName'  =>  $searchCategoryName
+        ], 200);
+    }
+
+    /**
+     * Count Category function
+     *
+     * @return jsonData
+     */
+    public function count_category_all()
+    {
+        $countCategory      =       $this->category->count();
+
+        return response()->json([
+            'countCategory'  =>  $countCategory
         ], 200);
     }
 
