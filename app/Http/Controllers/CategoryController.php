@@ -87,4 +87,16 @@ class CategoryController extends Controller
         $category->save();
     }
 
+
+    public function search_cat_name()
+    {
+        $search                 =   \Request::get('s');
+
+        $searchCategoryName     =   $this->category->where('cat_name', 'LIKE', "%$search%")
+                                    ->get();
+        return response()->json([
+            'searchCategoryName'  =>  $searchCategoryName
+        ], 200);
+    }
+
 }

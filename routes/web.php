@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/categories/{id}', 'CategoryController@delete_category');
     Route::get('/categories/{id}', 'CategoryController@find_category');
     Route::post('/categories/{id}', 'CategoryController@update_category');
+    Route::get('/search-by-category-name', 'CategoryController@search_cat_name');
 
 
     Route::get('posts', 'PostController@all_posts')->name('posts');
