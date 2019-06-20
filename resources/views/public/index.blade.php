@@ -65,5 +65,7 @@
 <script src="{{ asset("assets/public/assets/js") }}/jquery.slitslider.js"></script>
 <script src="{{ asset("assets/public/assets/js") }}/animate.js"></script>
 <script src="{{ asset("assets/public/assets/js") }}/custom.js"></script>
+<script src="{{ asset('js/vendor') }}/sweetalert2@8.js"></script>
+
 
 </html>
