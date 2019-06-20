@@ -11,7 +11,7 @@
           <div class="span8">
             <ul class="breadcrumb">
               <li><router-link to="/contact"><i class="icon-home"></i></router-link><i class="icon-angle-right"></i></li>
-              <li class="active">Contact</li>
+              <li class="active">ติดต่อเรา</li>
             </ul>
           </div>
         </div>
@@ -21,30 +21,25 @@
       <div class="container">
         <div class="row">
           <div class="span12">
-            <h4>Get in touch with us by filling <strong>contact form below</strong></h4>
-
-            <form action="" method="post" role="form" class="contactForm">
-              <div id="sendmessage">Your message has been sent. Thank you!</div>
-              <div id="errormessage"></div>
-
+            <form role="form" class="contactForm">
               <div class="row">
                 <div class="span4 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validation"></div>
+                  <input type="text" v-model="form.contact_name" name="contact_name" class="form-control" id="name" :class="{ 'is-invalid': form.errors.has('contact_name') }" placeholder="Your Name" data-rule="minlen:4"  />
+                    <has-error :form="form" field="contact_name"></has-error>
                 </div>
                 <div class="span4 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validation"></div>
+                  <input type="email" v-model="form.contact_email" name="contact_email" class="form-control" id="email" :class="{ 'is-invalid': form.errors.has('contact_email') }" placeholder="Your Email" data-rule="email"  />
+                      <has-error :form="form" field="contact_email"></has-error>
                 </div>
                 <div class="span4 form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                  <div class="validation"></div>
+                  <input type="text" v-model="form.contact_subject" name="contact_subject" class="form-control" id="subject" :class="{ 'is-invalid': form.errors.has('contact_subject') }" placeholder="Subject" data-rule="minlen:4"  />
+                      <has-error :form="form" field="contact_subject"></has-error>
                 </div>
                 <div class="span12 margintop10 form-group">
-                  <textarea class="form-control" name="message" rows="12" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                  <div class="validation"></div>
+                  <textarea v-model="form.contact_message" name="contact_message" class="form-control" rows="12" :class="{ 'is-invalid': form.errors.has('contact_message') }" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                      <has-error :form="form" field="contact_message"></has-error>
                   <p class="text-center">
-                    <button class="btn btn-large btn-theme margintop10" type="submit">Submit message</button>
+                    <button @click.prevent="saveContact()" class="btn btn-large btn-theme margintop10" type="submit">Submit message</button>
                   </p>
                 </div>
               </div>
@@ -58,7 +53,34 @@
 
 <script>
 export default {
-    name: "Contact"
+    name: "Contact",
+
+    data() {
+        return {
+            form: new Form({
+                contact_name:       '',
+                contact_email:      '',
+                contact_subject:    '',
+                contact_message:    '',
+            })
+        }
+    },
+
+    methods: {
+        saveContact() {
+            this.form.post('/save-contact').then(() => {
+                Swal.fire({
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'เราได้รับข้อความของคุณเรียบร้อยแล้ว',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+                this.$router.push('/')
+            })
+        },
+    },
 }
 </script>
 
@@ -70,5 +92,11 @@ export default {
     .btn-theme:hover {
         border: 1px solid #333333;
         background: #333333;
+    }
+
+    .help-block, .help-inline {
+        color: red;
+        font-size: 1.6em;
+
     }
 </style>
