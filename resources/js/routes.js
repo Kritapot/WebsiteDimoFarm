@@ -15,6 +15,8 @@ import ContactUs    from './components/public/Contact.vue'
 import BlogPost     from './components/public/blog/BlogPost.vue'
 import BlogSingle   from './components/public/blog/BlogSingle.vue'
 import AboutUs      from './components/public/AboutUs.vue'
+import Slide        from './components/public/Slide.vue'
+import Portfolio    from './components/public/Portfolio.vue'
 
 
 
@@ -81,6 +83,16 @@ export const routes = [
     {
         path: '/about-us',
         component: AboutUs
+    },
+
+    {
+        path: '/slide',
+        component: Slide
+    },
+
+    {
+        path: '/portfolio',
+        component: Portfolio
     },
 
 

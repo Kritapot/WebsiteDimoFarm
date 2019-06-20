@@ -9,7 +9,6 @@ export default  {
         categorySideBar:    [],
         blogPostByCatId:    [],
         lateBlogPost:       [],
-
     },
 
     getters:    {
@@ -40,6 +39,7 @@ export default  {
         getLateBlogPost(state) {
             return state.lateBlogPost
         },
+
     },
 
     actions:    {

@@ -8,8 +8,6 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!-- css -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700"
         rel="stylesheet">
     <link href="{{ asset("assets/public/assets/css") }}/bootstrap.css" rel="stylesheet" />
@@ -19,10 +17,11 @@
     <link href="{{ asset("assets/public/assets/css") }}/flexslider.css" rel="stylesheet" />
     <link href="{{ asset("assets/public/assets/css") }}/style.css" rel="stylesheet" />
     <link href="{{ asset("assets/public/assets/css") }}/style.css" rel="stylesheet" />
+    <link href="{{ asset("assets/public/assets/css") }}/slitslider.css" rel="stylesheet" />
+    <link href="{{ asset('css/fontawesome/css/all.css') }}" rel="stylesheet">
 
-    <!-- Theme skin -->
+
     <link href="{{ asset("assets/public/assets/skins") }}/default.css" rel="stylesheet" />
-    <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
         href="{{ asset("assets/public/assets/ico") }}/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
@@ -32,6 +31,8 @@
     <link rel="apple-touch-icon-precomposed"
         href="{{ asset("assets/public/assets/ico") }}/apple-touch-icon-57-precomposed.png" />
     <link rel="shortcut icon" href="{{ asset("assets/public/assets/ico") }}/favicon.png" />
+    <link href="{{ asset('css/custom-logo.css') }}" rel="stylesheet">
+
 
 </head>
 <body>
@@ -44,9 +45,10 @@
     </div>
 </body>
 <a href="#" class="scrollup"><i class="icon-chevron-up icon-square icon-32 active"></i></a>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.3"></script>
+<script src="{{ asset('css/fontawesome/js/all.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
-<!-- javascript================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
 <script src="{{ asset("assets/public/assets/js") }}/jquery.js"></script>
 <script src="{{ asset("assets/public/assets/js") }}/jquery.easing.1.3.js"></script>
 <script src="{{ asset("assets/public/assets/js") }}/bootstrap.js"></script>
@@ -62,8 +64,6 @@
 <script src="{{ asset("assets/public/assets/js") }}/jquery.ba-cond.min.js"></script>
 <script src="{{ asset("assets/public/assets/js") }}/jquery.slitslider.js"></script>
 <script src="{{ asset("assets/public/assets/js") }}/animate.js"></script>
-
-<!-- Template Custom JavaScript File -->
 <script src="{{ asset("assets/public/assets/js") }}/custom.js"></script>
 
 </html>

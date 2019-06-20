@@ -3,32 +3,22 @@
             <div class="row">
                 <div class="span3">
                     <div class="widget">
-                        <h5 class="widgetheading">Browse pages</h5>
+                        <h5 class="widgetheading">ค้นหา</h5>
                         <ul class="link-list">
-                            <li><a href="#">About our company</a></li>
-                            <li><a href="#">Our services</a></li>
-                            <li><a href="#">Meet our team</a></li>
-                            <li><a href="#">Explore our portfolio</a></li>
-                            <li><a href="#">Get in touch with us</a></li>
+                            <li><router-link to="/">หน้าหลัก</router-link></li>
+                            <li><router-link to="/">บริการของเรา</router-link></li>
+                            <li><router-link to="/about-us">เกี่ยวกับฟาร์มของเรา</router-link></li>
+                            <li><router-link to="/blogpost">บทความ</router-link></li>
+                            <li><router-link to="/contact">ฝากข้อความถึงเรา</router-link></li>
                         </ul>
                     </div>
                 </div>
-                <div class="span3">
+                <div class="span6">
                     <div class="widget">
-                        <h5 class="widgetheading">Important stuff</h5>
-                        <ul class="link-list">
-                            <li><a href="#">Press release</a></li>
-                            <li><a href="#">Terms and conditions</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Career center</a></li>
-                            <li><a href="#">Flattern forum</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="span3">
-                    <div class="widget">
-                        <h5 class="widgetheading">Flickr photostream</h5>
                         <div class="flickr_badge">
+                            <div class="span4">
+                                <div class="fb-page" data-href="https://www.facebook.com/DiMoFarm/" data-tabs="timeline" data-width="300px" data-height="200px" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/DiMoFarm/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/DiMoFarm/">DimoFarm</a></blockquote></div>
+                            </div>
                         </div>
                         <div class="clear">
                         </div>
@@ -36,9 +26,9 @@
                 </div>
                 <div class="span3">
                     <div class="widget">
-                        <h5 class="widgetheading">Get in touch with us</h5>
+                        <h5 class="widgetheading">ติดต่อเราได้ที่</h5>
                         <address>
-                            <strong>Flattern studio, Pte Ltd</strong><br>
+                            <strong>ดีโม่ฟาร์ม ฟาร์มสุนัขพันธุ์เล็กเชียงใหม่</strong><br>
                             Springville center X264, Park Ave S.01<br>
                             Semarang 16425 Indonesia
                         </address>
@@ -56,15 +46,9 @@
                     <div class="span6">
                         <div class="copyright">
                             <p>
-                                <span>&copy; Flattern - All right reserved.</span>
+                                <span>&copy; DimoFarm - All right reserved.</span>
                             </p>
                             <div class="credits">
-                                <!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Flattern
-            -->
                                 Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
                             </div>
                         </div>

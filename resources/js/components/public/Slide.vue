@@ -1,67 +1,50 @@
 <template>
     <div id="slide-main">
         <section id="featured">
-            <!-- start slider -->
-            <!-- Slider -->
-            <div id="nivo-slider">
-                <div class="nivo-slider">
-                    <!-- Slide #1 image -->
-                    <img :src="`assets/public/assets/img/slides/nivo/bg-1.jpg`" alt="" title="#caption-1" />
-                    <!-- Slide #2 image -->
-                    <img :src="`assets/public/assets/img/slides/nivo/bg-2.jpg`" alt="" title="#caption-2" />
-                    <!-- Slide #3 image -->
-                    <img :src="`assets/public/assets/img/slides/nivo/bg-3.jpg`" alt="" title="#caption-3" />
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                            <!-- Slide #1 caption -->
-                            <div class="nivo-caption" id="caption-1">
-                                <div>
-                                    <h2>Awesome <strong>features</strong></h2>
-                                    <p>
-                                        Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget.
-                                        Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec
-                                        vivamus.
-                                    </p>
-                                    <a href="#" class="btn btn-theme">Read More</a>
-                                </div>
-                            </div>
-                            <!-- Slide #2 caption -->
-                            <div class="nivo-caption" id="caption-2">
-                                <div>
-                                    <h2>Fully <strong>responsive</strong></h2>
-                                    <p>
-                                        Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget.
-                                        Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec
-                                        vivamus.
-                                    </p>
-                                    <a href="#" class="btn btn-theme">Read More</a>
-                                </div>
-                            </div>
-                            <!-- Slide #3 caption -->
-                            <div class="nivo-caption" id="caption-3">
-                                <div>
-                                    <h2>Very <strong>customizable</strong></h2>
-                                    <p>
-                                        Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget.
-                                        Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec
-                                        vivamus.
-                                    </p>
-                                    <a href="#" class="btn btn-theme">Read More</a>
+            <div id="slider" class="sl-slider-wrapper demo-2">
+                <div class="sl-slider" style="width: 1200px; height: 500px;">
+                    <div class="sl-slides-wrapper">
+                        <div class="sl-slide sl-slide-horizontal sl-trans-elems" data-orientation="horizontal"
+                            data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2"
+                            data-slice2-scale="1" style="display: block; z-index: 1;">
+                            <div class="sl-content-wrapper" style="width: 1200px; height: 485px;">
+                                <div class="sl-content">
+                                    <div class="sl-slide-inner">
+                                        <div class="bg-img bg-img-3">
+                                        </div>
+                                        <h2 class="t-header"><strong>ยินดีต้อนรับสู่ฟาร์มสุนัขเชียงใหม่</strong> ดีโม่ฟาร์ม</h2>
+                                        <blockquote>
+                                            <p class="t-p">
+                                                ฟาร์มปิดขนาดกลาง ไม่ออกขายตลาด รับประกันปลอดโรค เลี้ยงเองขายที่่บ้าน สำหรับเชียงใหม่ อำเภอใกล้เคียงส่งฟรีจร้า
+                                            </p>
+                                            <cite class="t-p">Tel:  082-6113223</cite>
+                                            <cite class="t-p">Line ID : dimofarm</cite>
+                                            <cite class="t-p">Facebook : <a href="https://www.facebook.com/DiMoFarm/">Click</a></cite>
+                                        </blockquote>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- end slider -->
         </section>
     </div>
 </template>
 
 <script>
-export default {
-    name: "Slide"
-}
+    export default {
+        name: "Slide",
+    }
+
 </script>
+
+<style scoped>
+    .t-header {
+        font-size: 3.5em;
+    }
+
+    .t-p {
+        font-size: 1.0em;
+    }
+</style>

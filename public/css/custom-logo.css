@@ -1,0 +1,18 @@
+.logo .t-logo {
+    font-size: 3.5em;
+    font-family: fantasy;
+}
+
+.logo .t-logo-2 {
+    font-size: 3em;
+    font-family: fantasy;
+    color: #555;
+}
+
+.logo .t-logo-2:hover {
+    color: rgb(56, 55, 55);
+}
+
+.logo .t-logo:hover {
+    color: #6793da;
+}

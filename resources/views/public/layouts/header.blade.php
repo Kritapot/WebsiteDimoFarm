@@ -4,9 +4,9 @@
                                 <div class="row">
                                     <div class="span12">
                                         <ul>
-                                            <li><strong>We are available for any custom works this month</strong></li>
-                                            <li>Main office: Springville center X264, Park Ave S.01</li>
-                                            <li>Call us <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891</li>
+                                            <li><strong>ขณะนี้ฟาร์มปิดทำการ</strong></li>
+                                            <li>ติดต่อเรา <i class="icon-phone"></i> 082-6113223</li>
+                                            <li><i class="icon-facebook"></i> <a href="https://www.facebook.com/DiMoFarm/">DimoFarm</a></li>
                                             <li><a href="{{ url('/administrator') }}"><i class="icon-user"></i>Sign in</a></li>
                                         </ul>
                                     </div>
@@ -33,8 +33,12 @@
                                 <div class="row">
                                     <div class="span4">
                                         <div class="logo">
-                                            <router-link to="/"><img :src="`assets/public/assets/img/logo.png`" alt="" class="logo" /></router-link>
-                                            <h1>ฟาร์มสุนัขพันธุ์เล็ก เชียงใหม่</h1>
+                                            <router-link to="/" style="text-decoration: none">
+                                                    <p><span class="t-logo">D</span>
+                                                        <span class="t-logo-2">imoFarm</span>
+                                                    </p>
+                                            </router-link>
+                                            <h1 style="font-size: 1.4em">ฟาร์มสุนัขพันธุ์เล็ก เชียงใหม่</h1>
                                         </div>
                                     </div>
                                     <div class="span8">
@@ -50,7 +54,7 @@
                                                         </li>
 
                                                         <li class="dropdown">
-                                                            <a href="#">Portfolio </a>
+                                                            <router-link to="/portfolio">Portfolio </router-link>
                                                         </li>
                                                         <li>
                                                             <router-link to="/blogpost">บทความ</router-link>
