@@ -57,7 +57,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/count-post', 'PostController@count_post_all');
 
     Route::delete('/delete-contact/{id}', 'ContactController@delete_contact');
-    Route::get('/get-contact', 'ContactController@get_all_contact');
+    Route::get('/contact', 'ContactController@get_all_contact');
+    Route::get('/contact/{id}', 'ContactController@get_by_contact_id');
 });
 
 

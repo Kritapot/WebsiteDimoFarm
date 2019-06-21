@@ -33,6 +33,7 @@
                                     <td>{{ contact.contact_subject }}</td>
                                     <td>{{ contact.contact_message | sortlength(40, '.....') }}</td>
                                     <td>
+                                        <router-link :to="`contact-admin/${contact.id}`" class="btn btn-primary btn-sm btn-list-contact">ดูรายละเอียด</router-link>
                                         <button @click.prevent="deleteContact(contact.id)" type="button" class="btn btn-danger btn-sm btn-list-contact">ลบ</button>
                                     </td>
 

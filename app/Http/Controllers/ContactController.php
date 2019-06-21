@@ -43,7 +43,7 @@ class ContactController extends Controller
      */
     public function get_all_contact()
     {
-        $getAllContact      =   $this->contact->get();
+        $getAllContact      =   $this->contact->orderBy('id', 'desc')->get();
 
         return response()->json([
             'allContact'  =>  $getAllContact
@@ -59,6 +59,15 @@ class ContactController extends Controller
     public function delete_contact($id)
     {
         $this->contact->where('id', $id)->delete();
+    }
+
+
+    public function get_by_contact_id($id) {
+        $contactById        =       $this->contact->where('id', $id)->get();
+
+        return response()->json([
+            'contactById'  =>  $contactById
+        ], 200);
     }
 
 }

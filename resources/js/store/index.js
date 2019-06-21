@@ -12,6 +12,7 @@ export default  {
         contact:            [],
         countCategory:      [],
         countPost:          [],
+        findContact:        [],
 
     },
 
@@ -54,6 +55,10 @@ export default  {
 
         getCountPost(state) {
             return state.countPost
+        },
+
+        getFindContact(state) {
+            return state.findContact
         },
     },
 
@@ -119,7 +124,7 @@ export default  {
         },
 
         allContact(context) {
-            Axios.get('/get-contact').then((respon) => {
+            Axios.get('/contact').then((respon) => {
                 context.commit('allContact', respon.data.allContact)
             })
         },
@@ -135,6 +140,13 @@ export default  {
             Axios.get('/count-post').then((respon) => {
                 console.log(respon.data.countCategory)
                 context.commit('countPost', respon.data.countPost)
+            })
+        },
+
+        ApiFindContact(context, playload) {
+            Axios.get('/contact/'+playload).then((respon) => {
+                console.log(respon.data.contactById)
+                context.commit('contactById', respon.data.contactById)
             })
         },
     },
@@ -190,6 +202,10 @@ export default  {
 
         countPost(state, playload) {
             return state.countPost  =   playload
+        },
+
+        contactById(state, playload) {
+            return state.findContact    =   playload
         }
     }
 }
