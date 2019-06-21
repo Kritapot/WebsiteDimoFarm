@@ -50,7 +50,12 @@ class ContactController extends Controller
         ], 200);
     }
 
-
+    /**
+     * delete function
+     *
+     * @param $id
+     * @return Model App\Contact
+     */
     public function delete_contact($id)
     {
         $this->contact->where('id', $id)->delete();

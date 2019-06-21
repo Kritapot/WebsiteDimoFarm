@@ -23,7 +23,7 @@
             <div class="container">
                 <div class="row">
                 <div class="span6">
-                    <h2>เกี่ยวกับเรา ดีโม่ฟาร์ม</h2>
+                    <h2>ดีโม่ฟาร์ม</h2>
                     <p class="t-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     เราคือฟาร์มปิดขนาดกลาง ไม่ออกขายตลาด รับประกันปลอดโรค เลี้ยงเองขายที่่บ้าน สำหรับเชียงใหม่อำเภอใกล้เคียง เรามีบริการส่งฟรี
                     </p>
@@ -85,5 +85,15 @@ export default {
     .t-p {
         font-size: 1.7em;
         line-height: 1.5em;
+    }
+
+    .span6 h2 {
+        font-family: 'Mali', cursive;
+        font-weight:600
+    }
+
+    .span6 p {
+        font-family: 'Mali', cursive;
+        font-size: 2.2em;
     }
 </style>

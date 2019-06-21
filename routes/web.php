@@ -58,7 +58,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::delete('/delete-contact/{id}', 'ContactController@delete_contact');
     Route::get('/get-contact', 'ContactController@get_all_contact');
-
 });
 
 

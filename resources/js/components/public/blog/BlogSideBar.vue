@@ -11,8 +11,8 @@
               <div class="widget">
                 <h5 class="widgetheading">โพสล่าสุด</h5>
                 <ul class="recent">
-                  <li v-for="(blogPost, index) in getAllBlogPost" v-if="index < 5" :key="blogPost.id">
-                    <img :src="`uploadimage/${blogPost.photo}`" alt="" width="40" height="80" />
+                  <li v-for="(blogPost, index) in getAllBlogPost" v-show="index<3" :key="blogPost.id">
+                    <img :src="`uploadimage/${blogPost.photo}`" alt="" width="80" height="80" />
                     <h6>
                       <router-link :to="`/blogpost/${blogPost.id}`">{{ blogPost.title }}</router-link>
                     </h6>
@@ -58,6 +58,19 @@ export default {
 </script>
 
 <style scoped>
+    .widget .widgetheading {
+        font-family: 'Mali', cursive;
+        font-weight:600
+    }
 
+    .widget h6 {
+        font-family: 'Mali', cursive;
+        font-weight:600
+    }
+
+    .widget p {
+        font-family: 'Mali', cursive;
+        font-size: 1.4em;
+    }
 </style>
 

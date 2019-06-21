@@ -44,8 +44,7 @@ export default  {
 
         getListContact(state) {
             return state.contact
-        }
-
+        },
     },
 
     actions:    {
@@ -97,9 +96,8 @@ export default  {
             })
         },
 
-        searchByPostName(context, playload=1) {
+        searchByPostName(context, playload) {
             Axios.get('/search-by-post?s='+playload).then((respon) => {
-                console.log(respon.data.searchByPost)
                 context.commit('searchByPost', respon.data.searchByPost)
             })
         },
@@ -114,8 +112,7 @@ export default  {
             Axios.get('/get-contact').then((respon) => {
                 context.commit('allContact', respon.data.allContact)
             })
-        }
-
+        },
     },
 
     mutations:  {
@@ -162,6 +159,5 @@ export default  {
         allContact(state, playload) {
             return state.contact   =   playload
         },
-
     }
 }

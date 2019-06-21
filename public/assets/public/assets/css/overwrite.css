@@ -940,7 +940,7 @@ font-size: 10px;
 
 .navbar .nav > li > a {
   float: none;
-  font-size:18px;
+  font-size:20px;
   padding: 10px 0 10px;
   margin-left:20px;
   margin-right:0;
@@ -949,6 +949,7 @@ font-size: 10px;
   text-shadow: none;
   border-right:none;
   border-left:none;
+  font-family: 'Mali', cursive;
 }
 
 .navbar .nav > li > a:hover,

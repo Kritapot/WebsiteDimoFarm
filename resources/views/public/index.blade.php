@@ -32,7 +32,7 @@
         href="{{ asset("assets/public/assets/ico") }}/apple-touch-icon-57-precomposed.png" />
     <link rel="shortcut icon" href="{{ asset("assets/public/assets/ico") }}/favicon.png" />
     <link href="{{ asset('css/custom-logo.css') }}" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Mali&display=swap" rel="stylesheet">
 
 </head>
 <body>

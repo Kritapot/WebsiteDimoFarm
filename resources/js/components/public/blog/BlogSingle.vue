@@ -89,6 +89,7 @@ export default {
         $route(to, from) {
             this.$Progress.start()
             this.blogPostSingle();
+            this.$Progress.finish()
         }
     },
 
@@ -102,7 +103,13 @@ export default {
     }
 
     .text-p {
+        font-family: 'Mali', cursive;
         font-size: 1.6em;
+    }
+
+    .post-heading h2 {
+        font-family: 'Mali', cursive;
+        font-weight:600
     }
 </style>
 

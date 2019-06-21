@@ -38,7 +38,7 @@
                                                         <span class="t-logo-2">imoFarm</span>
                                                     </p>
                                             </router-link>
-                                            <h1 style="font-size: 1.4em">ฟาร์มสุนัขพันธุ์เล็ก เชียงใหม่</h1>
+                                            <h1 style="font-size: 1.4em; font-family: 'Mali', cursive; font-weight: 600;">ฟาร์มสุนัขพันธุ์เล็ก เชียงใหม่</h1>
                                         </div>
                                     </div>
                                     <div class="span8">

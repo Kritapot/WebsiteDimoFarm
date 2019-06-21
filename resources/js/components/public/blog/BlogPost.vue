@@ -107,5 +107,13 @@ export default {
 </script>
 
 <style scoped>
+    .post-heading h3 {
+        font-family: 'Mali', cursive;
+        font-weight:600
+    }
 
+    .span8 p {
+        font-family: 'Mali', cursive;
+        font-size: 1.8em;
+    }
 </style>

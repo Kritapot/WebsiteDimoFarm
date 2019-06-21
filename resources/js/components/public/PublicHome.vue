@@ -6,7 +6,7 @@
                 <!-- สุนัขใหม่ประจำเดือน -->
                 <div class="row">
                     <div class="span12">
-                        <h4 class="heading">ลูกสุนัขพันธ์ุเล็กของฟาร์มประจำเดือน</h4>
+                        <h4 class="heading" style="font-family: 'Mali', cursive; font-weight:600">ลูกสุนัขพันธ์ุเล็กของฟาร์มประจำเดือน</h4>
                         <div class="row">
                         <section id="projects">
                             <ul id="thumbs" class="portfolio">
@@ -52,7 +52,7 @@
                                     <div class="aligncenter icon">
                                         <i class="icon-heart icon-circled icon-64 active"></i>
                                     </div>
-                                    <div class="text">
+                                    <div class="text service">
                                         <h6>จำหน่ายสุนัขพันธ์เล็ก</h6>
                                         <p>
                                             ฟาร์มของเราจำหน่ายสุนัขพันธ์ุเล็ก มีทั้ง มิเนียเจอร์ ชิวาวา ปอมเมอเรเนียน สามารถเข้ามาเยี่ยมชมฟาร์มของเราได้
@@ -120,5 +120,15 @@ import Slide from './Slide.vue'
 </script>
 
 <style scoped>
+
+    .text h6 {
+        font-family: 'Mali', cursive;
+        font-weight:600
+    }
+
+    .text p {
+        font-family: 'Mali', cursive;
+        font-size: 1.4em;
+    }
 
 </style>
