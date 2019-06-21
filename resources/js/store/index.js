@@ -10,6 +10,8 @@ export default  {
         blogPostByCatId:    [],
         lateBlogPost:       [],
         contact:            [],
+        countCategory:      [],
+        countPost:          [],
 
     },
 
@@ -44,6 +46,14 @@ export default  {
 
         getListContact(state) {
             return state.contact
+        },
+
+        getCountCategory(state) {
+            return state.countCategory
+        },
+
+        getCountPost(state) {
+            return state.countPost
         },
     },
 
@@ -113,6 +123,20 @@ export default  {
                 context.commit('allContact', respon.data.allContact)
             })
         },
+
+        ApicountCategory(context) {
+            Axios.get('/count-category').then((respon) => {
+                console.log(respon.data.countCategory)
+                context.commit('countCategory', respon.data.countCategory)
+            })
+        },
+
+        ApicountPost(context) {
+            Axios.get('/count-post').then((respon) => {
+                console.log(respon.data.countCategory)
+                context.commit('countPost', respon.data.countPost)
+            })
+        },
     },
 
     mutations:  {
@@ -159,5 +183,13 @@ export default  {
         allContact(state, playload) {
             return state.contact   =   playload
         },
+
+        countCategory(state, playload) {
+            return state.countCategory  =   playload
+        },
+
+        countPost(state, playload) {
+            return state.countPost  =   playload
+        }
     }
 }

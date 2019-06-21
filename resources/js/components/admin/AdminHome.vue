@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Dashboard</h1>
+                        <h1>ยินดีต้อนรับสู่ระบบจัดการเว็บไซต์</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -12,47 +12,34 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-6">
+                    <div class="col-lg-6 col-6">
                         <!-- small box -->
                         <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>150</h3>
+                            <div class="inner text-center">
+                                <h3>{{ countCategoryTotal }}</h3>
                                 <h4>ประเภทบทความ</h4>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="#" class="small-box-footer">ดูทั้งหมด <i class="fa fa-arrow-circle-right"></i></a>
+                            <router-link to="/category-list" class="small-box-footer">ดูทั้งหมด <i class="fa fa-arrow-circle-right"></i></router-link>
                         </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-lg-4 col-6">
+                    <div class="col-lg-6 col-6">
                         <!-- small box -->
                         <div class="small-box bg-success">
-                            <div class="inner">
-                                <h3>53</h3>
+                            <div class="inner text-center">
+                                <h3>{{countPostTotal}}</h3>
                                 <h4>บทความ</h4>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">ดูทั้งหมด <i class="fa fa-arrow-circle-right"></i></a>
+                            <router-link to="/post-list" class="small-box-footer">ดูทั้งหมด <i class="fa fa-arrow-circle-right"></i></router-link>
                         </div>
                     </div>
                     <!-- ./col -->
-                    <div class="col-lg-4 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-warning">
-                            <div class="inner">
-                                <h3>44</h3>
-                                <h4>กล่องข้อความ</h4>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">ดูทั้งหมด <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
@@ -62,3 +49,29 @@
         </section>
     </div>
 </template>
+
+<script>
+    export default {
+    name: "AdminHome",
+
+    mounted() {
+        this.$store.dispatch('ApicountCategory')
+        this.$store.dispatch('ApicountPost')
+    },
+
+    computed: {
+        countCategoryTotal() {
+            return this.$store.getters.getCountCategory
+        },
+
+        countPostTotal() {
+            return this.$store.getters.getCountPost
+        },
+    },
+
+    methods: {
+
+    },
+
+    }
+</script>
