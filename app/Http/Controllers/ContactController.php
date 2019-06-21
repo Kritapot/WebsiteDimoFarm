@@ -36,4 +36,24 @@ class ContactController extends Controller
         $saveContact->save();
     }
 
+    /**
+     * get all list contact function
+     *
+     * @return jsonData
+     */
+    public function get_all_contact()
+    {
+        $getAllContact      =   $this->contact->get();
+
+        return response()->json([
+            'allContact'  =>  $getAllContact
+        ], 200);
+    }
+
+
+    public function delete_contact($id)
+    {
+        $this->contact->where('id', $id)->delete();
+    }
+
 }

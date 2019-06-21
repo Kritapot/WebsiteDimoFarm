@@ -45,6 +45,7 @@ class CategoryController extends Controller
             'categories'    =>  $categories
         ], 200);
     }
+
     /**
      * Delete function
      *

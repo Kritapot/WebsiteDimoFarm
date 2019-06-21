@@ -8,6 +8,9 @@ import PostList from './components/admin/post/List.vue'
 import AddPost  from './components/admin/post/New.vue'
 import EditPost from './components/admin/post/Edit.vue'
 
+//Contact
+import ContactAdmin from './components/admin/contact/List.vue'
+import SingleContact from './components/admin/contact/SingleContact.vue'
 
 //Fontend BlogHome
 import PublicHome   from './components/public/PublicHome.vue'
@@ -57,6 +60,17 @@ export const routes = [
         path: '/edit-post/:postId',
         component: EditPost
     },
+
+    {
+        path: '/contact-admin',
+        component: ContactAdmin
+    },
+
+    {
+        path: '/single-contact-admin/:id',
+        component: SingleContact
+    },
+
 
     //Fontend BlogHome Page
     {

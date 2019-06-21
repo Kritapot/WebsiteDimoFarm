@@ -9,6 +9,8 @@ export default  {
         categorySideBar:    [],
         blogPostByCatId:    [],
         lateBlogPost:       [],
+        contact:            [],
+
     },
 
     getters:    {
@@ -39,6 +41,10 @@ export default  {
         getLateBlogPost(state) {
             return state.lateBlogPost
         },
+
+        getListContact(state) {
+            return state.contact
+        }
 
     },
 
@@ -91,8 +97,9 @@ export default  {
             })
         },
 
-        searchByPostName(context, playload) {
+        searchByPostName(context, playload=1) {
             Axios.get('/search-by-post?s='+playload).then((respon) => {
+                console.log(respon.data.searchByPost)
                 context.commit('searchByPost', respon.data.searchByPost)
             })
         },
@@ -102,6 +109,12 @@ export default  {
                 context.commit('lateBlogPost', respon.data.latePost)
             })
         },
+
+        allContact(context) {
+            Axios.get('/get-contact').then((respon) => {
+                context.commit('allContact', respon.data.allContact)
+            })
+        }
 
     },
 
@@ -144,6 +157,10 @@ export default  {
 
         searchByPost(state, playload) {
             state.post   =   playload
+        },
+
+        allContact(state, playload) {
+            return state.contact   =   playload
         },
 
     }

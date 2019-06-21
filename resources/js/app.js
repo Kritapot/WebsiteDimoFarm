@@ -8,11 +8,17 @@ Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 window.Form = Form;
 
+//pagination
+Vue.component('pagination', require('laravel-vue-pagination'));
+
+
 //moment js
 import moment from 'moment'
 Vue.filter('timeformat', (arg) => {
     return moment(arg).format('MMMM Do YYYY, h:mm:ss a')
 })
+
+
 // sortlink
 Vue.filter('sortlength',function (text,length,suffix) {
     return text.substring(0,length)+suffix;
@@ -25,6 +31,7 @@ import storeData from './store/index.js'
 const store = new Vuex.Store(
     storeData
 )
+
 
 //vue progress-bar
 import VueProgressBar from 'vue-progressbar'
@@ -54,6 +61,8 @@ const router = new VueRouter({
 const app = new Vue({
     router,
     store,
+
+
 
 }).$mount('#adminmaster');
 

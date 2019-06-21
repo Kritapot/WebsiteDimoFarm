@@ -60,7 +60,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <router-link to="" class="nav-link">
+                            <router-link to="/contact-admin" class="nav-link">
                                 <i class="fas fa-inbox"></i>
                                 <p>
                                     กล่องข้อความ
