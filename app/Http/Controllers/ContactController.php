@@ -23,9 +23,10 @@ class ContactController extends Controller
     {
         $this->validate($request, [
 
-            'contact_name'    =>'required|min:2|max:50',
-            'contact_email'   =>'required|min:2|max:50',
-
+            'contact_name'          =>'required|min:2|max:50',
+            'contact_email'         =>'required|min:2|max:50',
+            'contact_subject'       =>'required|min:2|max:100',
+            'contact_message'       =>'required|min:2|max:1000'
         ]);
 
         $saveContact                        =       new Contact();
