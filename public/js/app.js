@@ -4604,7 +4604,7 @@ __webpack_require__.r(__webpack_exports__);
         });
         Toast.fire({
           type: 'success',
-          title: 'ลบประเภทเรียบร้อยแล้ว'
+          title: 'ลบข้อความเรียบร้อยแล้ว'
         });
       })["catch"](function (e) {
         console.log(e);
@@ -4693,7 +4693,28 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getFindContact;
     }
   },
-  methods: {}
+  methods: {
+    deleteContact: function deleteContact(id) {
+      var _this = this;
+
+      axios["delete"]('/delete-contact/' + id).then(function () {
+        _this.$router.push('/contact-admin');
+
+        var Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        });
+        Toast.fire({
+          type: 'success',
+          title: 'ลบข้อความเรียบร้อยแล้ว'
+        });
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -63080,95 +63101,89 @@ var render = function() {
   return _c("div", [
     _c("section", { staticClass: "content" }, [
       _c("div", { staticClass: "row justify-content-around" }, [
-        _c("div", { staticClass: "col-lg-12 col-xs-12" }, [
-          _c(
-            "div",
-            { staticClass: "card" },
-            [
-              _vm._m(0),
+        _c(
+          "div",
+          { staticClass: "col-lg-12 col-xs-12" },
+          _vm._l(_vm.contactFindId, function(contact) {
+            return _c("div", { key: contact.id, staticClass: "card" }, [
+              _vm._m(0, true),
               _vm._v(" "),
-              _vm._l(_vm.contactFindId, function(contact) {
-                return _c(
-                  "div",
-                  { key: contact.id, staticClass: "card-body" },
-                  [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-sm-2 control-label",
-                          attrs: { for: "inputEmail3" }
-                        },
-                        [_vm._v("ชื่อผู้ติดต่อ:")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-10" }, [
-                        _c("p", [_vm._v(_vm._s(contact.contact_name))])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-sm-2 control-label",
-                          attrs: { for: "inputEmail3" }
-                        },
-                        [_vm._v("อีเมล์:")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-10" }, [
-                        _c("p", [_vm._v(_vm._s(contact.contact_email))])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-sm-2 control-label",
-                          attrs: { for: "inputEmail3" }
-                        },
-                        [_vm._v("วันที่ส่ง:")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-10" }, [
-                        _c("p", [_vm._v(_vm._s(contact.created_at))])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-sm-2 control-label",
-                          attrs: { for: "inputEmail3" }
-                        },
-                        [_vm._v("หัวข้อ:")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-10" }, [
-                        _c("p", [_vm._v(_vm._s(contact.contact_subject))])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-sm-2 control-label",
-                          attrs: { for: "inputEmail3" }
-                        },
-                        [_vm._v("ข้อความ:")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-sm-10" }, [
-                        _c("p", [_vm._v(_vm._s(contact.contact_message))])
-                      ])
-                    ])
-                  ]
-                )
-              }),
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 control-label",
+                      attrs: { for: "inputEmail3" }
+                    },
+                    [_vm._v("ชื่อผู้ติดต่อ:")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("p", [_vm._v(_vm._s(contact.contact_name))])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 control-label",
+                      attrs: { for: "inputEmail3" }
+                    },
+                    [_vm._v("อีเมล์:")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("p", [_vm._v(_vm._s(contact.contact_email))])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 control-label",
+                      attrs: { for: "inputEmail3" }
+                    },
+                    [_vm._v("วันที่ส่ง:")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("p", [_vm._v(_vm._s(contact.created_at))])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 control-label",
+                      attrs: { for: "inputEmail3" }
+                    },
+                    [_vm._v("หัวข้อ:")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("p", [_vm._v(_vm._s(contact.contact_subject))])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-2 control-label",
+                      attrs: { for: "inputEmail3" }
+                    },
+                    [_vm._v("ข้อความ:")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("p", [_vm._v(_vm._s(contact.contact_message))])
+                  ])
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -63187,17 +63202,23 @@ var render = function() {
                     "button",
                     {
                       staticClass: "btn btn-danger",
-                      attrs: { type: "button" }
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.deleteContact(contact.id)
+                        }
+                      }
                     },
                     [_vm._v("ลบ")]
                   )
                 ],
                 1
               )
-            ],
-            2
-          )
-        ])
+            ])
+          }),
+          0
+        )
       ])
     ])
   ])

@@ -3,13 +3,13 @@
         <section class="content">
             <div class="row justify-content-around">
                 <div class="col-lg-12 col-xs-12">
-                    <div class="card">
+                    <div class="card" v-for="contact in contactFindId" :key="contact.id">
                             <div class="card-header">
                                 <h2 class="card-title">รายละเอียดข้อความ</h2>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                                <div class="card-body" v-for="contact in contactFindId" :key="contact.id">
+                                <div class="card-body">
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-sm-2 control-label">ชื่อผู้ติดต่อ:</label>
                                         <div class="col-sm-10">
@@ -44,7 +44,7 @@
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <router-link to="/contact-admin" class="btn btn-primary">กลับไป</router-link>
-                                    <button type="button" class="btn btn-danger">ลบ</button>
+                                    <button @click.prevent="deleteContact(contact.id)" type="button" class="btn btn-danger">ลบ</button>
                                 </div>
                                 <!-- /.card-footer -->
                         <!-- /.card-body -->
@@ -72,7 +72,24 @@
         },
 
         methods: {
+            deleteContact(id) {
+                axios.delete('/delete-contact/'+id).then(() => {
+                    this.$router.push('/contact-admin')
+                    const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
 
+                        Toast.fire({
+                            type: 'success',
+                            title: 'ลบข้อความเรียบร้อยแล้ว'
+                        })
+                }).catch((e) => {
+                    console.log(e)
+                })
+            },
         },
     }
 

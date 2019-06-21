@@ -85,7 +85,7 @@
 
                         Toast.fire({
                             type: 'success',
-                            title: 'ลบประเภทเรียบร้อยแล้ว'
+                            title: 'ลบข้อความเรียบร้อยแล้ว'
                         })
                 }).catch((e) => {
                     console.log(e)
