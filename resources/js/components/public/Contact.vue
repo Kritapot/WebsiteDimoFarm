@@ -39,7 +39,7 @@
                   <textarea v-model="form.contact_message" name="contact_message" class="form-control" rows="12" :class="{ 'is-invalid': form.errors.has('contact_message') }" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                       <has-error :form="form" field="contact_message"></has-error>
                   <p class="text-center">
-                    <button @click.prevent="saveContact()" class="btn btn-large btn-theme margintop10" type="submit">Submit message</button>
+                    <button @click.prevent="saveContact()" class="btn btn-large btn-theme margintop10" type="submit">ส่งข้อความ</button>
                   </p>
                 </div>
               </div>

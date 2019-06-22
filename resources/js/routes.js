@@ -12,6 +12,9 @@ import EditPost from './components/admin/post/Edit.vue'
 import ContactAdmin             from './components/admin/contact/List.vue'
 import SingleContactAdmin       from './components/admin/contact/Single.vue'
 
+//AboutUs
+import AboutUsAdmin             from './components/admin/about/AboutUs.vue'
+
 
 //Fontend BlogHome
 import PublicHome   from './components/public/PublicHome.vue'
@@ -71,6 +74,12 @@ export const routes = [
         path: '/contact-admin/:id',
         component: SingleContactAdmin
     },
+
+    {
+        path: '/about-us-admin',
+        component: AboutUsAdmin
+    },
+
 
 
     //Fontend BlogHome Page
