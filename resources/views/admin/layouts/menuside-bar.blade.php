@@ -76,7 +76,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <router-link to="" class="nav-link">
+                            <router-link to="/our-service" class="nav-link">
                                 <i class="fas fa-bone"></i>
                                 <p>
                                     บริการของเรา

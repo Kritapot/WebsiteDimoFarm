@@ -15,6 +15,9 @@ import SingleContactAdmin       from './components/admin/contact/Single.vue'
 //AboutUs
 import AboutUsAdmin             from './components/admin/about/AboutUs.vue'
 
+//OurService
+import OurService             from './components/admin/our-service/OurService.vue'
+
 
 //Fontend BlogHome
 import PublicHome   from './components/public/PublicHome.vue'
@@ -78,6 +81,11 @@ export const routes = [
     {
         path: '/about-us-admin',
         component: AboutUsAdmin
+    },
+
+    {
+        path: '/our-service',
+        component: OurService
     },
 
 

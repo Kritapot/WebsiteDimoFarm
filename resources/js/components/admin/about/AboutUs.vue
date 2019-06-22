@@ -15,22 +15,18 @@
                                     <div class="col-lg-12 col-sm-12">
                                         <label for="newTitle">หัวข้อ</label>
                                         <input type="text" class="form-control" id="newTitle"
-                                            name="title" placeholder="Title" :class="{ 'is-invalid': form.errors.has('title') }">
-                                        <has-error :form="form" field="title"></has-error>
+                                            name="title" placeholder="Title">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-lg-12 col-sm-12">
                                         <label for="">รายละเอียดบทความ</label>
-                                        <textarea cols="100" rows="10" placeholder="รายละเอียดบทความ"></textarea>
-                                        <has-error :form="form" field="description"></has-error>
-                                    </div>
+                                        <textarea cols="100" rows="10" placeholder="รายละเอียดบทความ"></textarea>                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-lg-12 col-sm-12">
-                                        <input type="file" name="photo" :class="{ 'is-invalid': form.errors.has('photo') }">
+                                        <input type="file" name="photo">
                                         <img>
-                                        <has-error :form="form" field="photo"></has-error>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +46,20 @@
 </template>
 
 <script>
+    export default {
+        name: "OurService",
 
+        mounted() {
+        },
+
+        computed: {
+        },
+
+        methods: {
+
+        },
+
+    }
 </script>
 
 <style scoped>
