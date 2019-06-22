@@ -8,8 +8,6 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700"
-        rel="stylesheet">
     <link href="{{ asset("assets/public/assets/css") }}/bootstrap.css" rel="stylesheet" />
     <link href="{{ asset("assets/public/assets/css") }}/bootstrap-responsive.css" rel="stylesheet" />
     <link href="{{ asset("assets/public/assets/css") }}/fancybox/jquery.fancybox.css" rel="stylesheet">
@@ -19,8 +17,6 @@
     <link href="{{ asset("assets/public/assets/css") }}/style.css" rel="stylesheet" />
     <link href="{{ asset("assets/public/assets/css") }}/slitslider.css" rel="stylesheet" />
     <link href="{{ asset('css/fontawesome/css/all.css') }}" rel="stylesheet">
-
-
     <link href="{{ asset("assets/public/assets/skins") }}/default.css" rel="stylesheet" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
         href="{{ asset("assets/public/assets/ico") }}/apple-touch-icon-144-precomposed.png" />
@@ -32,7 +28,8 @@
         href="{{ asset("assets/public/assets/ico") }}/apple-touch-icon-57-precomposed.png" />
     <link rel="shortcut icon" href="{{ asset("assets/public/assets/ico") }}/favicon.png" />
     <link href="{{ asset('css/custom-logo.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lobster|Mali&display=swap" rel="stylesheet">
+    <link href="{{ asset("fonts") }}/lobster_mali.css" rel="stylesheet">
+    <link href="{{ asset("fonts") }}/noto_serif.css" rel="stylesheet">
 
 </head>
 <body>
