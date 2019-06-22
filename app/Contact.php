@@ -10,4 +10,9 @@ class Contact extends Model
     {
         return $this->belongsTo(User::class, 'id');
     }
+
+    public function getContactSubjectAttribute($value)
+    {
+        return !empty($value) ? $value : "";
+    }
 }
