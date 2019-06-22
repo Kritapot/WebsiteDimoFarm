@@ -8,7 +8,7 @@ Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 window.Form = Form;
 
-//pagination
+//vue pagination
 Vue.component('pagination', require('laravel-vue-pagination'));
 
 
@@ -61,9 +61,7 @@ const router = new VueRouter({
 const app = new Vue({
     router,
     store,
-
-
-
+    
 }).$mount('#adminmaster');
 
 

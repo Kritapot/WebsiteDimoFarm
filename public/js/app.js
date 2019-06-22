@@ -4580,9 +4580,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "List",
   mounted: function mounted() {
-    this.$Progress.start();
-    this.$store.dispatch('allContact');
-    this.$Progress.finish();
+    this.paginationContact();
   },
   computed: {
     getAllContact: function getAllContact() {
@@ -4609,6 +4607,9 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (e) {
         console.log(e);
       });
+    },
+    paginationContact: function paginationContact() {
+      this.$store.dispatch('allContact');
     }
   }
 });
@@ -63612,117 +63613,120 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-responsive table-bordered table-hover",
-                  attrs: { id: "example2" }
-                },
-                [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.getAllPost, function(post, index) {
-                      return _c(
-                        "tr",
-                        { key: post.id },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          post.user_id == 1
-                            ? [_c("td", [_vm._v("SuperAdmin")])]
-                            : [
-                                post.user
-                                  ? _c("td", [_vm._v(_vm._s(post.user.name))])
-                                  : _vm._e()
-                              ],
-                          _vm._v(" "),
-                          post.category
-                            ? _c("td", [_vm._v(_vm._s(post.category.cat_name))])
-                            : _vm._e(),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              _vm._s(
-                                _vm._f("sortlength")(post.title, 20, "---")
-                              )
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              _vm._s(
-                                _vm._f("sortlength")(
-                                  post.description,
-                                  40,
-                                  "...."
-                                )
-                              )
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", { staticClass: "text-center" }, [
-                            _c("img", {
-                              attrs: {
-                                src: _vm.ourImage(post.photo),
-                                alt: "",
-                                width: "100",
-                                height: "100"
-                              }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-success btn-sm btn-list-post",
-                                attrs: { type: "submit" }
-                              },
-                              [
-                                _c(
-                                  "router-link",
-                                  {
-                                    staticClass: "text-white btn-edit-post",
-                                    attrs: { to: "/edit-post/" + post.id }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                                แก้ไข\n                                        "
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            ),
+              _c("div", { staticClass: "table-responsive" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass: "table table-bordered table-hover",
+                    attrs: { id: "example2" }
+                  },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.getAllPost, function(post, index) {
+                        return _c(
+                          "tr",
+                          { key: post.id },
+                          [
+                            _c("td", [_vm._v(_vm._s(index + 1))]),
                             _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-danger btn-sm btn-list-post",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.deletePost(post.id)
-                                  }
+                            post.user_id == 1
+                              ? [_c("td", [_vm._v("SuperAdmin")])]
+                              : [
+                                  post.user
+                                    ? _c("td", [_vm._v(_vm._s(post.user.name))])
+                                    : _vm._e()
+                                ],
+                            _vm._v(" "),
+                            post.category
+                              ? _c("td", [
+                                  _vm._v(_vm._s(post.category.cat_name))
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm._f("sortlength")(post.title, 20, "---")
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm._f("sortlength")(
+                                    post.description,
+                                    40,
+                                    "...."
+                                  )
+                                )
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("td", { staticClass: "text-center" }, [
+                              _c("img", {
+                                attrs: {
+                                  src: _vm.ourImage(post.photo),
+                                  alt: "",
+                                  width: "100",
+                                  height: "100"
                                 }
-                              },
-                              [_vm._v("ลบ")]
-                            )
-                          ])
-                        ],
-                        2
-                      )
-                    }),
-                    0
-                  )
-                ]
-              )
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-success btn-sm btn-list-post",
+                                  attrs: { type: "submit" }
+                                },
+                                [
+                                  _c(
+                                    "router-link",
+                                    {
+                                      staticClass: "text-white btn-edit-post",
+                                      attrs: { to: "/edit-post/" + post.id }
+                                    },
+                                    [
+                                      _vm._v(
+                                        "\n                                                    แก้ไข\n                                            "
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-danger btn-sm btn-list-post",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.deletePost(post.id)
+                                    }
+                                  }
+                                },
+                                [_vm._v("ลบ")]
+                              )
+                            ])
+                          ],
+                          2
+                        )
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
             ])
           ])
         ])
@@ -81670,7 +81674,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component(vform__WEBPACK_IMPORTED_MODULE_0__["HasError"].name, vform__WEBPACK_IMPORTED_MODULE_0__["HasError"]);
 Vue.component(vform__WEBPACK_IMPORTED_MODULE_0__["AlertError"].name, vform__WEBPACK_IMPORTED_MODULE_0__["AlertError"]);
-window.Form = vform__WEBPACK_IMPORTED_MODULE_0__["Form"]; //pagination
+window.Form = vform__WEBPACK_IMPORTED_MODULE_0__["Form"]; //vue pagination
 
 Vue.component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js")); //moment js
 
@@ -83411,10 +83415,10 @@ __webpack_require__.r(__webpack_exports__);
     categorySideBar: [],
     blogPostByCatId: [],
     lateBlogPost: [],
-    contact: [],
     countCategory: [],
     countPost: [],
-    findContact: []
+    findContact: [],
+    contact: []
   },
   getters: {
     getCategory: function getCategory(state) {

@@ -18,55 +18,55 @@
                                 </button>
                             </div>
                         </div>
-
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example2" class="table table-responsive table-bordered table-hover">
-                                <thead>
-                                <tr>
+                            <div class="table-responsive">
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
 
-                                    <th>No</th>
-                                    <th>ผู้สร้าง</th>
-                                    <th>ประเภท</th>
-                                    <th>หัวข้อ</th>
-                                    <th>รายละเอียด</th>
-                                    <th style="width: 20%;">รูปภาพ</th>
-                                    <th style="width: 10%;">Action</th>
+                                        <th>No</th>
+                                        <th>ผู้สร้าง</th>
+                                        <th>ประเภท</th>
+                                        <th>หัวข้อ</th>
+                                        <th>รายละเอียด</th>
+                                        <th style="width: 20%;">รูปภาพ</th>
+                                        <th style="width: 10%;">Action</th>
 
-                                </tr>
-                                </thead>
-                                <tbody>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                                <tr v-for="(post,index) in getAllPost" :key="post.id">
-                                    <td>{{index+1}}</td>
-                                    <template v-if="post.user_id == 1">
-                                        <td>SuperAdmin</td>
-                                    </template>
-                                    <template v-else>
-                                        <td v-if="post.user">{{post.user.name}}</td>
-                                    </template>
-                                    <td v-if="post.category">{{post.category.cat_name}}</td>
-                                    <td>{{post.title | sortlength(20,"---")}}</td>
-                                    <td>{{post.description | sortlength(40,"....")}}</td>
-                                    <td class="text-center"><img :src="ourImage(post.photo)" alt="" width="100" height="100"></td>
-                                    <td>
-                                        <button type="submit" class="btn btn-success btn-sm btn-list-post">
-                                            <router-link :to="`/edit-post/${post.id}`" class="text-white btn-edit-post">
-                                                    แก้ไข
-                                            </router-link>
-                                        </button>
-                                        <button @click.prevent="deletePost(post.id)" type="button" class="btn btn-danger btn-sm btn-list-post">ลบ</button>
-                                    </td>
+                                    <tr v-for="(post,index) in getAllPost" :key="post.id">
+                                        <td>{{index+1}}</td>
+                                        <template v-if="post.user_id == 1">
+                                            <td>SuperAdmin</td>
+                                        </template>
+                                        <template v-else>
+                                            <td v-if="post.user">{{post.user.name}}</td>
+                                        </template>
+                                        <td v-if="post.category">{{post.category.cat_name}}</td>
+                                        <td>{{post.title | sortlength(20,"---")}}</td>
+                                        <td>{{post.description | sortlength(40,"....")}}</td>
+                                        <td class="text-center"><img :src="ourImage(post.photo)" alt="" width="100" height="100"></td>
+                                        <td>
+                                            <button type="submit" class="btn btn-success btn-sm btn-list-post">
+                                                <router-link :to="`/edit-post/${post.id}`" class="text-white btn-edit-post">
+                                                        แก้ไข
+                                                </router-link>
+                                            </button>
+                                            <button @click.prevent="deletePost(post.id)" type="button" class="btn btn-danger btn-sm btn-list-post">ลบ</button>
+                                        </td>
 
-                                </tr>
-                                </tbody>
+                                    </tr>
+                                    </tbody>
 
 
-                            </table>
+                                </table>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
-
                 </div>
                 <!-- /.col -->
             </div>

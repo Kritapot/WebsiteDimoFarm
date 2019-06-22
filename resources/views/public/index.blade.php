@@ -27,11 +27,12 @@
     <link rel="apple-touch-icon-precomposed"
         href="{{ asset("assets/public/assets/ico") }}/apple-touch-icon-57-precomposed.png" />
     <link rel="shortcut icon" href="{{ asset("assets/public/assets/ico") }}/favicon.png" />
+    <a href="#" class="scrollup"><i class="icon-chevron-up icon-square icon-32 active"></i></a>
     <link href="{{ asset('css/custom-logo.css') }}" rel="stylesheet">
     <link href="{{ asset("fonts") }}/lobster_mali.css" rel="stylesheet">
     <link href="{{ asset("fonts") }}/noto_serif.css" rel="stylesheet">
-
 </head>
+
 <body>
     <div id="adminmaster">
         <div id="wrapper">
@@ -41,7 +42,7 @@
         </div>
     </div>
 </body>
-<a href="#" class="scrollup"><i class="icon-chevron-up icon-square icon-32 active"></i></a>
+
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.3"></script>
 <script src="{{ asset('css/fontawesome/js/all.js') }}"></script>

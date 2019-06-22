@@ -9,11 +9,10 @@ export default  {
         categorySideBar:    [],
         blogPostByCatId:    [],
         lateBlogPost:       [],
-        contact:            [],
         countCategory:      [],
         countPost:          [],
         findContact:        [],
-
+        contact:            [],
     },
 
     getters:    {
@@ -206,6 +205,6 @@ export default  {
 
         contactById(state, playload) {
             return state.findContact    =   playload
-        }
+        },
     }
 }

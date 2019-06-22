@@ -39,7 +39,7 @@ class ContactController extends Controller
     /**
      * get all list contact function
      *
-     * @return jsonData
+     * @return \Illuminate\Http\Response
      */
     public function get_all_contact()
     {

@@ -20,7 +20,7 @@ class BlogController extends Controller
     /**
      * Get all blogpost function
      *
-     * @return JsonData
+     * @return \Illuminate\Http\Response
      */
     public function get_all_blogpost()
     {
@@ -36,7 +36,7 @@ class BlogController extends Controller
      * Get Single BlogPost by ID function
      *
      * @param $id
-     * @return JsonData
+     * @return \Illuminate\Http\Response
      */
     public function get_by_find_blogpost($id)
     {
@@ -52,7 +52,7 @@ class BlogController extends Controller
     /**
      * Get all category for sidebar function
      *
-     * @return JsonData
+     * @return \Illuminate\Http\Response
      */
      public function get_category_sidebar()
     {
@@ -66,7 +66,7 @@ class BlogController extends Controller
     /**
      * Get all post by cat_id function
      *
-     * @return JsonData
+     * @return \Illuminate\Http\Response
      */
     public function get_post_by_category_id($id)
     {
@@ -82,7 +82,7 @@ class BlogController extends Controller
     /**
      * Search Post by title and description function
      *
-     * @return JsonData
+     * @return \Illuminate\Http\Response
      */
     public function search_post()
     {

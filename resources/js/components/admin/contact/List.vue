@@ -61,15 +61,13 @@
         name: "List",
 
         mounted(){
-            this.$Progress.start()
-            this.$store.dispatch('allContact')
-            this.$Progress.finish()
+            this.paginationContact()
         },
 
         computed:{
             getAllContact() {
                 return this.$store.getters.getListContact
-            }
+            },
         },
 
         methods:{
@@ -91,6 +89,10 @@
                     console.log(e)
                 })
             },
+
+            paginationContact() {
+                this.$store.dispatch('allContact')
+            }
         },
     }
 </script>

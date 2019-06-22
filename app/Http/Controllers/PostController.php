@@ -91,7 +91,7 @@ class PostController extends Controller
      * Find By Id function
      *
      * @param $id
-     * @return jsonData
+     * @return \Illuminate\Http\Response
      */
     public function find_post($id)
     {
@@ -165,7 +165,7 @@ class PostController extends Controller
     /**
      * count all Post function
      *
-     * @return jsonData
+     * @return \Illuminate\Http\Response
      */
     public function count_post_all()
     {

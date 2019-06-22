@@ -36,7 +36,7 @@ class CategoryController extends Controller
     /**
      * Get All Categories function
      *
-     * @return jsonData
+     * @return \Illuminate\Http\Response
      */
     public function all_category()
     {
@@ -91,7 +91,7 @@ class CategoryController extends Controller
     /**
      * Search by cat_name function
      *
-     * @return jsonData
+     * @return \Illuminate\Http\Response
      */
     public function search_cat_name()
     {
@@ -107,7 +107,7 @@ class CategoryController extends Controller
     /**
      * Count Category function
      *
-     * @return jsonData
+     * @return \Illuminate\Http\Response
      */
     public function count_category_all()
     {
