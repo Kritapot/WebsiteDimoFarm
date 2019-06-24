@@ -22,14 +22,18 @@
                                 <div class="form-group">
                                     <div class="col-lg-12 col-sm-12">
                                         <label for="">รายละเอียดบทความ</label>
-                                        <textarea cols="100" rows="10" v-model="form.description" :class="{ 'is-invalid': form.errors.has('description') }"></textarea>
+                                            <textarea cols="100" class="form-control" rows="10" v-model="form.description" :class="{ 'is-invalid': form.errors.has('description') }"></textarea>
                                         <has-error :form="form" field="description"></has-error>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-lg-12 col-sm-12">
-                                        <input @change = "changePhoto($event)" type="file" name="photo" :class="{ 'is-invalid': form.errors.has('photo') }">
-                                        <img :src="updateImage()" alt="" width="200" height="200">
+                                        <div class="col-sm-12">
+                                            <input @change = "changePhoto($event)" class="custom-file-input" type="file" name="photo" :class="{ 'is-invalid': form.errors.has('photo') }" id="input-about-us">
+                                            <label class="custom-file-label" for="input-about-us">เลือกรูปภาพ</label>
+                                        </div>
+                                        </br>
+                                        <img :src="updateImage()" alt="" width="200" height="200" style="margin-top: 15px">
                                         <has-error :form="form" field="photo"></has-error>
                                     </div>
                                 </div>

@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
                                     <label for="">รายละเอียดบทความ</label>
-                                    <textarea v-model="form.description" name="description" cols="100" rows="10" placeholder="รายละเอียดบทความ" :class="{ 'is-invalid': form.errors.has('description') }"></textarea>
+                                    <textarea class="form-control" v-model="form.description" name="description" cols="100" rows="10" placeholder="รายละเอียดบทความ" :class="{ 'is-invalid': form.errors.has('description') }"></textarea>
                                     <has-error :form="form" field="description"></has-error>
                                 </div>
                             </div>

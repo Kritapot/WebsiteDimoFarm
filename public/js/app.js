@@ -4283,6 +4283,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AboutUs",
   data: function data() {
@@ -62849,6 +62853,7 @@ var render = function() {
                             expression: "form.description"
                           }
                         ],
+                        staticClass: "form-control",
                         class: {
                           "is-invalid": _vm.form.errors.has("description")
                         },
@@ -62881,17 +62886,36 @@ var render = function() {
                     "div",
                     { staticClass: "col-lg-12 col-sm-12" },
                     [
-                      _c("input", {
-                        class: { "is-invalid": _vm.form.errors.has("photo") },
-                        attrs: { type: "file", name: "photo" },
-                        on: {
-                          change: function($event) {
-                            return _vm.changePhoto($event)
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c("input", {
+                          staticClass: "custom-file-input",
+                          class: { "is-invalid": _vm.form.errors.has("photo") },
+                          attrs: {
+                            type: "file",
+                            name: "photo",
+                            id: "input-about-us"
+                          },
+                          on: {
+                            change: function($event) {
+                              return _vm.changePhoto($event)
+                            }
                           }
-                        }
-                      }),
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "custom-file-label",
+                            attrs: { for: "input-about-us" }
+                          },
+                          [_vm._v("เลือกรูปภาพ")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
                       _vm._v(" "),
                       _c("img", {
+                        staticStyle: { "margin-top": "15px" },
                         attrs: {
                           src: _vm.updateImage(),
                           alt: "",
@@ -64016,6 +64040,7 @@ var render = function() {
                           expression: "form.description"
                         }
                       ],
+                      staticClass: "form-control",
                       attrs: {
                         id: "",
                         cols: "100",
@@ -64540,6 +64565,7 @@ var render = function() {
                           expression: "form.description"
                         }
                       ],
+                      staticClass: "form-control",
                       class: {
                         "is-invalid": _vm.form.errors.has("description")
                       },
