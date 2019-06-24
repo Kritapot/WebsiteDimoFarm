@@ -69,6 +69,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/update-ourservice', 'OurServiceController@update_ourservice');
 
     Route::get('/portfolio-category', 'PortfolioCategoryController@list');
+    Route::get('/portfolio-category/{id}', 'PortfolioCategoryController@find_by_id');
     Route::post('/save-portfolio-category', 'PortfolioCategoryController@save');
     Route::post('/update-portfolio-category/{id}', 'PortfolioCategoryController@update');
     Route::delete('/delete-portfolio-category/{id}', 'PortfolioCategoryController@delete');

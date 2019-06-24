@@ -44,16 +44,43 @@ class PortfolioCategoryController extends Controller
 
     }
 
+    /**
+     * Find by id function
+     *
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function find_by_id($id)
+    {
+        $portfolioCategory      =   $this->portfolioCategory->where('id', $id)
+                                    ->firstOrFail();
+
+        return response()->json([
+            'portfolioCategory'     =>  $portfolioCategory
+        ]);
+
+    }
+
     public function update(Request $request, $id)
     {
+        $portfolioCategory      =   $this->portfolioCategory->where('id', $id)
+                                    ->firstOrFail();
+
+        $this->validate($request, [
+            'cat_name'          =>'required|min:2|max:100',
+        ]);
+
+        $portfolioCategory->cat_name    =   $request->cat_name;
+        $portfolioCategory->save();
+
 
     }
 
     public function delete($id)
     {
-        $portfolioCategory      =   $this->portfolioCategory->where('id', $id)
-                                    ->firstOrFail()
-                                    ->delete();
+           $this->portfolioCategory->where('id', $id)
+                ->firstOrFail()
+                ->delete();
 
     }
 

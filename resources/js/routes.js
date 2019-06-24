@@ -105,7 +105,7 @@ export const routes = [
     },
 
     {
-        path: '/portfolio-cat-edit',
+        path: '/portfolio-cat-edit/:id',
         component: PorfolioCatEdit
     },
 

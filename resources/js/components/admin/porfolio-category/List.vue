@@ -36,10 +36,10 @@
                                         <tr v-for="(portfolioCategory, index) in portfolioCategoryData.data" :key="portfolioCategory.id">
                                             <td>{{index+1}}</td>
                                             <td>{{portfolioCategory.cat_name}}</td>
-                                            <td>{{portfolioCategory.created_at}}</td>
+                                            <td>{{portfolioCategory.created_at | timeformat}}</td>
                                             <td class="text-center">
                                                 <button type="button" class="btn btn-success btn-sm btn-category">
-                                                    <router-link to="/portfolio-cat-edit" class="text-white" style="text-decoration: none;">
+                                                    <router-link :to="`/portfolio-cat-edit/${portfolioCategory.id}`" class="text-white" style="text-decoration: none;">
                                                         แก้ไข
                                                     </router-link>
                                                 </button>
@@ -109,7 +109,7 @@ import _ from 'lodash'
                     }).catch((e) => {
                         console.log(e)
                     })
-            }
+            },
         }
     }
 
