@@ -47,7 +47,7 @@
                             <router-link to="/category-list" class="nav-link">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
-                                    ประเภท
+                                    ประเภทของบทความ
                                 </p>
                             </a>
                         </li>
@@ -55,7 +55,7 @@
                             <router-link to="/post-list" class="nav-link">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
-                                    โพส
+                                    บทความ
                                 </p>
                             </a>
                         </li>
@@ -80,6 +80,14 @@
                                 <i class="fas fa-bone"></i>
                                 <p>
                                     บริการของเรา
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <router-link to="/portfolio-cat-list" class="nav-link">
+                                <i class="fas fa-cogs"></i>
+                                <p>
+                                    ประเภท Portfolio
                                 </p>
                             </a>
                         </li>

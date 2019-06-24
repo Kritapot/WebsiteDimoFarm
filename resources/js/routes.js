@@ -18,6 +18,12 @@ import AboutUsAdmin             from './components/admin/about/AboutUs.vue'
 //OurService
 import OurService             from './components/admin/our-service/OurService.vue'
 
+//Porfolio-category
+import PorfolioCatList      from './components/admin/porfolio-category/List.vue'
+import PorfolioCatNew       from './components/admin/porfolio-category/New.vue'
+import PorfolioCatEdit      from './components/admin/porfolio-category/Edit.vue'
+
+
 
 //Fontend BlogHome
 import PublicHome   from './components/public/PublicHome.vue'
@@ -86,6 +92,21 @@ export const routes = [
     {
         path: '/our-service',
         component: OurService
+    },
+
+    {
+        path: '/portfolio-cat-list',
+        component: PorfolioCatList
+    },
+
+    {
+        path: '/portfolio-cat-add',
+        component: PorfolioCatNew
+    },
+
+    {
+        path: '/portfolio-cat-edit',
+        component: PorfolioCatEdit
     },
 
 
