@@ -21,8 +21,21 @@ class PortfolioCategoryController extends Controller
 
     }
 
+    /**
+     * save function
+     *
+     * @param Request $request
+     * @return App\PortfolioCategory
+     */
     public function save(Request $request)
     {
+        $this->validate($request, [
+            'cat_name'          =>'required|min:2|max:100',
+        ]);
+
+        $portfolioCategory              =   new PortfolioCategory();
+        $portfolioCategory->cat_name    =   $request->cat_name;
+        $portfolioCategory->save();
 
     }
 

@@ -5145,12 +5145,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'New',
   data: function data() {
-    return {};
+    return {
+      form: new Form({
+        cat_name: ''
+      })
+    };
   },
-  methods: {}
+  methods: {
+    saveCategory: function saveCategory() {
+      var _this = this;
+
+      this.form.post('/save-portfolio-category').then(function () {
+        _this.$router.push('/portfolio-cat-list');
+
+        var Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        });
+        Toast.fire({
+          type: 'success',
+          title: 'เพิ่มประเภทเรียบร้อยแล้ว'
+        });
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -64632,42 +64658,107 @@ var render = function() {
         _c("div", { staticClass: "card card-primary" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c("form", { attrs: { role: "form" } }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-footer" }, [
-              _c("div", { staticClass: "col-lg-6 col-sm-12" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-primary btn-sm",
-                    attrs: { type: "submit" }
-                  },
-                  [_vm._v("บันทึก")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-secondary btn-sm",
-                    attrs: { type: "button" }
-                  },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "text-white",
-                        staticStyle: { "text-decoration": "none" },
-                        attrs: { to: "/portfolio-cat-list" }
-                      },
-                      [_vm._v("กลับสู่หน้าแสดงประเภท Porfolio")]
-                    )
-                  ],
-                  1
-                )
+          _c(
+            "form",
+            {
+              attrs: { role: "form" },
+              on: {
+                keydown: function($event) {
+                  return _vm.form.onKeydown($event)
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "div",
+                    { staticClass: "col-lg-6 col-sm-12" },
+                    [
+                      _c("label", { attrs: { for: "newCategory" } }, [
+                        _vm._v("ชื่อประเภท")
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.cat_name,
+                            expression: "form.cat_name"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        class: {
+                          "is-invalid": _vm.form.errors.has("cat_name")
+                        },
+                        attrs: {
+                          type: "text",
+                          "data-msg-required": "กรุณากรอกรายละเอียด",
+                          id: "newCategory",
+                          name: "cat_name",
+                          placeholder: "ชื่อประเภท"
+                        },
+                        domProps: { value: _vm.form.cat_name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "cat_name", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("has-error", {
+                        attrs: { form: _vm.form, field: "cat_name" }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-footer" }, [
+                _c("div", { staticClass: "col-lg-6 col-sm-12" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary btn-sm",
+                      attrs: { type: "submit" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.saveCategory()
+                        }
+                      }
+                    },
+                    [_vm._v("บันทึก")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary btn-sm",
+                      attrs: { type: "button" }
+                    },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "text-white",
+                          staticStyle: { "text-decoration": "none" },
+                          attrs: { to: "/portfolio-cat-list" }
+                        },
+                        [_vm._v("กลับสู่หน้าแสดงประเภท Porfolio")]
+                      )
+                    ],
+                    1
+                  )
+                ])
               ])
-            ])
-          ])
+            ]
+          )
         ])
       ])
     ])
@@ -64681,30 +64772,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card-header" }, [
       _c("h3", { staticClass: "card-title" }, [
         _vm._v("เพิ่มประเภท Porfolio ใหม่")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-body" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("div", { staticClass: "col-lg-6 col-sm-12" }, [
-          _c("label", { attrs: { for: "newCategory" } }, [
-            _vm._v("ชื่อประเภท")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              id: "newCategory",
-              name: "cat_name",
-              placeholder: "ชื่อประเภท"
-            }
-          })
-        ])
       ])
     ])
   }
