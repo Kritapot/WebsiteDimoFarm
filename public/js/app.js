@@ -11230,7 +11230,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.icon[data-v-a32509c8] {\n    font-size: 1.6em;\n}\n.text-p[data-v-a32509c8] {\n    font-family: 'Mali', cursive;\n    font-size: 1.6em;\n}\n.post-heading h2[data-v-a32509c8] {\n    font-family: 'Mali', cursive;\n    font-weight:600\n}\n", ""]);
+exports.push([module.i, "\n.icon[data-v-a32509c8] {\n    font-size: 1.6em;\n}\n.text-p[data-v-a32509c8] {\n    font-family: 'Mali', cursive;\n    font-size: 1.6em;\n    line-height: 1.8em;\n}\n.post-heading h2[data-v-a32509c8] {\n    font-family: 'Mali', cursive;\n    font-weight:600\n}\n", ""]);
 
 // exports
 

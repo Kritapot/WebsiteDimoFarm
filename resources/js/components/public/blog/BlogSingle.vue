@@ -105,6 +105,7 @@ export default {
     .text-p {
         font-family: 'Mali', cursive;
         font-size: 1.6em;
+        line-height: 1.8em;
     }
 
     .post-heading h2 {
