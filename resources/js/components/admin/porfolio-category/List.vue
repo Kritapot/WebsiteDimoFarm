@@ -8,9 +8,9 @@
                         <div class="card-header">
                             <h2 class="card-title">แสดงประเภท Portfolio ทั้งหมด</h2>
                             <div class="input-group input-group-sm col-lg-6 col-sm-12" style="width: 350px;">
-                                <input type="text" class="form-control float-right" placeholder="ค้นหาจากชื่อประเภท">
+                                <input @keyup="searchByCategoryName" v-model="keywordCategory" type="text" class="form-control float-right" placeholder="ค้นหาจากชื่อประเภท">
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                                    <button @click.prevent="searchByCategoryName" type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
                             <div class="card-tools">
@@ -33,7 +33,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr v-for="(portfolioCategory, index) in portfolioCategoryData.data" :key="portfolioCategory.id">
+                                        <tr v-for="(portfolioCategory, index) in getCatPortfolio" :key="portfolioCategory.id">
                                             <td>{{index+1}}</td>
                                             <td>{{portfolioCategory.cat_name}}</td>
                                             <td>{{portfolioCategory.created_at | timeformat}}</td>
@@ -52,7 +52,6 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            <pagination :data="portfolioCategoryData" @pagination-change-page="getApiPortfolioCategory"></pagination>
                         </div>
                     </div>
                     <!-- /.card -->
@@ -72,7 +71,7 @@ import _ from 'lodash'
 
         data() {
             return {
-                portfolioCategoryData: {},
+                keywordCategory: '',
             }
         },
         mounted() {
@@ -81,14 +80,13 @@ import _ from 'lodash'
             this.$Progress.finish()
         },
         computed: {
-
+            getCatPortfolio() {
+                return this.$store.getters.portfolioCategory
+            }
         },
         methods: {
-            getApiPortfolioCategory(page = 1) {
-                axios.get('/portfolio-category?page=' + page)
-				.then(response => {
-					this.portfolioCategoryData = response.data.portfolioCategory;
-				});
+            getApiPortfolioCategory() {
+                this.$store.dispatch('getPortfolioCategory')
             },
 
             deletePorfolioCategory(id) {
@@ -110,6 +108,10 @@ import _ from 'lodash'
                         console.log(e)
                     })
             },
+
+            searchByCategoryName:_.debounce(function () {
+                this.$store.dispatch('searchByCatNamePortfolio', this.keywordCategory)
+            }, 1000)
         }
     }
 

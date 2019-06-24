@@ -19,7 +19,7 @@ class PortfolioCategoryController extends Controller
     public function list()
     {
         $portfolioCategory      =   $this->portfolioCategory->orderby('id', 'desc')
-                                    ->paginate(5);
+                                    ->get();
 
         return response()->json([
             'portfolioCategory'     =>  $portfolioCategory
@@ -82,6 +82,23 @@ class PortfolioCategoryController extends Controller
                 ->firstOrFail()
                 ->delete();
 
+    }
+
+
+    /**
+     * Search by cat_name function
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search_cat_name()
+    {
+        $search                 =   \Request::get('s');
+
+        $searchCategoryName     =   $this->portfolioCategory->where('cat_name', 'LIKE', "%$search%")
+                                    ->get();
+        return response()->json([
+            'searchCategoryName'  =>  $searchCategoryName
+        ], 200);
     }
 
 

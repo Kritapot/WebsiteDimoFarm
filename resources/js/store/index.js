@@ -13,6 +13,7 @@ export default  {
         countPost:          [],
         findContact:        [],
         contact:            [],
+        portfolioCategory:  [],
     },
 
     getters:    {
@@ -59,6 +60,10 @@ export default  {
         getFindContact(state) {
             return state.findContact
         },
+
+        portfolioCategory(state) {
+            return state.portfolioCategory
+        }
     },
 
     actions:    {
@@ -148,6 +153,19 @@ export default  {
                 context.commit('contactById', respon.data.contactById)
             })
         },
+
+        getPortfolioCategory(context) {
+            axios.get('/portfolio-category').then((respon) => {
+                console.log(respon.data.portfolioCategory)
+                context.commit('portfolioCategory', respon.data.portfolioCategory)
+            })
+        },
+
+        searchByCatNamePortfolio(context, playload) {
+            Axios.get('/search-by-portfolio-category?s='+playload).then((respon) => {
+                context.commit('searchPortfolioByCat', respon.data.searchCategoryName)
+            })
+        },
     },
 
     mutations:  {
@@ -206,5 +224,13 @@ export default  {
         contactById(state, playload) {
             return state.findContact    =   playload
         },
+
+        portfolioCategory(state, playload) {
+            return state.portfolioCategory  =   playload
+        },
+
+        searchPortfolioByCat(state, playload) {
+            state.portfolioCategory  =   playload
+        }
     }
 }

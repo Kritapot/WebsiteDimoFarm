@@ -5180,13 +5180,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'List',
   data: function data() {
     return {
-      portfolioCategoryData: {}
+      keywordCategory: ''
     };
   },
   mounted: function mounted() {
@@ -5194,21 +5193,20 @@ __webpack_require__.r(__webpack_exports__);
     this.getApiPortfolioCategory();
     this.$Progress.finish();
   },
-  computed: {},
+  computed: {
+    getCatPortfolio: function getCatPortfolio() {
+      return this.$store.getters.portfolioCategory;
+    }
+  },
   methods: {
     getApiPortfolioCategory: function getApiPortfolioCategory() {
-      var _this = this;
-
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('/portfolio-category?page=' + page).then(function (response) {
-        _this.portfolioCategoryData = response.data.portfolioCategory;
-      });
+      this.$store.dispatch('getPortfolioCategory');
     },
     deletePorfolioCategory: function deletePorfolioCategory(id) {
-      var _this2 = this;
+      var _this = this;
 
       axios["delete"]('/delete-portfolio-category/' + id).then(function () {
-        _this2.getApiPortfolioCategory();
+        _this.getApiPortfolioCategory();
 
         var Toast = Swal.mixin({
           toast: true,
@@ -5223,7 +5221,10 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (e) {
         console.log(e);
       });
-    }
+    },
+    searchByCategoryName: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.debounce(function () {
+      this.$store.dispatch('searchByCatNamePortfolio', this.keywordCategory);
+    }, 1000)
   }
 });
 
@@ -64763,7 +64764,54 @@ var render = function() {
                 _vm._v("แสดงประเภท Portfolio ทั้งหมด")
               ]),
               _vm._v(" "),
-              _vm._m(0),
+              _c(
+                "div",
+                {
+                  staticClass: "input-group input-group-sm col-lg-6 col-sm-12",
+                  staticStyle: { width: "350px" }
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.keywordCategory,
+                        expression: "keywordCategory"
+                      }
+                    ],
+                    staticClass: "form-control float-right",
+                    attrs: { type: "text", placeholder: "ค้นหาจากชื่อประเภท" },
+                    domProps: { value: _vm.keywordCategory },
+                    on: {
+                      keyup: _vm.searchByCategoryName,
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.keywordCategory = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group-append" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.searchByCategoryName($event)
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fa fa-search" })]
+                    )
+                  ])
+                ]
+              ),
               _vm._v(" "),
               _c("div", { staticClass: "card-tools" }, [
                 _c(
@@ -64799,11 +64847,11 @@ var render = function() {
                     attrs: { id: "example2" }
                   },
                   [
-                    _vm._m(1),
+                    _vm._m(0),
                     _vm._v(" "),
                     _c(
                       "tbody",
-                      _vm._l(_vm.portfolioCategoryData.data, function(
+                      _vm._l(_vm.getCatPortfolio, function(
                         portfolioCategory,
                         index
                       ) {
@@ -64881,17 +64929,7 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-footer" },
-              [
-                _c("pagination", {
-                  attrs: { data: _vm.portfolioCategoryData },
-                  on: { "pagination-change-page": _vm.getApiPortfolioCategory }
-                })
-              ],
-              1
-            )
+            _c("div", { staticClass: "card-footer" })
           ])
         ])
       ])
@@ -64899,32 +64937,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "input-group input-group-sm col-lg-6 col-sm-12",
-        staticStyle: { width: "350px" }
-      },
-      [
-        _c("input", {
-          staticClass: "form-control float-right",
-          attrs: { type: "text", placeholder: "ค้นหาจากชื่อประเภท" }
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "input-group-append" }, [
-          _c(
-            "button",
-            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-            [_c("i", { staticClass: "fa fa-search" })]
-          )
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -85710,7 +85722,8 @@ __webpack_require__.r(__webpack_exports__);
     countCategory: [],
     countPost: [],
     findContact: [],
-    contact: []
+    contact: [],
+    portfolioCategory: []
   },
   getters: {
     getCategory: function getCategory(state) {
@@ -85745,6 +85758,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getFindContact: function getFindContact(state) {
       return state.findContact;
+    },
+    portfolioCategory: function portfolioCategory(state) {
+      return state.portfolioCategory;
     }
   },
   actions: {
@@ -85820,6 +85836,17 @@ __webpack_require__.r(__webpack_exports__);
         console.log(respon.data.contactById);
         context.commit('contactById', respon.data.contactById);
       });
+    },
+    getPortfolioCategory: function getPortfolioCategory(context) {
+      axios.get('/portfolio-category').then(function (respon) {
+        console.log(respon.data.portfolioCategory);
+        context.commit('portfolioCategory', respon.data.portfolioCategory);
+      });
+    },
+    searchByCatNamePortfolio: function searchByCatNamePortfolio(context, playload) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/search-by-portfolio-category?s=' + playload).then(function (respon) {
+        context.commit('searchPortfolioByCat', respon.data.searchCategoryName);
+      });
     }
   },
   mutations: {
@@ -85864,6 +85891,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     contactById: function contactById(state, playload) {
       return state.findContact = playload;
+    },
+    portfolioCategory: function portfolioCategory(state, playload) {
+      return state.portfolioCategory = playload;
+    },
+    searchPortfolioByCat: function searchPortfolioByCat(state, playload) {
+      state.portfolioCategory = playload;
     }
   }
 });
