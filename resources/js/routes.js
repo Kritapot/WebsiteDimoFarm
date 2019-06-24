@@ -23,6 +23,8 @@ import PorfolioCatList      from './components/admin/porfolio-category/List.vue'
 import PorfolioCatNew       from './components/admin/porfolio-category/New.vue'
 import PorfolioCatEdit      from './components/admin/porfolio-category/Edit.vue'
 
+//Status
+import Status             from './components/admin/status/Status.vue'
 
 
 //Fontend BlogHome
@@ -107,6 +109,11 @@ export const routes = [
     {
         path: '/portfolio-cat-edit/:id',
         component: PorfolioCatEdit
+    },
+
+    {
+        path: '/status',
+        component: Status
     },
 
 

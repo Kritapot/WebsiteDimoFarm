@@ -100,7 +100,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <router-link to="" class="nav-link">
+                            <router-link to="/status" class="nav-link">
                                 <i class="fas fa-cogs"></i>
                                 <p>
                                     ตั้งค่าสถานะ
