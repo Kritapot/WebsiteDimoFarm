@@ -5086,18 +5086,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'List',
   data: function data() {
-    return {};
+    return {
+      portfolioCategoryData: {}
+    };
   },
   mounted: function mounted() {
+    this.$Progress.start();
     this.getApiPortfolioCategory();
+    this.$Progress.finish();
   },
   computed: {},
   methods: {
-    getApiPortfolioCategory: function getApiPortfolioCategory() {}
+    getApiPortfolioCategory: function getApiPortfolioCategory() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('/portfolio-category?page=' + page).then(function (response) {
+        _this.portfolioCategoryData = response.data.portfolioCategory;
+      });
+    },
+    deletePorfolioCategory: function deletePorfolioCategory(id) {
+      var _this2 = this;
+
+      axios["delete"]('/delete-portfolio-category/' + id).then(function () {
+        _this2.getApiPortfolioCategory();
+
+        var Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        });
+        Toast.fire({
+          type: 'success',
+          title: 'ลบประเภทเรียบร้อย'
+        });
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
   }
 });
 
@@ -64530,55 +64564,87 @@ var render = function() {
                   [
                     _vm._m(1),
                     _vm._v(" "),
-                    _c("tbody", [
-                      _c("tr", [
-                        _c("td"),
-                        _vm._v(" "),
-                        _c("td"),
-                        _vm._v(" "),
-                        _c("td"),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "btn btn-success btn-sm btn-category",
-                              attrs: { type: "button" }
-                            },
-                            [
-                              _c(
-                                "router-link",
-                                {
-                                  staticClass: "text-white",
-                                  staticStyle: { "text-decoration": "none" },
-                                  attrs: { to: "/portfolio-cat-edit" }
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                                    แก้ไข\n                                                "
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          ),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.portfolioCategoryData.data, function(
+                        portfolioCategory,
+                        index
+                      ) {
+                        return _c("tr", { key: portfolioCategory.id }, [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
                           _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-danger btn-sm btn-category",
-                              attrs: { type: "button" }
-                            },
-                            [_vm._v("ลบ")]
-                          )
+                          _c("td", [
+                            _vm._v(_vm._s(portfolioCategory.cat_name))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(_vm._s(portfolioCategory.created_at))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-center" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-success btn-sm btn-category",
+                                attrs: { type: "button" }
+                              },
+                              [
+                                _c(
+                                  "router-link",
+                                  {
+                                    staticClass: "text-white",
+                                    staticStyle: { "text-decoration": "none" },
+                                    attrs: { to: "/portfolio-cat-edit" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                                                    แก้ไข\n                                                "
+                                    )
+                                  ]
+                                )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-danger btn-sm btn-category",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    return _vm.deletePorfolioCategory(
+                                      portfolioCategory.id
+                                    )
+                                  }
+                                }
+                              },
+                              [_vm._v("ลบ")]
+                            )
+                          ])
                         ])
-                      ])
-                    ])
+                      }),
+                      0
+                    )
                   ]
                 )
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-footer" },
+              [
+                _c("pagination", {
+                  attrs: { data: _vm.portfolioCategoryData },
+                  on: { "pagination-change-page": _vm.getApiPortfolioCategory }
+                })
+              ],
+              1
+            )
           ])
         ])
       ])

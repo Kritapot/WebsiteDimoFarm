@@ -33,17 +33,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                        <tr v-for="(portfolioCategory, index) in portfolioCategoryData.data" :key="portfolioCategory.id">
+                                            <td>{{index+1}}</td>
+                                            <td>{{portfolioCategory.cat_name}}</td>
+                                            <td>{{portfolioCategory.created_at}}</td>
                                             <td class="text-center">
                                                 <button type="button" class="btn btn-success btn-sm btn-category">
                                                     <router-link to="/portfolio-cat-edit" class="text-white" style="text-decoration: none;">
                                                         แก้ไข
                                                     </router-link>
                                                 </button>
-                                                <button type="button" class="btn btn-danger btn-sm btn-category">ลบ</button>
+                                                <button @click.prevent="deletePorfolioCategory(portfolioCategory.id)" type="button" class="btn btn-danger btn-sm btn-category">ลบ</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -51,6 +51,9 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
+                        <div class="card-footer">
+                            <pagination :data="portfolioCategoryData" @pagination-change-page="getApiPortfolioCategory"></pagination>
+                        </div>
                     </div>
                     <!-- /.card -->
                 </div>
@@ -69,19 +72,44 @@ import _ from 'lodash'
 
         data() {
             return {
-
+                portfolioCategoryData: {},
             }
         },
         mounted() {
+            this.$Progress.start()
             this.getApiPortfolioCategory()
+            this.$Progress.finish()
         },
         computed: {
 
         },
         methods: {
-            getApiPortfolioCategory() {
-
+            getApiPortfolioCategory(page = 1) {
+                axios.get('/portfolio-category?page=' + page)
+				.then(response => {
+					this.portfolioCategoryData = response.data.portfolioCategory;
+				});
             },
+
+            deletePorfolioCategory(id) {
+                axios.delete('/delete-portfolio-category/'+id)
+                    .then(() => {
+                        this.getApiPortfolioCategory()
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+
+                            Toast.fire({
+                            type: 'success',
+                            title: 'ลบประเภทเรียบร้อย'
+                        })
+                    }).catch((e) => {
+                        console.log(e)
+                    })
+            }
         }
     }
 

@@ -19,7 +19,7 @@ class PortfolioCategoryController extends Controller
     public function list()
     {
         $portfolioCategory      =   $this->portfolioCategory->orderby('id', 'desc')
-                                    ->paginate(3);
+                                    ->paginate(5);
 
         return response()->json([
             'portfolioCategory'     =>  $portfolioCategory
@@ -51,6 +51,9 @@ class PortfolioCategoryController extends Controller
 
     public function delete($id)
     {
+        $portfolioCategory      =   $this->portfolioCategory->where('id', $id)
+                                    ->firstOrFail()
+                                    ->delete();
 
     }
 
