@@ -24,9 +24,7 @@ Route::get('/latepost', 'BlogController@get_latepost');
 
 Route::post('/save-contact', 'ContactController@save_contact');
 
-Route::get('/about-us', 'AboutUsController@get_about_us_id');
 
-Route::get('/ourservice', 'OurServiceController@get_ourservice_by_id');
 
 
 
@@ -64,9 +62,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/contact', 'ContactController@get_all_contact');
     Route::get('/contact/{id}', 'ContactController@get_by_contact_id');
 
+    Route::get('/about-us', 'AboutUsController@get_about_us_id');
     Route::post('/update-about-us', 'AboutUsController@update_about_us');
 
+    Route::get('/ourservice', 'OurServiceController@get_ourservice_by_id');
     Route::post('/update-ourservice', 'OurServiceController@update_ourservice');
+
+    Route::get('/portfolio-category', 'PortfolioCategoryController@list');
+    Route::post('/save-portfolio-category', 'PortfolioCategoryController@save');
+    Route::post('/update-portfolio-category/{id}', 'PortfolioCategoryController@update');
+    Route::delete('/delete-portfolio-category/{id}', 'PortfolioCategoryController@delete');
+
+
+
 });
 
 

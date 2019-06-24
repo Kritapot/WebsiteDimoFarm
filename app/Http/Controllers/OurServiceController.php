@@ -40,6 +40,19 @@ class OurServiceController extends Controller
        $ourservice      =   $this->ourservice->where('id', 1)
                             ->firstOrFail();
 
+        $this->validate($request, [
+
+            'title1'          =>'required|min:10|max:100',
+            'description1'    =>'required|min:10|max:300',
+            'title2'          =>'required|min:10|max:100',
+            'description2'    =>'required|min:10|max:300',
+            'title3'          =>'required|min:10|max:100',
+            'description3'    =>'required|min:10|max:300',
+            'title4'          =>'required|min:10|max:100',
+            'description4'    =>'required|min:10|max:300',
+
+        ]);
+
         $ourservice->title1                 =   $request->title1;
         $ourservice->description1           =   $request->description1;
         $ourservice->title2                 =   $request->title2;
