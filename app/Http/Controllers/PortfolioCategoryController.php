@@ -18,7 +18,12 @@ class PortfolioCategoryController extends Controller
 
     public function list()
     {
+        $portfolioCategory      =   $this->portfolioCategory->orderby('id', 'desc')
+                                    ->paginate(3);
 
+        return response()->json([
+            'portfolioCategory'     =>  $portfolioCategory
+        ]);
     }
 
     /**

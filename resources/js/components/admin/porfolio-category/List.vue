@@ -73,13 +73,15 @@ import _ from 'lodash'
             }
         },
         mounted() {
-
+            this.getApiPortfolioCategory()
         },
         computed: {
 
         },
         methods: {
+            getApiPortfolioCategory() {
 
+            },
         }
     }
 
