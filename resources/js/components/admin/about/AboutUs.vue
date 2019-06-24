@@ -32,7 +32,6 @@
                                             <input @change = "changePhoto($event)" class="custom-file-input" type="file" name="photo" :class="{ 'is-invalid': form.errors.has('photo') }" id="input-about-us">
                                             <label class="custom-file-label" for="input-about-us">เลือกรูปภาพ</label>
                                         </div>
-                                        </br>
                                         <img :src="updateImage()" alt="" width="200" height="200" style="margin-top: 15px">
                                         <has-error :form="form" field="photo"></has-error>
                                     </div>
@@ -139,5 +138,9 @@
 <style scoped>
     .card-footer {
         padding-bottom: 70px;
+    }
+
+    .card-body input, textarea {
+        font-size: 1.2em;
     }
 </style>

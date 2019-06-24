@@ -26,6 +26,8 @@ Route::post('/save-contact', 'ContactController@save_contact');
 
 Route::get('/about-us', 'AboutUsController@get_about_us_id');
 
+Route::get('/ourservice', 'OurServiceController@get_ourservice_by_id');
+
 
 
 
@@ -63,6 +65,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/contact/{id}', 'ContactController@get_by_contact_id');
 
     Route::post('/update-about-us', 'AboutUsController@update_about_us');
+
+    Route::post('/update-ourservice', 'OurServiceController@update_ourservice');
 });
 
 
