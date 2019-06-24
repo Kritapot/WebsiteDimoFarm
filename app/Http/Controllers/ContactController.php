@@ -43,6 +43,7 @@ class ContactController extends Controller
      */
     public function get_all_contact()
     {
+        $this->middleware('auth');
         $getAllContact      =   $this->contact->orderBy('id', 'desc')->get();
 
         return response()->json([
@@ -63,6 +64,7 @@ class ContactController extends Controller
 
 
     public function get_by_contact_id($id) {
+        $this->middleware('auth');
         $contactById        =       $this->contact->where('id', $id)->get();
 
         return response()->json([

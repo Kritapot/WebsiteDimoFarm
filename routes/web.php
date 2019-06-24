@@ -24,6 +24,8 @@ Route::get('/latepost', 'BlogController@get_latepost');
 
 Route::post('/save-contact', 'ContactController@save_contact');
 
+Route::get('/about-us', 'AboutUsController@get_about_us_id');
+
 
 
 
@@ -59,6 +61,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/delete-contact/{id}', 'ContactController@delete_contact');
     Route::get('/contact', 'ContactController@get_all_contact');
     Route::get('/contact/{id}', 'ContactController@get_by_contact_id');
+
+    Route::post('/update-about-us', 'AboutUsController@update_about_us');
 });
 
 
