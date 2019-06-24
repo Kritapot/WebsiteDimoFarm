@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/delete-portfolio-category/{id}', 'PortfolioCategoryController@delete');
     Route::get('/search-by-portfolio-category', 'PortfolioCategoryController@search_cat_name');
 
-
+    Route::get('/status', 'StatusController@find_by_id');
 
 });
 
