@@ -29,4 +29,26 @@ class StatusController extends Controller
             'status'    =>  $status
         ]);
     }
+
+    /**
+     * update function
+     *
+     * @param Request $request
+     * @return App\Status
+     */
+    public function update(Request $request)
+    {
+        $status     =   $this->status->where('id', 1)
+                        ->firstOrFail();
+
+        $this->validate($request, [
+
+            'status'            =>'required',
+            'description'       =>'required|min:2|max:200'
+        ]);
+
+        $status->status          =   $request->status;
+        $status->description     =   $request->description;
+        $status->save();
+    }
 }

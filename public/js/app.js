@@ -5795,15 +5795,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Status',
   data: function data() {
-    return {};
+    return {
+      form: new Form({
+        status: '',
+        description: ''
+      })
+    };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.getApiStatus();
+  },
   computed: {},
-  methods: {}
+  methods: {
+    getApiStatus: function getApiStatus() {
+      var _this = this;
+
+      axios.get('/status').then(function (respon) {
+        console.log(respon.data.status);
+
+        _this.form.fill(respon.data.status);
+      });
+    },
+    updateStatus: function updateStatus() {
+      var _this2 = this;
+
+      this.form.post('/update-status').then(function () {
+        _this2.$router.push('/status');
+
+        var Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        });
+        Toast.fire({
+          type: 'success',
+          title: 'แก้ไขเรียบร้อยแล้ว'
+        });
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -66049,68 +66091,188 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("section", { staticClass: "content" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-lg-12 col-sm-12" }, [
+          _c("div", { staticClass: "card" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "form",
+                {
+                  on: {
+                    keydown: function($event) {
+                      return _vm.form.onKeydown($event)
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "col-lg-12 col-sm-12" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", [_vm._v("เลือกสถานะของฟาร์ม")]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.status,
+                                expression: "form.status"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("status")
+                            },
+                            staticStyle: { width: "50%" },
+                            attrs: { name: "status" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "status",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { disabled: "", value: "" } },
+                              [_vm._v("-เลือก-")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                attrs: { value: "1" },
+                                domProps: { selected: _vm.form.status == 1 }
+                              },
+                              [_vm._v("เปิดฟาร์ม")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              {
+                                attrs: { value: "2" },
+                                domProps: { selected: _vm.form.status == 2 }
+                              },
+                              [_vm._v("ปิดฟาร์ม")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "status" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-sm-12" },
+                      [
+                        _c("label", { attrs: { for: "" } }, [
+                          _vm._v("ข้อความ")
+                        ]),
+                        _vm._v(" "),
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.description,
+                              expression: "form.description"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("description")
+                          },
+                          attrs: {
+                            name: "description",
+                            cols: "100",
+                            rows: "3"
+                          },
+                          domProps: { value: _vm.form.description },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "description",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "description" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-footer" }, [
+                    _c("div", { staticClass: "col-lg-6 col-sm-12" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.updateStatus()
+                            }
+                          }
+                        },
+                        [_vm._v("บันทึก")]
+                      )
+                    ])
+                  ])
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("section", { staticClass: "content" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-12 col-sm-12" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _c("h2", { staticClass: "card-title" }, [
-                  _vm._v("ตั้งค่าสถานะ เปิด-ปิด ฟาร์ม")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c("div", { staticClass: "col-lg-12 col-sm-12" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("เลือกสถานะของฟาร์ม")]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        staticClass: "form-control",
-                        staticStyle: { width: "50%" }
-                      },
-                      [
-                        _c("option", { attrs: { disabled: "", value: "" } }, [
-                          _vm._v("-เลือก-")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "1" } }, [
-                          _vm._v("เปิดฟาร์ม")
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "2" } }, [
-                          _vm._v("ปิดฟาร์ม")
-                        ])
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("div", { staticClass: "col-lg-12 col-sm-12" }, [
-                    _c("label", { attrs: { for: "" } }, [_vm._v("รายละเอียด")]),
-                    _vm._v(" "),
-                    _c("textarea", {
-                      staticClass: "form-control",
-                      attrs: { name: "description", cols: "100", rows: "3" }
-                    })
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-footer" })
-            ])
-          ])
-        ])
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h2", { staticClass: "card-title" }, [
+        _vm._v("ตั้งค่าสถานะ เปิด-ปิด ฟาร์ม")
       ])
     ])
   }

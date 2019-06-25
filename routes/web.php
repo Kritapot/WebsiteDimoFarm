@@ -76,7 +76,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/search-by-portfolio-category', 'PortfolioCategoryController@search_cat_name');
 
     Route::get('/status', 'StatusController@find_by_id');
-
+    Route::post('/update-status', 'StatusController@update');
 });
 
 
