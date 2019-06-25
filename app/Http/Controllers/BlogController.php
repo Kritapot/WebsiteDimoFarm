@@ -6,6 +6,8 @@ use App\Post;
 use App\Category;
 use App\AboutUs;
 use App\OurService;
+use App\Portfolio;
+use App\Status;
 
 
 class BlogController extends Controller
@@ -14,19 +16,25 @@ class BlogController extends Controller
     protected $category;
     protected $aboutUs;
     protected $ourservice;
+    protected $portfolio;
+    protected $status;
 
 
     public function __construct(
             Post $blogPost,
             Category $category,
             AboutUs $aboutUs,
-            OurService $ourservice
+            OurService $ourservice,
+            Portfolio $portfolio,
+            Status $status
         )
     {
         $this->blogPost         = $blogPost;
         $this->category         = $category;
         $this->aboutUs          = $aboutUs;
         $this->ourservice       = $ourservice;
+        $this->portfolio        = $portfolio;
+        $this->status           = $status;
     }
     /**
      * Get all blogpost function
@@ -144,7 +152,7 @@ class BlogController extends Controller
     /**
      * get ourservice function
      *
-     * @return void
+     * @return \Illuminate\Http\Response
      */
     public function get_ourservice()
     {
@@ -156,4 +164,33 @@ class BlogController extends Controller
         ], 200);
     }
 
+    /**
+     * get portfolio function
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function get_portfolio()
+    {
+        $portfolio  =   $this->portfolio
+                        ->with('portfolio_category')
+                        ->orderby('id', 'desc')
+                        ->get();
+
+        return response()->json([
+            'portfolio'  =>  $portfolio
+        ], 200);
+    }
+
+    /**
+     * get status function
+     *
+     * @return void
+     */
+    public function get_status()
+    {
+        $status  =   $this->status->where('id', 1)
+                    ->firstOrFail();
+
+        return view('public.index', ['status' => $status]);
+    }
 }

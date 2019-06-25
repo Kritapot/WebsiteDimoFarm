@@ -52,7 +52,7 @@ class PortfolioController extends Controller
         $sub                = substr($request->photo,0,$strpos);
         $ex                 = explode('/',$sub)[1];
         $namePic               = time().".".$ex;
-        $img                = Image::make($request->photo)->resize(200, 200);
+        $img                = Image::make($request->photo)->resize(900, 632);
         $upload_path        = public_path().'/uploadimage-portfolio/';
         $img->save($upload_path.$namePic);
 
@@ -105,7 +105,7 @@ class PortfolioController extends Controller
             $sub            = substr($request->photo,0,$strpos);
             $ex             = explode('/',$sub)[1];
             $name           = time().".".$ex;
-            $img            = Image::make($request->photo)->resize(200, 200);
+            $img            = Image::make($request->photo)->resize(900, 632);
             $upload_path    = public_path()."/uploadimage-portfolio/";
             $image          = $upload_path. $portfolio->photo;
             $img->save($upload_path.$name);

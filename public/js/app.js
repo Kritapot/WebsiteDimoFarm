@@ -6533,57 +6533,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Portfolio"
+  name: "Portfolio",
+  mounted: function mounted() {
+    this.$store.dispatch('getApiPortfolio');
+  },
+  computed: {
+    getPortfolioData: function getPortfolioData() {
+      return this.$store.getters.allPortfolio;
+    }
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -6686,27 +6646,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PublicHome",
@@ -6715,10 +6654,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.$store.dispatch('getApiOurservice');
+    this.$store.dispatch('getApiPortfolio');
   },
   computed: {
     ourserviceData: function ourserviceData() {
       return this.$store.getters.ourService;
+    },
+    getPortfolioData: function getPortfolioData() {
+      return this.$store.getters.allPortfolio;
     }
   },
   methods: {}
@@ -68144,55 +68087,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { attrs: { id: "portfolio" } }, [
-      _c("section", { attrs: { id: "inner-headline" } }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "span4" }, [
-              _c("div", { staticClass: "inner-heading" }, [
-                _c("h2", [_vm._v("ผลงานของดีโม่ฟาร์ม")])
-              ])
-            ]),
+  return _c("div", { attrs: { id: "portfolio" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { attrs: { id: "content" } }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "span12" }, [
+            _c("div", { staticClass: "clearfix" }),
             _vm._v(" "),
-            _c("div", { staticClass: "span8" }, [
-              _c("ul", { staticClass: "breadcrumb" }, [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "icon-home" })
-                  ]),
-                  _c("i", { staticClass: "icon-angle-right" })
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Portfolio")]),
-                  _c("i", { staticClass: "icon-angle-right" })
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "active" }, [_vm._v("Portfolio")])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { attrs: { id: "content" } }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "span12" }, [
-              _c("div", { staticClass: "clearfix" }),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("section", { attrs: { id: "projects" } }, [
-                  _c(
+            _c("div", { staticClass: "row" }, [
+              _c(
+                "section",
+                { attrs: { id: "projects" } },
+                _vm._l(_vm.getPortfolioData, function(portfolio) {
+                  return _c(
                     "ul",
-                    { staticClass: "portfolio", attrs: { id: "thumbs" } },
+                    {
+                      key: portfolio.id,
+                      staticClass: "portfolio",
+                      attrs: { id: "thumbs" }
+                    },
                     [
                       _c(
                         "li",
@@ -68207,8 +68122,9 @@ var staticRenderFns = [
                               staticClass: "hover-wrap fancybox",
                               attrs: {
                                 "data-fancybox-group": "gallery",
-                                title: "Portfolio name",
-                                href: "img/works/full/image-01-full.jpg"
+                                title:
+                                  "" + portfolio.portfolio_category.cat_name,
+                                href: "uploadimage-portfolio/" + portfolio.photo
                               }
                             },
                             [
@@ -68222,269 +68138,53 @@ var staticRenderFns = [
                           _vm._v(" "),
                           _c("img", {
                             attrs: {
-                              src: "img/works/thumbs/image-01.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span4 design",
-                          attrs: { "data-id": "id-1", "data-type": "icon" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
-                              attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "Portfolio name",
-                                href: "img/works/full/image-02-full.jpg"
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src: "img/works/thumbs/image-02.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span4 photography",
-                          attrs: { "data-id": "id-2", "data-type": "graphic" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
-                              attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "Portfolio name",
-                                href: "img/works/full/image-03-full.jpg"
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src: "img/works/thumbs/image-03.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span4 design",
-                          attrs: { "data-id": "id-0", "data-type": "web" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
-                              attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "Portfolio name",
-                                href: "img/works/full/image-04-full.jpg"
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src: "img/works/thumbs/image-04.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span4 photography",
-                          attrs: { "data-id": "id-4", "data-type": "graphic" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
-                              attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "Portfolio name",
-                                href: "img/works/full/image-05-full.jpg"
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src: "img/works/thumbs/image-05.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span4 photography",
-                          attrs: { "data-id": "id-5", "data-type": "icon" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
-                              attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "Portfolio name",
-                                href: "img/works/full/image-06-full.jpg"
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src: "img/works/thumbs/image-06.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span4 design",
-                          attrs: { "data-id": "id-0", "data-type": "web" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
-                              attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "Portfolio name",
-                                href: "img/works/full/image-07-full.jpg"
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src: "img/works/thumbs/image-07.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span4 design",
-                          attrs: { "data-id": "id-0", "data-type": "web" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
-                              attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "Portfolio name",
-                                href: "img/works/full/image-08-full.jpg"
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src: "img/works/thumbs/image-08.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
+                              src: "uploadimage-portfolio/" + portfolio.photo,
+                              alt: "" + portfolio.title
                             }
                           })
                         ]
                       )
                     ]
                   )
-                ])
-              ])
+                }),
+                0
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { attrs: { id: "inner-headline" } }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "span4" }, [
+            _c("div", { staticClass: "inner-heading" }, [
+              _c("h2", [_vm._v("ผลงานของดีโม่ฟาร์ม")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "span8" }, [
+            _c("ul", { staticClass: "breadcrumb" }, [
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("i", { staticClass: "icon-home" })
+                ]),
+                _c("i", { staticClass: "icon-angle-right" })
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("Portfolio")]),
+                _c("i", { staticClass: "icon-angle-right" })
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "active" }, [_vm._v("Portfolio")])
             ])
           ])
         ])
@@ -68536,171 +68236,68 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
-                _c("section", { attrs: { id: "projects" } }, [
-                  _c(
-                    "ul",
-                    { staticClass: "portfolio", attrs: { id: "thumbs" } },
-                    [
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span3 design",
-                          attrs: { "data-id": "id-0", "data-type": "web" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
-                              attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "The City",
-                                href:
-                                  "assets/public/assets/img/works/full/image-01-full.jpg"
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "assets/public/assets/img/works/full/image-01-full.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span3 design",
-                          attrs: { "data-id": "id-1", "data-type": "icon" }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
-                              attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "The Office",
-                                href:
-                                  "assets/public/assets/img/works/thumbs/image-02.jpg"
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "assets/public/assets/img/works/thumbs/image-02.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span3 photography",
-                          attrs: {
-                            "data-id": "id-2",
-                            "data-type": "illustrator"
+                _c(
+                  "section",
+                  { attrs: { id: "projects" } },
+                  _vm._l(_vm.getPortfolioData, function(portfolio, index) {
+                    return _c(
+                      "ul",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: portfolio.type != 2 && index < 5,
+                            expression: "portfolio.type != 2 && index<5"
                           }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
+                        ],
+                        key: portfolio.id,
+                        staticClass: "portfolio",
+                        attrs: { id: "thumbs" }
+                      },
+                      [
+                        _c(
+                          "li",
+                          {
+                            staticClass: "item-thumbs span3 design",
+                            attrs: { "data-id": "id-0", "data-type": "web" }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "hover-wrap fancybox",
+                                attrs: {
+                                  "data-fancybox-group": "gallery",
+                                  title:
+                                    "" + portfolio.portfolio_category.cat_name,
+                                  href:
+                                    "uploadimage-portfolio/" + portfolio.photo
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "overlay-img" }),
+                                _vm._v(" "),
+                                _c("span", {
+                                  staticClass:
+                                    "overlay-img-thumb font-icon-plus"
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("img", {
                               attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "The Mountains",
-                                href:
-                                  "assets/public/assets/img/works/full/image-03-full.jpg"
+                                src: "uploadimage-portfolio/" + portfolio.photo,
+                                alt: "" + portfolio.title
                               }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "assets/public/assets/img/works/full/image-03-full.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "item-thumbs span3 photography",
-                          attrs: {
-                            "data-id": "id-2",
-                            "data-type": "illustrator"
-                          }
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "hover-wrap fancybox",
-                              attrs: {
-                                "data-fancybox-group": "gallery",
-                                title: "The Mountains",
-                                href:
-                                  "assets/public/assets/img/works/full/image-04-full.jpg"
-                              }
-                            },
-                            [
-                              _c("span", { staticClass: "overlay-img" }),
-                              _vm._v(" "),
-                              _c("span", {
-                                staticClass: "overlay-img-thumb font-icon-plus"
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "assets/public/assets/img/works/full/image-04-full.jpg",
-                              alt:
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."
-                            }
-                          })
-                        ]
-                      )
-                    ]
-                  )
-                ])
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  }),
+                  0
+                )
               ])
             ])
           ]),
@@ -87909,7 +87506,8 @@ __webpack_require__.r(__webpack_exports__);
     contact: [],
     portfolioCategory: [],
     aboutUsHome: [],
-    ourservice: []
+    ourservice: [],
+    portfolio: []
   },
   getters: {
     getCategory: function getCategory(state) {
@@ -87953,6 +87551,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     ourService: function ourService(state) {
       return state.ourservice;
+    },
+    allPortfolio: function allPortfolio(state) {
+      return state.portfolio;
     }
   },
   actions: {
@@ -88051,6 +87652,12 @@ __webpack_require__.r(__webpack_exports__);
         console.log(respon.data.ourservice);
         context.commit('ourservice', respon.data.ourservice);
       });
+    },
+    getApiPortfolio: function getApiPortfolio(context) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/home-portfolio').then(function (respon) {
+        console.log(respon.data.portfolio);
+        context.commit('portfolio', respon.data.portfolio);
+      });
     }
   },
   mutations: {
@@ -88107,6 +87714,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     ourservice: function ourservice(state, playload) {
       return state.ourservice = playload;
+    },
+    portfolio: function portfolio(state, playload) {
+      return state.portfolio = playload;
     }
   }
 });

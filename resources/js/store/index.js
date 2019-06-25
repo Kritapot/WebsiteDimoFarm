@@ -15,7 +15,9 @@ export default  {
         contact:            [],
         portfolioCategory:  [],
         aboutUsHome:        [],
-        ourservice:         []
+        ourservice:         [],
+        portfolio:         [],
+
     },
 
     getters:    {
@@ -73,6 +75,10 @@ export default  {
 
         ourService(state) {
             return state.ourservice
+        },
+
+        allPortfolio(state) {
+            return state.portfolio
         }
     },
 
@@ -190,6 +196,13 @@ export default  {
                 context.commit('ourservice', respon.data.ourservice)
             })
         },
+
+        getApiPortfolio(context) {
+            Axios.get('/home-portfolio').then((respon) => {
+                console.log(respon.data.portfolio)
+                context.commit('portfolio', respon.data.portfolio)
+            })
+        },
     },
 
     mutations:  {
@@ -263,6 +276,10 @@ export default  {
 
         ourservice(state, playload) {
             return state.ourservice     =   playload
+        },
+
+        portfolio(state, playload) {
+            return state.portfolio      =   playload
         }
     }
 }

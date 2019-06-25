@@ -26,63 +26,14 @@
                 </div>
                 <div class="row">
                 <section id="projects">
-                    <ul id="thumbs" class="portfolio">
-                    <li class="item-thumbs span4 design" data-id="id-0" data-type="web">
-                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-01-full.jpg">
-                            <span class="overlay-img"></span>
-                            <span class="overlay-img-thumb font-icon-plus"></span>
-                            </a>
-                        <img src="img/works/thumbs/image-01.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                    </li>
-                    <li class="item-thumbs span4 design" data-id="id-1" data-type="icon">
-                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-02-full.jpg">
-                            <span class="overlay-img"></span>
-                            <span class="overlay-img-thumb font-icon-plus"></span>
-                            </a>
-                        <img src="img/works/thumbs/image-02.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                    </li>
-                    <li class="item-thumbs span4 photography" data-id="id-2" data-type="graphic">
-                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-03-full.jpg">
-                            <span class="overlay-img"></span>
-                            <span class="overlay-img-thumb font-icon-plus"></span>
-                            </a>
-                        <img src="img/works/thumbs/image-03.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                    </li>
-                    <li class="item-thumbs span4 design" data-id="id-0" data-type="web">
-                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-04-full.jpg">
-                            <span class="overlay-img"></span>
-                            <span class="overlay-img-thumb font-icon-plus"></span>
-                            </a>
-                        <img src="img/works/thumbs/image-04.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                    </li>
-                    <li class="item-thumbs span4 photography" data-id="id-4" data-type="graphic">
-                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-05-full.jpg">
-                            <span class="overlay-img"></span>
-                            <span class="overlay-img-thumb font-icon-plus"></span>
-                            </a>
-                        <img src="img/works/thumbs/image-05.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                    </li>
-                    <li class="item-thumbs span4 photography" data-id="id-5" data-type="icon">
-                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-06-full.jpg">
-                            <span class="overlay-img"></span>
-                            <span class="overlay-img-thumb font-icon-plus"></span>
-                            </a>
-                        <img src="img/works/thumbs/image-06.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                    </li>
-                    <li class="item-thumbs span4 design" data-id="id-0" data-type="web">
-                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-07-full.jpg">
-                            <span class="overlay-img"></span>
-                            <span class="overlay-img-thumb font-icon-plus"></span>
-                            </a>
-                        <img src="img/works/thumbs/image-07.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                    </li>
-                    <li class="item-thumbs span4 design" data-id="id-0" data-type="web">
-                        <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Portfolio name" href="img/works/full/image-08-full.jpg">
-                            <span class="overlay-img"></span>
-                            <span class="overlay-img-thumb font-icon-plus"></span>
-                            </a>
-                        <img src="img/works/thumbs/image-08.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                    </li>
+                    <ul id="thumbs" class="portfolio" v-for="portfolio in getPortfolioData" :key="portfolio.id">
+                        <li class="item-thumbs span4 design" data-id="id-0" data-type="web">
+                            <a class="hover-wrap fancybox" data-fancybox-group="gallery" :title="`${portfolio.portfolio_category.cat_name}`" :href="`uploadimage-portfolio/${portfolio.photo}`">
+                                <span class="overlay-img"></span>
+                                <span class="overlay-img-thumb font-icon-plus"></span>
+                                </a>
+                            <img :src="`uploadimage-portfolio/${portfolio.photo}`" :alt="`${portfolio.title}`">
+                        </li>
                     </ul>
                 </section>
                 </div>
@@ -96,9 +47,24 @@
 <script>
     export default {
         name: "Portfolio",
+
+        mounted() {
+            this.$store.dispatch('getApiPortfolio')
+        },
+
+        computed: {
+            getPortfolioData() {
+                return this.$store.getters.allPortfolio
+            }
+        },
+
+        methods: {
+
+        },
     }
 
 </script>
 
 <style scoped>
+
 </style>

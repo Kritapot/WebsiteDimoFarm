@@ -29,13 +29,15 @@
                         <h5 class="widgetheading">ติดต่อเราได้ที่</h5>
                         <address>
                             <strong>ดีโม่ฟาร์ม ฟาร์มสุนัขพันธุ์เล็กเชียงใหม่</strong><br>
-                            Springville center X264, Park Ave S.01<br>
-                            Semarang 16425 Indonesia
                         </address>
                         <p>
-                            <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
-                            <i class="icon-envelope-alt"></i> email@domainname.com
+                            <i class="icon-phone"></i> +66 82 6113223 <br>
                         </p>
+                        @if (!empty(Auth::user()))
+                                                <span></span>
+                                            @else
+                                                <li><a href="{{ url('/administrator') }}"><i class="icon-user"></i>Sign in</a></li>
+                                            @endif
                     </div>
                 </div>
             </div>

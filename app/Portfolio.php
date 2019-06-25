@@ -10,4 +10,9 @@ class Portfolio extends Model
     {
         return $this->belongsTo(PortfolioCategory::class, 'cat_id');
     }
+
+    public function getTitleAttribute($value)
+    {
+        return !empty($value) ? $value : "ไม่มีหัวข้อ";
+    }
 }

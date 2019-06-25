@@ -23,7 +23,8 @@ Route::get('/search', 'BlogController@search_post');
 Route::get('/latepost', 'BlogController@get_latepost');
 Route::get('/home-about-us', 'BlogController@get_about_us');
 Route::get('/home-ourservice', 'BlogController@get_ourservice');
-
+Route::get('/home-portfolio', 'BlogController@get_portfolio');
+Route::get('/status', 'BlogController@get_status');
 
 
 Route::post('/save-contact', 'ContactController@save_contact');

@@ -9,34 +9,13 @@
                         <h4 class="heading" style="font-family: 'Mali', cursive; font-weight:600">ลูกสุนัขพันธ์ุเล็กของฟาร์มประจำเดือน</h4>
                         <div class="row">
                         <section id="projects">
-                            <ul id="thumbs" class="portfolio">
+                            <ul id="thumbs" class="portfolio" v-for="(portfolio, index) in getPortfolioData" v-show="portfolio.type != 2 && index<5" :key="portfolio.id">
                             <li class="item-thumbs span3 design" data-id="id-0" data-type="web">
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The City" :href="`assets/public/assets/img/works/full/image-01-full.jpg`">
+                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" :title="`${portfolio.portfolio_category.cat_name}`" :href="`uploadimage-portfolio/${portfolio.photo}`">
                                     <span class="overlay-img"></span>
                                     <span class="overlay-img-thumb font-icon-plus"></span>
                                     </a>
-                                <img :src="`assets/public/assets/img/works/full/image-01-full.jpg`" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                            </li>
-                            <li class="item-thumbs span3 design" data-id="id-1" data-type="icon">
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Office" :href="`assets/public/assets/img/works/thumbs/image-02.jpg`">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                <img :src="`assets/public/assets/img/works/thumbs/image-02.jpg`" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis." />
-                            </li>
-                            <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" :href="`assets/public/assets/img/works/full/image-03-full.jpg`">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                <img :src="`assets/public/assets/img/works/full/image-03-full.jpg`" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
-                            </li>
-                            <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
-                                <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" :href="`assets/public/assets/img/works/full/image-04-full.jpg`">
-                                    <span class="overlay-img"></span>
-                                    <span class="overlay-img-thumb font-icon-plus"></span>
-                                    </a>
-                                <img :src="`assets/public/assets/img/works/full/image-04-full.jpg`" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                <img :src="`uploadimage-portfolio/${portfolio.photo}`"  :alt="`${portfolio.title}`">
                             </li>
                             </ul>
                         </section>
@@ -118,11 +97,16 @@ import Slide from './Slide.vue'
 
         mounted() {
             this.$store.dispatch('getApiOurservice')
+            this.$store.dispatch('getApiPortfolio')
         },
 
         computed: {
             ourserviceData() {
                 return this.$store.getters.ourService
+            },
+
+            getPortfolioData() {
+                return this.$store.getters.allPortfolio
             }
         },
 
