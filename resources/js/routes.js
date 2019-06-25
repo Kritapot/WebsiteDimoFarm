@@ -23,6 +23,11 @@ import PorfolioCatList      from './components/admin/porfolio-category/List.vue'
 import PorfolioCatNew       from './components/admin/porfolio-category/New.vue'
 import PorfolioCatEdit      from './components/admin/porfolio-category/Edit.vue'
 
+//Porfolio
+import PortfolioList      from './components/admin/portfolio/List.vue'
+import PortfolioNew       from './components/admin/portfolio/New.vue'
+import PortfolioEdit      from './components/admin/portfolio/Edit.vue'
+
 //Status
 import Status             from './components/admin/status/Status.vue'
 
@@ -114,6 +119,21 @@ export const routes = [
     {
         path: '/status',
         component: Status
+    },
+
+    {
+        path: '/portfolio-add',
+        component: PortfolioNew
+    },
+
+    {
+        path: '/portfolio-edit/:id',
+        component: PortfolioEdit
+    },
+
+    {
+        path: '/portfolio-list',
+        component: PortfolioList
     },
 
 

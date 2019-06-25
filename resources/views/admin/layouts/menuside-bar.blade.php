@@ -92,7 +92,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <router-link to="" class="nav-link">
+                            <router-link to="/portfolio-list" class="nav-link">
                                 <i class="fas fa-dog"></i>
                                 <p>
                                     Portfolio
