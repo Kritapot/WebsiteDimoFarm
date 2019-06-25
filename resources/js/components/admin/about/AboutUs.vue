@@ -67,7 +67,10 @@
         },
 
         mounted() {
-            this.getAboutUs();
+                this.$Progress.start()
+                this.getAboutUs();
+                this.$Progress.finish()
+
         },
 
         computed: {

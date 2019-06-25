@@ -103,7 +103,10 @@
         },
 
         mounted() {
+            this.$Progress.start()
             this.getApiOurservice();
+            this.$Progress.finish()
+
         },
 
         computed: {

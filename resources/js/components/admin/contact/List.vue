@@ -61,7 +61,9 @@
         name: "List",
 
         mounted(){
-            this.paginationContact()
+                this.$Progress.start()
+                this.paginationContact()
+                this.$Progress.finish()
         },
 
         computed:{

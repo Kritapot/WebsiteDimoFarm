@@ -23,7 +23,7 @@
                                     <label for="newSelectCatId">เลือกประเภท</label>
                                     <select class="form-control" v-model="form.cat_id" :class="{ 'is-invalid': form.errors.has('cat_id') }">
                                         <option disabled value="">--select one--</option>
-                                        <option :value="portfolioCategory.id" v-for="portfolioCategory in portfolioCategory" :key="portfolioCategory.id">{{ portfolioCategory.cat_name }}</option>
+                                        <option :value="portfolioCategory.id" v-for="portfolioCategory in portfolioCategoryData" :key="portfolioCategory.id">{{ portfolioCategory.cat_name }}</option>
                                     </select>
                                     <has-error :form="form" field="cat_id"></has-error>
                                 </div>
@@ -51,7 +51,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="col-lg-6 col-sm-12">
-                                <button type="submit" class="btn btn-primary">บันทึก</button>
+                                <button @click.prevent="savePortfolio()" type="submit" class="btn btn-primary">บันทึก</button>
                                 <button type="button" class="btn btn-secondary">
                                     <router-link to="/portfolio-list" class="text-white" style="text-decoration: none;">กลับไปหน้าแสดง Portfolio ทั้งหมด</router-link>
                                 </button>
@@ -85,7 +85,7 @@
         },
 
         computed:{
-            portfolioCategory() {
+            portfolioCategoryData() {
                 return this.$store.getters.portfolioCategory
             }
         },
@@ -112,7 +112,25 @@
 
             getApiPortfolioCategory() {
                 this.$store.dispatch('getPortfolioCategory')
-            }
+            },
+
+            savePortfolio() {
+                this.form.post('/save-portfolio').then(() => {
+                    this.$router.push('/portfolio-list')
+                    const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                            Toast.fire({
+                            type: 'success',
+                            title: 'เพิ่มเรียบร้อยแล้ว'
+                        })
+                }).catch((e) => {
+                    console.log(e)
+                })
+            },
         }
     }
 
