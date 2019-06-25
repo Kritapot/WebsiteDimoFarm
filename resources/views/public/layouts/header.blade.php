@@ -7,7 +7,11 @@
                                             <li><strong>ขณะนี้ฟาร์มปิดทำการ</strong></li>
                                             <li>ติดต่อเรา <i class="icon-phone"></i> 082-6113223</li>
                                             <li><i class="icon-facebook"></i> <a href="https://www.facebook.com/DiMoFarm/">DimoFarm</a></li>
-                                            <li><a href="{{ url('/administrator') }}"><i class="icon-user"></i>Sign in</a></li>
+                                            @if (!empty(Auth::user()))
+                                                <span></span>
+                                            @else
+                                                <li><a href="{{ url('/administrator') }}"><i class="icon-user"></i>Sign in</a></li>
+                                            @endif
                                         </ul>
                                     </div>
                                 </div>
