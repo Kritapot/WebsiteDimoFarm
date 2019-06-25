@@ -42,7 +42,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12 col-sm-12">
                                     <input @change = "changePhoto($event)" type="file" name="photo" :class="{ 'is-invalid': form.errors.has('photo') }">
-                                    <img :src="updateImage()" alt="" width="80" height="80">
+                                    <img v-if="form.photo" :src="updateImage()" alt="" width="80" height="80">
                                     <has-error :form="form" field="photo"></has-error>
                                 </div>
                             </div>

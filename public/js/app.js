@@ -6363,15 +6363,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AboutUs"
 });
@@ -64102,15 +64093,17 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _c("img", {
-                        staticStyle: { "margin-top": "15px" },
-                        attrs: {
-                          src: _vm.updateImage(),
-                          alt: "",
-                          width: "200",
-                          height: "200"
-                        }
-                      }),
+                      _vm.form.photo
+                        ? _c("img", {
+                            staticStyle: { "margin-top": "15px" },
+                            attrs: {
+                              src: _vm.updateImage(),
+                              alt: "",
+                              width: "200",
+                              height: "200"
+                            }
+                          })
+                        : _vm._e(),
                       _vm._v(" "),
                       _c("has-error", {
                         attrs: { form: _vm.form, field: "photo" }
@@ -66094,14 +66087,16 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _c("img", {
-                        attrs: {
-                          src: _vm.updateImage(),
-                          alt: "",
-                          width: "80",
-                          height: "80"
-                        }
-                      }),
+                      _vm.form.photo
+                        ? _c("img", {
+                            attrs: {
+                              src: _vm.updateImage(),
+                              alt: "",
+                              width: "80",
+                              height: "80"
+                            }
+                          })
+                        : _vm._e(),
                       _vm._v(" "),
                       _c("has-error", {
                         attrs: { form: _vm.form, field: "photo" }
@@ -66908,14 +66903,16 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _c("img", {
-                      attrs: {
-                        src: _vm.updateImage(),
-                        alt: "",
-                        width: "80",
-                        height: "80"
-                      }
-                    }),
+                    _vm.form.photo
+                      ? _c("img", {
+                          attrs: {
+                            src: _vm.updateImage(),
+                            alt: "",
+                            width: "80",
+                            height: "80"
+                          }
+                        })
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("has-error", {
                       attrs: { form: _vm.form, field: "photo" }
@@ -67756,26 +67753,6 @@ var render = function() {
                         alt: ""
                       }
                     })
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("img", {
-                      attrs: {
-                        src:
-                          "assets/public/assets/img/works/full/image-02-full.jpg",
-                        alt: ""
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("img", {
-                      attrs: {
-                        src:
-                          "assets/public/assets/img/works/full/image-03-full.jpg",
-                        alt: ""
-                      }
-                    })
                   ])
                 ])
               ])
@@ -67833,12 +67810,6 @@ var staticRenderFns = [
       _c("p", { staticClass: "t-p" }, [
         _vm._v(
           "     \n                เราคือฟาร์มปิดขนาดกลาง ไม่ออกขายตลาด รับประกันปลอดโรค เลี้ยงเองขายที่่บ้าน สำหรับเชียงใหม่อำเภอใกล้เคียง เรามีบริการส่งฟรี\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "t-p" }, [
-        _vm._v(
-          "     \n                จำหน่ายสุนัขพันธ์เล็ก มิเนียเจอร์ ชิวาวา ปอมเมอเรเนียน (รับผสมปอมเมอเรเนียน และชิวาวา)\n                "
         )
       ])
     ])

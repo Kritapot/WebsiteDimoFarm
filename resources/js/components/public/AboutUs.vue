@@ -27,9 +27,6 @@
                     <p class="t-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     เราคือฟาร์มปิดขนาดกลาง ไม่ออกขายตลาด รับประกันปลอดโรค เลี้ยงเองขายที่่บ้าน สำหรับเชียงใหม่อำเภอใกล้เคียง เรามีบริการส่งฟรี
                     </p>
-                    <p class="t-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    จำหน่ายสุนัขพันธ์เล็ก มิเนียเจอร์ ชิวาวา ปอมเมอเรเนียน (รับผสมปอมเมอเรเนียน และชิวาวา)
-                    </p>
                 </div>
                 <div class="span6">
                     <!-- start flexslider -->
@@ -37,12 +34,6 @@
                     <ul class="slides">
                         <li>
                         <img :src="`assets/public/assets/img/works/full/image-01-full.jpg`" alt="" />
-                        </li>
-                        <li>
-                        <img :src="`assets/public/assets/img/works/full/image-02-full.jpg`" alt="" />
-                        </li>
-                        <li>
-                        <img :src="`assets/public/assets/img/works/full/image-03-full.jpg`" alt="" />
                         </li>
                     </ul>
                     </div>

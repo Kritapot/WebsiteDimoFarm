@@ -97,6 +97,7 @@
                 return 'uploadimage-portfolio/'+img;
             },
 
+
             deletePortfolio(id) {
                 axios.delete('/delete-portfolio/'+id).then(() => {
                     this.getApiPortfolio()
