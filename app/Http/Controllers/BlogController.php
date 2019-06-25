@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
 use App\AboutUs;
+use App\OurService;
 
 
 class BlogController extends Controller
@@ -12,17 +13,20 @@ class BlogController extends Controller
     protected $blogPost;
     protected $category;
     protected $aboutUs;
+    protected $ourservice;
 
 
     public function __construct(
             Post $blogPost,
             Category $category,
-            AboutUs $aboutUs
+            AboutUs $aboutUs,
+            OurService $ourservice
         )
     {
-        $this->blogPost     = $blogPost;
-        $this->category     = $category;
-        $this->aboutUs      = $aboutUs;
+        $this->blogPost         = $blogPost;
+        $this->category         = $category;
+        $this->aboutUs          = $aboutUs;
+        $this->ourservice       = $ourservice;
     }
     /**
      * Get all blogpost function
@@ -134,6 +138,21 @@ class BlogController extends Controller
 
         return response()->json([
             'aboutUs'  =>  $aboutUs
+        ], 200);
+    }
+
+    /**
+     * get ourservice function
+     *
+     * @return void
+     */
+    public function get_ourservice()
+    {
+        $ourservice     =   $this->ourservice->where('id', 1)
+                            ->firstOrFail();
+
+        return response()->json([
+            'ourservice'  =>  $ourservice
         ], 200);
     }
 

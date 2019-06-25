@@ -113,5 +113,6 @@ export default {
     .span6 .show-picture-about {
         width: 500px;
         height: 500px;
+        border: 1px solid white;
     }
 </style>

@@ -53,9 +53,9 @@
                                         <i class="icon-heart icon-circled icon-64 active"></i>
                                     </div>
                                     <div class="text service">
-                                        <h6>จำหน่ายสุนัขพันธ์เล็ก</h6>
+                                        <h6>{{ourserviceData.title1}}</h6>
                                         <p>
-                                            ฟาร์มของเราจำหน่ายสุนัขพันธ์ุเล็ก มีทั้ง มิเนียเจอร์ ชิวาวา ปอมเมอเรเนียน สามารถเข้ามาเยี่ยมชมฟาร์มของเราได้
+                                            {{ourserviceData.description1}}
                                         </p>
                                     </div>
                                 </div>
@@ -66,9 +66,9 @@
                                         <i class="icon-plane icon-circled icon-64 active"></i>
                                     </div>
                                     <div class="text">
-                                        <h6>บริการจัดส่งทางเครื่องบิน</h6>
+                                        <h6>{{ourserviceData.title2}}</h6>
                                         <p>
-                                            ฟาร์มของเรามีบริการจัดส่งทางเครื่องบิน โดยคิดตามอัตราค่าบริการ + อุปกรณ์
+                                            {{ourserviceData.description2}}
                                         </p>
                                     </div>
                                 </div>
@@ -79,9 +79,9 @@
                                         <i class="icon-truck icon-circled icon-64 active"></i>
                                     </div>
                                     <div class="text">
-                                        <h6>บริการจัดส่ง</h6>
+                                        <h6>{{ourserviceData.title3}}</h6>
                                         <p>
-                                            ฟาร์มของเรามีบริการจัดส่งอำเภอใกล้เคียงในเชียงใหม่ฟรี หรือลูกค้าสามารถนัดรับได้
+                                            {{ourserviceData.description3}}
                                         </p>
                                     </div>
                                 </div>
@@ -92,9 +92,9 @@
                                         <i class=" icon-ok-sign icon-circled icon-64 active"></i>
                                     </div>
                                     <div class="text">
-                                        <h6>รับผสมพันธุ์สุนัข</h6>
+                                        <h6>{{ourserviceData.title4}}</h6>
                                         <p>
-                                            ฟาร์มของเรารับผสมพันธุ์สุนัข ปอมเมอเรเนียน ชิวาวา และมิเนเจอร์ โดยพ่อพันธุ์ที่สุขภาพดี สวยงาม
+                                            {{ourserviceData.description4}}
                                         </p>
                                     </div>
                                 </div>
@@ -114,6 +114,20 @@ import Slide from './Slide.vue'
 
         components: {
             Slide
+        },
+
+        mounted() {
+            this.$store.dispatch('getApiOurservice')
+        },
+
+        computed: {
+            ourserviceData() {
+                return this.$store.getters.ourService
+            }
+        },
+
+        methods: {
+
         },
     }
 

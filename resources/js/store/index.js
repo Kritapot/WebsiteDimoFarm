@@ -15,6 +15,7 @@ export default  {
         contact:            [],
         portfolioCategory:  [],
         aboutUsHome:        [],
+        ourservice:         []
     },
 
     getters:    {
@@ -68,6 +69,10 @@ export default  {
 
         aboutUsData(state) {
             return state.aboutUsHome
+        },
+
+        ourService(state) {
+            return state.ourservice
         }
     },
 
@@ -178,6 +183,13 @@ export default  {
                 context.commit('allAboutUs', respon.data.aboutUs)
             })
         },
+
+        getApiOurservice(context) {
+            Axios.get('/home-ourservice').then((respon) => {
+                console.log(respon.data.ourservice)
+                context.commit('ourservice', respon.data.ourservice)
+            })
+        },
     },
 
     mutations:  {
@@ -247,6 +259,10 @@ export default  {
 
         allAboutUs(state, playload) {
             return state.aboutUsHome  =   playload
+        },
+
+        ourservice(state, playload) {
+            return state.ourservice     =   playload
         }
     }
 }

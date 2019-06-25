@@ -6712,7 +6712,16 @@ __webpack_require__.r(__webpack_exports__);
   name: "PublicHome",
   components: {
     Slide: _Slide_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('getApiOurservice');
+  },
+  computed: {
+    ourserviceData: function ourserviceData() {
+      return this.$store.getters.ourService;
+    }
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -11751,7 +11760,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.btn-theme[data-v-6ecbdc60] {\n    border: 1px solid #F03C02;\n    background: #F03C02;\n}\n.btn-theme[data-v-6ecbdc60]:hover {\n    border: 1px solid #333333;\n    background: #333333;\n}\n.t-p[data-v-6ecbdc60] {\n    font-size: 1.7em;\n    line-height: 1.5em;\n}\n.span6 h2[data-v-6ecbdc60] {\n    font-family: 'Mali', cursive;\n    font-weight:600\n}\n.span6 p[data-v-6ecbdc60] {\n    font-family: 'Mali', cursive;\n    font-size: 2.2em;\n}\n.span6 .show-picture-about[data-v-6ecbdc60] {\n    width: 500px;\n    height: 500px;\n}\n", ""]);
+exports.push([module.i, "\n.btn-theme[data-v-6ecbdc60] {\n    border: 1px solid #F03C02;\n    background: #F03C02;\n}\n.btn-theme[data-v-6ecbdc60]:hover {\n    border: 1px solid #333333;\n    background: #333333;\n}\n.t-p[data-v-6ecbdc60] {\n    font-size: 1.7em;\n    line-height: 1.5em;\n}\n.span6 h2[data-v-6ecbdc60] {\n    font-family: 'Mali', cursive;\n    font-weight:600\n}\n.span6 p[data-v-6ecbdc60] {\n    font-family: 'Mali', cursive;\n    font-size: 2.2em;\n}\n.span6 .show-picture-about[data-v-6ecbdc60] {\n    width: 500px;\n    height: 500px;\n    border: 1px solid white;\n}\n", ""]);
 
 // exports
 
@@ -68696,7 +68705,83 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(0)
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "span12" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "span3" }, [
+                  _c("div", { staticClass: "box aligncenter" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text service" }, [
+                      _c("h6", [_vm._v(_vm._s(_vm.ourserviceData.title1))]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                                        " +
+                            _vm._s(_vm.ourserviceData.description1) +
+                            "\n                                    "
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "span3" }, [
+                  _c("div", { staticClass: "box aligncenter" }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text" }, [
+                      _c("h6", [_vm._v(_vm._s(_vm.ourserviceData.title2))]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                                        " +
+                            _vm._s(_vm.ourserviceData.description2) +
+                            "\n                                    "
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "span3" }, [
+                  _c("div", { staticClass: "box aligncenter" }, [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text" }, [
+                      _c("h6", [_vm._v(_vm._s(_vm.ourserviceData.title3))]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                                        " +
+                            _vm._s(_vm.ourserviceData.description3) +
+                            "\n                                    "
+                        )
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "span3" }, [
+                  _c("div", { staticClass: "box aligncenter" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text" }, [
+                      _c("h6", [_vm._v(_vm._s(_vm.ourserviceData.title4))]),
+                      _vm._v(" "),
+                      _c("p", [
+                        _vm._v(
+                          "\n                                        " +
+                            _vm._s(_vm.ourserviceData.description4) +
+                            "\n                                    "
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ],
@@ -68708,90 +68793,32 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "span12" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "span3" }, [
-            _c("div", { staticClass: "box aligncenter" }, [
-              _c("div", { staticClass: "aligncenter icon" }, [
-                _c("i", {
-                  staticClass: "icon-heart icon-circled icon-64 active"
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text service" }, [
-                _c("h6", [_vm._v("จำหน่ายสุนัขพันธ์เล็ก")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "\n                                        ฟาร์มของเราจำหน่ายสุนัขพันธ์ุเล็ก มีทั้ง มิเนียเจอร์ ชิวาวา ปอมเมอเรเนียน สามารถเข้ามาเยี่ยมชมฟาร์มของเราได้\n                                    "
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "span3" }, [
-            _c("div", { staticClass: "box aligncenter" }, [
-              _c("div", { staticClass: "aligncenter icon" }, [
-                _c("i", {
-                  staticClass: "icon-plane icon-circled icon-64 active"
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text" }, [
-                _c("h6", [_vm._v("บริการจัดส่งทางเครื่องบิน")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "\n                                        ฟาร์มของเรามีบริการจัดส่งทางเครื่องบิน โดยคิดตามอัตราค่าบริการ + อุปกรณ์\n                                    "
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "span3" }, [
-            _c("div", { staticClass: "box aligncenter" }, [
-              _c("div", { staticClass: "aligncenter icon" }, [
-                _c("i", {
-                  staticClass: "icon-truck icon-circled icon-64 active"
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text" }, [
-                _c("h6", [_vm._v("บริการจัดส่ง")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "\n                                        ฟาร์มของเรามีบริการจัดส่งอำเภอใกล้เคียงในเชียงใหม่ฟรี หรือลูกค้าสามารถนัดรับได้\n                                    "
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "span3" }, [
-            _c("div", { staticClass: "box aligncenter" }, [
-              _c("div", { staticClass: "aligncenter icon" }, [
-                _c("i", {
-                  staticClass: " icon-ok-sign icon-circled icon-64 active"
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text" }, [
-                _c("h6", [_vm._v("รับผสมพันธุ์สุนัข")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "\n                                        ฟาร์มของเรารับผสมพันธุ์สุนัข ปอมเมอเรเนียน ชิวาวา และมิเนเจอร์ โดยพ่อพันธุ์ที่สุขภาพดี สวยงาม\n                                    "
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "aligncenter icon" }, [
+      _c("i", { staticClass: "icon-heart icon-circled icon-64 active" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "aligncenter icon" }, [
+      _c("i", { staticClass: "icon-plane icon-circled icon-64 active" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "aligncenter icon" }, [
+      _c("i", { staticClass: "icon-truck icon-circled icon-64 active" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "aligncenter icon" }, [
+      _c("i", { staticClass: " icon-ok-sign icon-circled icon-64 active" })
     ])
   }
 ]
@@ -69326,12 +69353,14 @@ var render = function() {
                         _c("h2", [_vm._v(_vm._s(_vm.singleAllPost.title))])
                       ]),
                       _vm._v(" "),
-                      _c("img", {
-                        attrs: {
-                          src: "uploadimage/" + _vm.singleAllPost.photo,
-                          alt: ""
-                        }
-                      })
+                      _vm.singleAllPost.photo
+                        ? _c("img", {
+                            attrs: {
+                              src: "uploadimage/" + _vm.singleAllPost.photo,
+                              alt: ""
+                            }
+                          })
+                        : _vm._e()
                     ]),
                     _vm._v(" "),
                     _c("p", { staticClass: "text-p" }, [
@@ -87879,7 +87908,8 @@ __webpack_require__.r(__webpack_exports__);
     findContact: [],
     contact: [],
     portfolioCategory: [],
-    aboutUsHome: []
+    aboutUsHome: [],
+    ourservice: []
   },
   getters: {
     getCategory: function getCategory(state) {
@@ -87920,6 +87950,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     aboutUsData: function aboutUsData(state) {
       return state.aboutUsHome;
+    },
+    ourService: function ourService(state) {
+      return state.ourservice;
     }
   },
   actions: {
@@ -88012,6 +88045,12 @@ __webpack_require__.r(__webpack_exports__);
         console.log(respon.data);
         context.commit('allAboutUs', respon.data.aboutUs);
       });
+    },
+    getApiOurservice: function getApiOurservice(context) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/home-ourservice').then(function (respon) {
+        console.log(respon.data.ourservice);
+        context.commit('ourservice', respon.data.ourservice);
+      });
     }
   },
   mutations: {
@@ -88065,6 +88104,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     allAboutUs: function allAboutUs(state, playload) {
       return state.aboutUsHome = playload;
+    },
+    ourservice: function ourservice(state, playload) {
+      return state.ourservice = playload;
     }
   }
 });

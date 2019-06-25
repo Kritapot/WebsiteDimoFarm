@@ -30,7 +30,7 @@
                                             <h2>{{ singleAllPost.title }}</h2>
 
                                         </div>
-                                        <img :src="`uploadimage/${singleAllPost.photo}`" alt="" />
+                                        <img v-if="singleAllPost.photo" :src="`uploadimage/${singleAllPost.photo}`" alt="" />
                                     </div>
                                     <p class="text-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         {{ singleAllPost.description }}

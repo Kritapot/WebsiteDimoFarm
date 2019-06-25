@@ -22,6 +22,8 @@ Route::get('/blogpost-category-id/{id}', 'BlogController@get_post_by_category_id
 Route::get('/search', 'BlogController@search_post');
 Route::get('/latepost', 'BlogController@get_latepost');
 Route::get('/home-about-us', 'BlogController@get_about_us');
+Route::get('/home-ourservice', 'BlogController@get_ourservice');
+
 
 
 Route::post('/save-contact', 'ContactController@save_contact');
