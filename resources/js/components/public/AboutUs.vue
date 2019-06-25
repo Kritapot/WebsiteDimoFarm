@@ -23,17 +23,17 @@
             <div class="container">
                 <div class="row">
                 <div class="span6">
-                    <h2>ดีโม่ฟาร์ม</h2>
+                    <h2>{{ getAboutUsData.title }}</h2>
                     <p class="t-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    เราคือฟาร์มปิดขนาดกลาง ไม่ออกขายตลาด รับประกันปลอดโรค เลี้ยงเองขายที่่บ้าน สำหรับเชียงใหม่อำเภอใกล้เคียง เรามีบริการส่งฟรี
+                    {{ getAboutUsData.description }}
                     </p>
                 </div>
                 <div class="span6">
                     <!-- start flexslider -->
-                    <div class="flexslider">
+                    <div class="col-sm-4 show-picture-about">
                     <ul class="slides">
                         <li>
-                        <img :src="`assets/public/assets/img/works/full/image-01-full.jpg`" alt="" />
+                        <img v-if="getAboutUsData.photo" :src="`uploadimage-about/${getAboutUsData.photo}`" alt=""/>
                         </li>
                     </ul>
                     </div>
@@ -58,7 +58,29 @@
 
 <script>
 export default {
-    name: "AboutUs"
+    name: "AboutUs",
+
+    data() {
+        return {
+        }
+    },
+
+    computed: {
+        getAboutUsData() {
+            return this.$store.getters.aboutUsData
+        }
+    },
+
+    mounted() {
+        this.$Progress.start()
+        this.$store.dispatch('getApiAboutUs')
+        this.$Progress.finish()
+    },
+
+    methods: {
+
+    },
+
 }
 </script>
 
@@ -86,5 +108,10 @@ export default {
     .span6 p {
         font-family: 'Mali', cursive;
         font-size: 2.2em;
+    }
+
+    .span6 .show-picture-about {
+        width: 500px;
+        height: 500px;
     }
 </style>

@@ -14,6 +14,7 @@ export default  {
         findContact:        [],
         contact:            [],
         portfolioCategory:  [],
+        aboutUsHome:        [],
     },
 
     getters:    {
@@ -63,6 +64,10 @@ export default  {
 
         portfolioCategory(state) {
             return state.portfolioCategory
+        },
+
+        aboutUsData(state) {
+            return state.aboutUsHome
         }
     },
 
@@ -166,6 +171,13 @@ export default  {
                 context.commit('searchPortfolioByCat', respon.data.searchCategoryName)
             })
         },
+
+        getApiAboutUs(context) {
+            Axios.get('/home-about-us').then((respon) => {
+                console.log(respon.data)
+                context.commit('allAboutUs', respon.data.aboutUs)
+            })
+        },
     },
 
     mutations:  {
@@ -231,6 +243,10 @@ export default  {
 
         searchPortfolioByCat(state, playload) {
             state.portfolioCategory  =   playload
+        },
+
+        allAboutUs(state, playload) {
+            return state.aboutUsHome  =   playload
         }
     }
 }

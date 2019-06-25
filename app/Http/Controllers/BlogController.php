@@ -4,18 +4,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\AboutUs;
 
 
 class BlogController extends Controller
 {
     protected $blogPost;
     protected $category;
+    protected $aboutUs;
 
 
-    public function __construct(Post $blogPost, Category $category)
+    public function __construct(
+            Post $blogPost,
+            Category $category,
+            AboutUs $aboutUs
+        )
     {
-        $this->blogPost = $blogPost;
-        $this->category = $category;
+        $this->blogPost     = $blogPost;
+        $this->category     = $category;
+        $this->aboutUs      = $aboutUs;
     }
     /**
      * Get all blogpost function
@@ -99,7 +106,11 @@ class BlogController extends Controller
 
     }
 
-
+    /**
+     * get latepost function
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function get_latepost()
     {
         $latePost       =   $this->blogPost->with('category', 'user')
@@ -108,6 +119,21 @@ class BlogController extends Controller
 
         return response()->json([
             "latePost"  =>  $latePost
+        ], 200);
+    }
+
+    /**
+     * get about-us show function
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function get_about_us()
+    {
+        $aboutUs        =   $this->aboutUs->where('id', 1)
+                            ->firstOrFail();
+
+        return response()->json([
+            'aboutUs'  =>  $aboutUs
         ], 200);
     }
 

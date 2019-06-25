@@ -6364,7 +6364,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "AboutUs"
+  name: "AboutUs",
+  data: function data() {
+    return {};
+  },
+  computed: {
+    getAboutUsData: function getAboutUsData() {
+      return this.$store.getters.aboutUsData;
+    }
+  },
+  mounted: function mounted() {
+    this.$Progress.start();
+    this.$store.dispatch('getApiAboutUs');
+    this.$Progress.finish();
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -11737,7 +11751,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.btn-theme[data-v-6ecbdc60] {\n    border: 1px solid #F03C02;\n    background: #F03C02;\n}\n.btn-theme[data-v-6ecbdc60]:hover {\n    border: 1px solid #333333;\n    background: #333333;\n}\n.t-p[data-v-6ecbdc60] {\n    font-size: 1.7em;\n    line-height: 1.5em;\n}\n.span6 h2[data-v-6ecbdc60] {\n    font-family: 'Mali', cursive;\n    font-weight:600\n}\n.span6 p[data-v-6ecbdc60] {\n    font-family: 'Mali', cursive;\n    font-size: 2.2em;\n}\n", ""]);
+exports.push([module.i, "\n.btn-theme[data-v-6ecbdc60] {\n    border: 1px solid #F03C02;\n    background: #F03C02;\n}\n.btn-theme[data-v-6ecbdc60]:hover {\n    border: 1px solid #333333;\n    background: #333333;\n}\n.t-p[data-v-6ecbdc60] {\n    font-size: 1.7em;\n    line-height: 1.5em;\n}\n.span6 h2[data-v-6ecbdc60] {\n    font-family: 'Mali', cursive;\n    font-weight:600\n}\n.span6 p[data-v-6ecbdc60] {\n    font-family: 'Mali', cursive;\n    font-size: 2.2em;\n}\n.span6 .show-picture-about[data-v-6ecbdc60] {\n    width: 500px;\n    height: 500px;\n}\n", ""]);
 
 // exports
 
@@ -67740,26 +67754,38 @@ var render = function() {
       _c("section", { attrs: { id: "content" } }, [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "row" }, [
-            _vm._m(1),
+            _c("div", { staticClass: "span6" }, [
+              _c("h2", [_vm._v(_vm._s(_vm.getAboutUsData.title))]),
+              _vm._v(" "),
+              _c("p", { staticClass: "t-p" }, [
+                _vm._v(
+                  "     \n                " +
+                    _vm._s(_vm.getAboutUsData.description) +
+                    "\n                "
+                )
+              ])
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "span6" }, [
-              _c("div", { staticClass: "flexslider" }, [
+              _c("div", { staticClass: "col-sm-4 show-picture-about" }, [
                 _c("ul", { staticClass: "slides" }, [
                   _c("li", [
-                    _c("img", {
-                      attrs: {
-                        src:
-                          "assets/public/assets/img/works/full/image-01-full.jpg",
-                        alt: ""
-                      }
-                    })
+                    _vm.getAboutUsData.photo
+                      ? _c("img", {
+                          attrs: {
+                            src:
+                              "uploadimage-about/" + _vm.getAboutUsData.photo,
+                            alt: ""
+                          }
+                        })
+                      : _vm._e()
                   ])
                 ])
               ])
             ])
           ]),
           _vm._v(" "),
-          _vm._m(2)
+          _vm._m(1)
         ])
       ])
     ])
@@ -67797,20 +67823,6 @@ var staticRenderFns = [
             ])
           ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "span6" }, [
-      _c("h2", [_vm._v("ดีโม่ฟาร์ม")]),
-      _vm._v(" "),
-      _c("p", { staticClass: "t-p" }, [
-        _vm._v(
-          "     \n                เราคือฟาร์มปิดขนาดกลาง ไม่ออกขายตลาด รับประกันปลอดโรค เลี้ยงเองขายที่่บ้าน สำหรับเชียงใหม่อำเภอใกล้เคียง เรามีบริการส่งฟรี\n                "
-        )
       ])
     ])
   },
@@ -87866,7 +87878,8 @@ __webpack_require__.r(__webpack_exports__);
     countPost: [],
     findContact: [],
     contact: [],
-    portfolioCategory: []
+    portfolioCategory: [],
+    aboutUsHome: []
   },
   getters: {
     getCategory: function getCategory(state) {
@@ -87904,6 +87917,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     portfolioCategory: function portfolioCategory(state) {
       return state.portfolioCategory;
+    },
+    aboutUsData: function aboutUsData(state) {
+      return state.aboutUsHome;
     }
   },
   actions: {
@@ -87990,6 +88006,12 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/search-by-portfolio-category?s=' + playload).then(function (respon) {
         context.commit('searchPortfolioByCat', respon.data.searchCategoryName);
       });
+    },
+    getApiAboutUs: function getApiAboutUs(context) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/home-about-us').then(function (respon) {
+        console.log(respon.data);
+        context.commit('allAboutUs', respon.data.aboutUs);
+      });
     }
   },
   mutations: {
@@ -88040,6 +88062,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     searchPortfolioByCat: function searchPortfolioByCat(state, playload) {
       state.portfolioCategory = playload;
+    },
+    allAboutUs: function allAboutUs(state, playload) {
+      return state.aboutUsHome = playload;
     }
   }
 });
