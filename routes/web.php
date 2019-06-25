@@ -77,6 +77,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/status', 'StatusController@find_by_id');
     Route::post('/update-status', 'StatusController@update');
+
+    Route::get('/portfolio', 'PortfolioController@list');
+    Route::get('/portfolio/{id}', 'PortfolioController@find_by_id');
+    Route::post('/save-portfolio', 'PortfolioController@save');
+    Route::post('/update-portfolio/{id}', 'PortfolioController@update');
+    Route::delete('/delete-portfolio/{id}', 'PortfolioController@delete');
 });
 
 
